@@ -16,11 +16,11 @@ class SessionsController < ApplicationController
 
         if @user
             login(@user)
-            redirect_to users_url
+            render json: @user
         else
             @user = User.new(email: params[:user][:email])
             flash.now[:errors] = ["Invalid email or password"]
-            render :new
+            render json: 'invalid'
         end
 
     end
