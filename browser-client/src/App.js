@@ -6,13 +6,22 @@ import { Route, Routes } from "react-router-dom"
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { loginn } from './utils/session_utils';
 
 function App() {
+
+  const dispatch = useDispatch();
 
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log("trying to log in")
-    
+    // debugger
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    dispatch(loginn(email, password));
+
   }
 
 
@@ -36,8 +45,8 @@ function App() {
           <>
           <h1> login here </h1>
           <form onSubmit={submitHandler}> 
-          <label htmlFor='username'> username here </label>
-          <input type="text" id='username' name="username" placeholder='username'/>
+          <label htmlFor='email'> email here </label>
+          <input type="text" id='email' name="email" placeholder='email'/>
           <br></br>
           <label htmlFor='password'> password here </label>
           <input type="password" id='password' name="password" placeholder='username'/>            
