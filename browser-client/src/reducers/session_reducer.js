@@ -11,9 +11,9 @@ const sessionReducer = (state = initialState, action ) => {
 
     switch (action.type) {
         
-        case "ADDME":
+        case "LOGMEINBABYY":
             // debugger
-            upcomingState.loggedInId = action.id;
+            upcomingState.loggedInId = action.userInfo.id;
             // upcomingState[loggedInId] = action.id;
             return upcomingState;
         default: 

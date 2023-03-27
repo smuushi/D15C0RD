@@ -1,3 +1,14 @@
+
+import { Dispatch } from "react"
+
+const LOGMEINBABYY = "LOGMEINBABYY"
+
+const loginActionCreator = (userInfo) => ({
+    type: LOGMEINBABYY,
+    userInfo
+})
+
+
 export const loginn = (email, password) => async dispatch => {
     // debugger
     console.log("hello?")
@@ -15,11 +26,16 @@ export const loginn = (email, password) => async dispatch => {
       }
     )
     if (res.ok) {
-        debugger
-        console.log('response was ok!')
+        // debugger
+        console.log('response was ok!');
+        let data = await res.json();
+        console.log(data);
+        dispatch(loginActionCreator(data));
     } else {
         console.log('we died...')
     }
 }
+
+
 
 
