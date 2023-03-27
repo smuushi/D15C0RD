@@ -1,13 +1,38 @@
 
-import { Dispatch } from "react"
+// import { Dispatch } from "react"
 
 const LOGMEINBABYY = "LOGMEINBABYY"
+const LOGMEOUT = "LOGMEOUT"
 
 const loginActionCreator = (userInfo) => ({
     type: LOGMEINBABYY,
     userInfo
 })
 
+const logoutActionCreator = () => ({
+    type: LOGMEOUT,
+})
+
+export const logoutt = () => async (dispatch) => {
+    console.log("hello? im trying to log out..."); 
+
+    const res = await fetch(
+        `/session/`, 
+        {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              }, 
+        }
+    )
+    if (res.ok){
+        dispatch(logoutActionCreator())
+        
+    } else {
+        console.log("we failed to log out lmao")
+    }
+} 
 
 export const loginn = (email, password) => async dispatch => {
     // debugger

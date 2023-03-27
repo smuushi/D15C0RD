@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resource :session, only: [:new, :create, :destroy]
+
+  root to: "yappers#root"
+
 end
 
 

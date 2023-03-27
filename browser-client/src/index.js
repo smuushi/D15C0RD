@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -11,11 +11,14 @@ import configureStore from './store/store';
 
 let store = configureStore();
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <React.StrictMode>
     <Provider store={store}>
       
+    
       <BrowserRouter>
         <App />
       </BrowserRouter>

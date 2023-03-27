@@ -16,6 +16,13 @@ const sessionReducer = (state = initialState, action ) => {
             upcomingState.loggedInId = action.userInfo.id;
             // upcomingState[loggedInId] = action.id;
             return upcomingState;
+
+        case "LOGMEOUT":
+            // delete upcomingState.loggedInId;
+            upcomingState.loggedInId = null;
+            console.log("we logged out! yay")
+            return upcomingState;
+
         default: 
             return upcomingState;
 

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     # skip_before_action :verify_authenticity_token
 
-    before_action :ensure_logged_in, only: [:destroy]
+    # before_action :ensure_logged_in, only: [:destroy]
 
     def new
         @user = User.new
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
         if @user
             login(@user)
+            # debugger
             render json: @user
         else
             @user = User.new(email: params[:user][:email])
@@ -25,6 +26,22 @@ class SessionsController < ApplicationController
         end
 
     end
+
+    def destroy
+
+        @user = User.find_by(session_token: session[:session_token])
+        @user.reset_session_token!
+
+        session[:session_token] = nil
+        # debugger
+        render json: 'ok', status: 200
+        # redirect_to new_session_url
+
+    end
+
+        
+
+    
 
 
 

@@ -3,12 +3,17 @@ import './App.css';
 // import { Route, Switch } from 'react-router';
 
 import { Route, Routes } from "react-router-dom"
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { loginn } from './utils/session_utils';
+import { logoutt } from './utils/session_utils';
 
 function App() {
+
+  useEffect(() => {
+    console.log("hi")
+  }, [])
 
   const dispatch = useDispatch();
 
@@ -22,6 +27,10 @@ function App() {
 
     dispatch(loginn(email, password));
 
+  }
+
+  const logoutHandler = async (e) => {
+    dispatch(logoutt())
   }
 
 
@@ -43,22 +52,23 @@ function App() {
       !loggedIn? 
 
           <>
-          <h1> login here </h1>
-          <form onSubmit={submitHandler}> 
-          <label htmlFor='email'> email here </label>
-          <input type="text" id='email' name="email" placeholder='email'/>
-          <br></br>
-          <label htmlFor='password'> password here </label>
-          <input type="password" id='password' name="password" placeholder='username'/>            
-          
-          <input type="submit" value="login~~"/> 
-          </form>
+            <h1> login here </h1>
+            <form onSubmit={submitHandler}> 
+            <label htmlFor='email'> email here </label>
+            <input type="text" id='email' name="email" placeholder='email'/>
+            <br></br>
+            <label htmlFor='password'> password here </label>
+            <input type="password" id='password' name="password" placeholder='username'/>            
+            
+            <input type="submit" value="login~~"/> 
+            </form>
           </> 
 
             : 
 
           <>
-          <h3> ur logged in because sessionId detected..</h3>
+            <h3> ur logged in because sessionId detected..</h3>
+            <button onClick={logoutHandler}>logout</button>
           </>
 
       } />
