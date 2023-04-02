@@ -1,0 +1,124 @@
+
+
+
+.splash {
+    /* display: block; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    
+}
+
+.SplashWrapper {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    /* border: solid black 1px; */
+    width: 100%;
+    
+}
+
+.splash li {
+    list-style: none;
+    margin: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border: white solid 1px;
+    padding: 10px;
+    
+}
+
+li.LL {
+    border: none
+}
+
+li a.LL {
+
+    box-shadow: 0 1px 2px rgba(0,0,0,0);
+    transition: box-shadow 0.3s ease-in-out;
+    border: none
+}
+
+li a.LL:hover {
+    /* box-shadow: 10px 5px 5px rgba(95, 95, 95, 0.451); */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+}
+
+li.LL::after {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+li.LL:hover::after {
+    opacity: 1;
+}
+
+li a {
+    text-decoration: none;
+    color: white
+
+}
+
+a.LL {
+    background-color: white;
+    color: black;
+    padding: 10px 16px;
+    border-radius: 40px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+
+
+.DescriptionBox {
+    min-height: 500px;
+    width: 100%;
+}
+
+.FirstModule {
+    width: 100%;
+    background-color: #604bfd;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: end;
+    margin: 0px;
+    padding: 0px;
+}
+
+#splash1  {
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+#splash3 {
+    
+    position: absolute;
+    /* border: solid; */
+    z-index: 2;
+    max-width: 100%;
+    max-height: 300px;
+    
+
+}
+#splash2 {
+    
+    position: absolute;
+    right: 60%;
+    /* border: solid; */
+    z-index: 2;
+    max-width: 100%;
+    max-height: 300px;
+    
+
+}

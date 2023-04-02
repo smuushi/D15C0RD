@@ -41,7 +41,8 @@ export const ModalReducer = (state = null, action) => {
         case RECEIVEACTIVEMODAL:
 
             nextState = action.modalId;
-
+            return nextState;
+            
         default: 
         return nextState;
     }

@@ -6,7 +6,7 @@ export const LoginPage = () => {
 
     const passedEmail = useParams().slug;
 
-    debugger
+    // debugger
 
     return(
         <div className="LoginModule" >

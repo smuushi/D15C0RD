@@ -26,7 +26,7 @@ class Api::SessionsController < ApplicationController
         session[:session_token] = @user.reset_session_token!
         render "api/users/show"
       else
-        render json: {error: "wrong creds hehehe"}, status: 401
+        render json: {error: ["wrong creds hehehe"]}, status: 401
       end
   
     end

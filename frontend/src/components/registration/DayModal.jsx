@@ -8,11 +8,14 @@ export const DayModal = (props) => {
     const isActive = !!(modalId === useSelector(state => state.activeModal))
 
     const typeStatus = props.typer;
-    console.log(typeStatus)
+    // console.log(typeStatus)
 
     const [day, setDay] = props.states;
     // debugger
     const dispatch = useDispatch();
+
+    // const sessionError = useSelector(state => state.errors)
+
 
     const clickHandler = (e) => {
 
@@ -45,9 +48,9 @@ export const DayModal = (props) => {
     const daysLiElements = okDaysArray.map((indDay) => {
         // debugger
         return day === indDay ? 
-        <li key={indDay} id={indDay} style={{fontWeight:"900"}}>{indDay}</li> 
+        <li key={indDay + Math.random()} id={indDay} style={{fontWeight:"900"}}>{indDay}</li> 
             : 
-        indDay? <li key={indDay} id={indDay} > {indDay} </li> : <></>
+        indDay? <li key={indDay + Math.random()} id={indDay} > {indDay} </li> : <></>
         // <li id={`${indDay}` > {indDay} </li> 
     })
 

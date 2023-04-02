@@ -4,10 +4,46 @@ const RECEIVESESSIONINFO = "sess/RECEIVESESSIONINFO"
 const REMOVESESSIONINFO = "sess/REMOVESESSIONINFO"
 
 const RECEIVEERROR = "sess/RECEIVEERROR"
+const CLEARERRORS = "whatever.. i'm just trying to clear the errors"
+
+export const sessionSignUp = (user) => async (dispatch) => {
+
+    // debugger
+    // check what line 15 is doing lmao.. that's why you have this debugger here
+    const res = await csrfFetch(`/api/users`, {
+        method: 'POST', 
+        body: JSON.stringify({
+            user: {
+                ...user
+            }
+        })
+
+    })
+
+    if (res.ok) {
+        let sessionData = await res.json()
+        // debugger
+        dispatch(receiveSessionAC(sessionData))
+
+        sessionStorage.setItem("currentUser", JSON.stringify(sessionData))
+    
+        // debugger
+
+    } else {
+        // let data = await res.json()
+        let sessionError = await res.json();
+        // debugger
+        let sessionErrorAction = sessionErrorAC(sessionError.error);
+        dispatch(sessionErrorAction);
+        
+    }
+
+
+}
 
 export const sessionLogout = () => async (dispatch) => {
 
-    const res = await csrfFetch(`api/session`, {
+    const res = await csrfFetch(`/api/session`, {
         method: 'DELETE'
     })
 
@@ -26,7 +62,7 @@ export const sessionLogout = () => async (dispatch) => {
 
 export const sessionLogin = (userLogin) => async (dispatch) => {
     // user login should be an object with email and password keys. 
-    const res = await csrfFetch(`api/session`, {
+    const res = await csrfFetch(`/api/session`, {
         method: 'POST', 
         body: JSON.stringify(userLogin)
     });
@@ -66,6 +102,10 @@ const removeSessionAC = () => ({
 const sessionErrorAC = (error) => ({
     type: RECEIVEERROR, 
     error
+})
+
+export const clearSessionErrorAC = () => ({
+    type: CLEARERRORS
 })
    // no need for anything in the session because 
    // we're just setting our session slice of state's user to null.. 
@@ -137,15 +177,26 @@ export const SessionErrorReducer = (state = [], action) => {
     // debugger
     let nextState = [...Object.freeze(state)]
 
+    // let nextState = [];
+
     switch(action.type) {
 
         case RECEIVEERROR:
-
-            nextState.push([action.error])
+            //incoming action.error MUST BE IN AN ARRAY... 
+            // debugger
+            action.error.forEach((errorString) => {
+                nextState.push(errorString)
+            })
+            // nextState.push([action.error])
             return nextState;
 
+        case "whatever.. i'm just trying to clear the errors": 
+            nextState = [];
+            return nextState
+        // , asdf:"asdf"}
+
         default: 
-        return nextState = [];
+        return nextState;
     }
 
 

@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello, I'm D15C0RD.. I will grow up to be a big strong app</h1>
+      {/* <h1>Hello, I'm D15C0RD.. I will grow up to be a big strong app</h1> */}
 
       
 

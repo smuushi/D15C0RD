@@ -36,13 +36,16 @@ class Api::UsersController < ApplicationController
     else 
 
       @user = User.new(user_params)
+      @user.tag = tag_creator()
+
+      # debugger
 
       if @user.save
         login(@user)
         render :show, status: 200
       else
-
-        render json: @user.errors, status: :unprocessable_entity
+        # debugger
+        render json: { error: @user.errors.full_messages}, status: :unprocessable_entity
         # render json: {error: 'bad'}, status: 400
 
       end
@@ -91,4 +94,16 @@ class Api::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :username, :tag, :password)
     end
+
+    def tag_creator 
+
+      tag = "" 
+      
+      4.times do 
+        tag += rand(10).to_s
+      end
+      return tag
+      # have to do it this way because we need 4 digits... not just a number up to 10000... >_>
+    end
+
 end

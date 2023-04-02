@@ -8,14 +8,14 @@ export const PreLoginNavBar = () => {
     // debugger
 
     return(
-        <nav className="splash" style={{border: "solid"}} > 
+        <nav className="splash" > 
             <div>some nav here~</div>
-            <ul>
+            
 
             <li><Link to="/" >D15C0RD</Link></li>
-            <li>{!!session? <Link to="/home">Open Discord</Link> : <Link to="/login" >Login</Link>}</li>
+            <li className="LL">{!!session? <Link to="/home" className="LL">Open Discord</Link> : <Link to="/login" className="LL">Login</Link>}</li>
 
-            </ul>
+            
             
         </nav>
     )

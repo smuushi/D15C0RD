@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 export const LoginForm = (props) => {
 
     const passedEmail = props.passedEmail
-    debugger
+    // debugger
 
     const [email, setEmail] = useState( passedEmail ? passedEmail : "")
 
