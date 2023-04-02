@@ -27,7 +27,7 @@ const initializeApp = () => {
   // console.log(currentUserAction) 
   // lmaooo 
 
-  const store = configureStore(currentUserAction);
+  const store = configureStore({entities: currentUserAction});
 
 
 
@@ -44,9 +44,11 @@ const initializeApp = () => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        
+        <Provider store={store}>
+
           <App />
       
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>
   )

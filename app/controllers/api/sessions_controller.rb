@@ -26,14 +26,24 @@ class Api::SessionsController < ApplicationController
         session[:session_token] = @user.reset_session_token!
         render "api/users/show"
       else
-        render json: {error: "wrong creds"}, status: 401
+        render json: {error: "wrong creds hehehe"}, status: 401
       end
   
     end
   
     def destroy
-  
-      logout
+
+      if current_user
+    
+        logout!
+
+        render json: {message_from_your_beloved: "reset the session token for the detected current user and then reset the browser's session token to nil/null lmao"}, status: 200
+
+      else 
+
+        render json: {message_from_your_beloved: "kinda had some weird situation where I'm not getting a current user... help!"}, status: 500
+
+      end
   
     end
   

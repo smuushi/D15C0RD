@@ -8,11 +8,26 @@ import { compose } from "redux";
 
 import thunk from "redux-thunk";
 
-import { SessionReducer } from "../reducers/SessionReducer";
+import { SessionReducer, SessionErrorReducer } from "../reducers/SessionReducer";
 // import UsersReducer from "../reducers/userReducer";
 
+import { ModalReducer } from "../reducers/ModalReducer";
+
+
+const entitiesReducer = combineReducers({
+    session: SessionReducer
+})
+
+
+
+const errorsReducer = combineReducers({
+    sessionError: SessionErrorReducer
+})
+
 const rootReducer = combineReducers({
-  session: SessionReducer
+  entities: entitiesReducer,
+  activeModal: ModalReducer,
+  errors: errorsReducer
 })
 
 
