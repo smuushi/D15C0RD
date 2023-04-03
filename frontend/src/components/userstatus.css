@@ -1,0 +1,61 @@
+.UserStatusBar {
+    margin: 0px;
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    width: 100%;
+}
+
+.infosection .UserName {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.Tag {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(187, 187, 187);
+    font-weight: 600;
+    font-size: 10px;
+    margin: 5px;
+}
+
+.UserInfo {
+    display: flex;
+    background-color: rgb(29, 29, 29);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.UserInfo:hover {
+    background-color: rgb(110, 110, 110);
+}
+
+.UserImage {
+    margin-bottom: -3px;
+}
+
+.UserImage img {
+    max-width: 30px;
+    margin: 3px;
+    margin-right: 3px;
+    border-radius: 50px;
+}
+
+.MuteButton, .DeafenButton, .SettingsButton {
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0px;
+    display: inline-block;
+    max-width: 31px;
+    min-width: 31px;
+    background: none;
+    border-style: none;
+}
+.MuteButton:hover, .DeafenButton:hover, .SettingsButton:hover {
+    background-color: rgb(110, 110, 110);;
+    border-radius: 5px;
+
+}

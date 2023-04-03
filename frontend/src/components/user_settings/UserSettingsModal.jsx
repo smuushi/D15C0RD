@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { resetModalAC } from "../../reducers/ModalReducer"
 import { sessionLogout } from "../../reducers/SessionReducer"
+import "./usersettings.css"
 
 export const UserSettingsModal = (props) => {
     const modalId = "UserSettings"
@@ -26,7 +27,7 @@ export const UserSettingsModal = (props) => {
 
     if (isActive) {
         return(
-            <div className="UserModalWrapper" style={{border: "dotted", padding: "10px"}}>
+            <div className="UserModalWrapper" style={{border: "dotted"}}>
 
                 SETTINGS MODAL HERE HAHAH
 

@@ -56,6 +56,19 @@ export const LoginForm = (props) => {
 
     }
 
+    const demologin = (e) => {
+        e.preventDefault();
+        console.log("logging in with demo")
+
+        const userInfo = {
+            email: "demo@demo.io", 
+            password: "password"
+        }
+
+        dispatch(sessionLogin(userInfo))
+
+    }
+
     return (
 
         <div className="Wrapper">
@@ -82,6 +95,9 @@ export const LoginForm = (props) => {
 
 
                     <div id="someTextlmao" >Need an account? <Link to={`/register/${email ? email : ""}`}>Register</Link> </div>
+
+                    <button className="LButton demo1button" onClick={demologin}>Sign in with demo</button>
+
                 </form>
 
             </div>

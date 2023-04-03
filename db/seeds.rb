@@ -10,7 +10,7 @@ ActiveRecord::Base.transaction do
     User.destroy_all
     ApplicationRecord.connection.reset_pk_sequence!(:users)
 
-
-    User.create(username:"testing", email:"papaya@paired.com", password:"testing", tag: 1090)
+    User.create(username:"DemoUser", email:"demo@demo.io", password:"password", tag:"0900")
+    User.create(username:"testing", email:"papaya@paired.com", password:"testing", tag: "1090")
     
 end

@@ -31,6 +31,7 @@ function App() {
       {/* <h1>Hello, I'm D15C0RD.. I will grow up to be a big strong app</h1> */}
 
       
+      {isLoggedIn ? <UserSettingsModal /> : <></> }
 
 
       <Routes>
@@ -43,7 +44,7 @@ function App() {
 
       </Routes>
 
-      {isLoggedIn ? <UserSettingsModal /> : <></> }
+      {/* {isLoggedIn ? <UserSettingsModal /> : <></> } */}
 
     </>
   );

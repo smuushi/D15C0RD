@@ -18,10 +18,10 @@ body {
     background-color: rgb(62, 67, 69);
     position: absolute;
     min-width: 300px;
-    min-height: 325px;
+    min-height: 375px;
     left: 25%;
     right: 25%;
-    top: 200px;
+    top: 190px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,4 +121,9 @@ a {
     color: rgb(208, 208, 208);
     font-size: 15px;
     border-radius: 5px;
+}
+
+
+.LButton.demo1button {
+    margin-top: 15px;
 }

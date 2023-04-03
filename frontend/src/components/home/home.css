@@ -1,0 +1,23 @@
+.HomePageWrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.ServersNav {
+    max-width: 74px;
+    min-width: 74px;
+
+}
+
+.Convos {
+    width: 217px;
+    min-width: 217px;
+    position: relative;
+}
+
+.UserStatusBar {
+    position: absolute;
+    bottom: 0px
+    
+}
