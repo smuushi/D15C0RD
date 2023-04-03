@@ -70,7 +70,7 @@ export const YearModal = (props) => {
     if (isActive){
 
         return (
-            <ul onClick={clickHandler} style={{cursor:"pointer"}}>
+            <ul className="ModalContainer" onClick={clickHandler} style={{cursor:"pointer"}}>
                 {yearsLiElements}
             </ul>
         )

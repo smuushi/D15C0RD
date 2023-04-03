@@ -203,10 +203,25 @@ export const RegistrationAIO = (props) => {
                                 <label className="formlabel" >DATE OF BIRTH</label>
                             <div className="BirthDayContainer">
 
-                                <input className="dinfo" id="month" type="text" onFocus={openModal} onChange={changeHandler} value={month} /> 
-                                <input className="dinfo" id="day" type="text" onFocus={openModal} onChange={changeHandler} value={day} />
-                                <input className="dinfo" id="year" type="text" onFocus={openModal} onChange={changeHandler} value={year} />
                             
+                                    <div className="dinfoHolder">
+
+                                        <input className="dinfo" id="month" type="text" onFocus={openModal} onChange={changeHandler} value={month} /> 
+                                            <MonthModal typer={typeStatus} states={[month, setMonth]} />
+                     
+                                    </div>
+
+                                    <div className="dinfoHolder">
+                                        <input className="dinfo" id="day" type="text" onFocus={openModal} onChange={changeHandler} value={day} />
+                                            <DayModal typer={typeStatus} states={[day, setDay]} />
+                                    </div>
+
+                                    <div className="dinfoHolder">
+
+                                        <input className="dinfo" id="year" type="text" onFocus={openModal} onChange={changeHandler} value={year} />
+                                            <YearModal typer={typeStatus} states={[year, setYear]} />
+                                    </div>
+
                             </div>
                         <span className="ErrorText" >{dateError ? `${dateError}` : ""}</span>
                             <br />
@@ -222,9 +237,9 @@ export const RegistrationAIO = (props) => {
 
             </div>
 
-            <MonthModal typer={typeStatus} states={[month, setMonth]} />
-            <DayModal typer={typeStatus} states={[day, setDay]} />
-            <YearModal typer={typeStatus} states={[year, setYear]} />
+            {/* <MonthModal typer={typeStatus} states={[month, setMonth]} /> */}
+            {/* <DayModal typer={typeStatus} states={[day, setDay]} /> */}
+            {/* <YearModal typer={typeStatus} states={[year, setYear]} /> */}
 
         </>
 
