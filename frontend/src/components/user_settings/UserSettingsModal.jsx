@@ -36,10 +36,17 @@ export const UserSettingsModal = (props) => {
 
                 <div className="UserSettingsSubNav">
                     <h3>USER SETTINGS</h3>
-                    <ul>
+                    <ul className="SettingsList">
                         <li className="notSelected">
-                            <div onClick={logOutHandler} >
-                                Log Out
+                            <div className="logg" onClick={logOutHandler} >
+                                <div>
+                                {`Log Out`}
+                                </div>
+
+                            </div>
+                            <div>
+
+                                <i id="logouticon" class="fa-solid fa-arrow-right-from-bracket" style={{color: "#dcdbdb"}}></i>
                             </div>
                         </li>
                     </ul>

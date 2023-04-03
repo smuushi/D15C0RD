@@ -1,8 +1,9 @@
 .UserStatusBar {
     margin: 0px;
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(33, 33, 37);
     display: flex;
     width: 100%;
+    height: 53px
 }
 
 .infosection .UserName {
@@ -11,19 +12,20 @@
     font-weight: 600;
     font-size: 12px;
     margin: 5px;
+    margin-top: 8px;
 }
 
 .Tag {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(187, 187, 187);
-    font-weight: 600;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 11px;
     margin: 5px;
 }
 
 .UserInfo {
     display: flex;
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(33, 33, 37);
     border-radius: 5px;
     margin: 5px;
 }
@@ -33,11 +35,11 @@
 }
 
 .UserImage {
-    margin-bottom: -3px;
+    margin-bottom: 0;
 }
 
 .UserImage img {
-    max-width: 30px;
+    max-width: 36px;
     margin: 3px;
     margin-right: 3px;
     border-radius: 50px;
@@ -49,8 +51,8 @@
     margin-bottom: 8px;
     padding: 0px;
     display: inline-block;
-    max-width: 31px;
-    min-width: 31px;
+    max-width: 35px;
+    min-width: 35px;
     background: none;
     border-style: none;
 }
@@ -59,3 +61,7 @@
     border-radius: 5px;
 
 }
+
+/* .UserStatusBar i {
+    size: 10px;
+} */
