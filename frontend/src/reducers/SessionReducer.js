@@ -54,6 +54,7 @@ export const sessionLogout = () => async (dispatch) => {
         dispatch(removeSessionAC());
     } else {
         let data = await res.json();
+        sessionStorage.setItem("currentUser", null)
         console.log(data)
     }
 

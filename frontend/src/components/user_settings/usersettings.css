@@ -3,6 +3,54 @@
     height: 100%;
     width: 100%;
     z-index: 10;
-    padding: 0px;
+    /* padding: 50px; */
     background-color: rgb(194, 194, 194);
+
+
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.UserSettingsSubNav {
+    min-width: 170px;
+    width: 25vw;
+    margin-right: 50px;
+    background-color: rgb(50, 51, 54);
+    padding-left: 50px;
+    padding-top:55px;
+    color:rgb(198, 197, 197)
+
+}
+
+.UserSettingsSubNav h3 {
+    padding: 8px;
+    margin-bottom: 2px;
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: 11px;
+
+}
+
+.UserSettingsSubNav li {
+    border-radius: 5px;
+    border: 1px white solid;
+    padding: 8px;
+    margin-right: 12px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.UserSettingsSubNav li.selected {
+    border-radius: 5px;
+    border: 1px white solid;
+    padding: 8px;
+    margin-right: 12px;
+    font-family: sans-serif;
+    font-size: 15px;
 }

@@ -16,6 +16,14 @@ function App() {
 
   const isLoggedIn = !!useSelector(state => state.entities.session.user);
 
+  
+  // debugger
+
+  if (!isLoggedIn) {
+      let bodyy = document.getElementsByTagName('body')[0]
+      bodyy.setAttribute("style", "")
+  }
+
   const dispatch = useDispatch();
 
   window.addEventListener('keydown', (event) => {

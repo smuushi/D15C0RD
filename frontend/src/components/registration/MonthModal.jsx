@@ -106,7 +106,9 @@ export const MonthModal = (props) => {
             </ul>
         )
     } else if (!isActive) {
-        <>
-        </>
+        return (
+            <>
+            </>
+        )
     }
 }

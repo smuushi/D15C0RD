@@ -2,12 +2,15 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { resetModalAC } from "../../reducers/ModalReducer"
 import { sessionLogout } from "../../reducers/SessionReducer"
+import { useState } from "react"
 import "./usersettings.css"
 
 export const UserSettingsModal = (props) => {
     const modalId = "UserSettings"
 
     const isActive = !!(modalId === useSelector(state => state.activeModal))
+
+    const [selectedSetting, setSelectedSetting] = useState("MyAccount")
 
     const dispatch = useDispatch()
 
@@ -29,11 +32,21 @@ export const UserSettingsModal = (props) => {
         return(
             <div className="UserModalWrapper" style={{border: "dotted"}}>
 
-                SETTINGS MODAL HERE HAHAH
+                {/* SETTINGS MODAL HERE HAHAH */}
 
-                
-                <div onClick={logOutHandler} style={{border:"solid"}}>
-                    Log Out
+                <div className="UserSettingsSubNav">
+                    <h3>USER SETTINGS</h3>
+                    <ul>
+                        <li className="notSelected">
+                            <div onClick={logOutHandler} >
+                                Log Out
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="SettingsShowSection">
+                    SOME RANDOM SHOWPAGE FOR A SETTINGS GOES HERE!
                 </div>
 
                 <button onClick={resetModal} > ESC </button>
