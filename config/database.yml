@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: D15C0RD_production
-  username: D15C0RD
-  password: <%= ENV["D15C0RD_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
