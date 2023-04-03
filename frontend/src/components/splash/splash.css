@@ -103,11 +103,12 @@ a.LL {
 #splash3 {
     
     position: absolute;
-    left: 66%;
+    left: 59%;
     /* border: solid; */
     z-index: 2;
     max-width: 100%;
     max-height: 300px;
+    overflow: hidden;
     
 
 }
@@ -119,6 +120,7 @@ a.LL {
     z-index: 2;
     max-width: 100%;
     max-height: 300px;
+    overflow: hidden;
     
 
 }

@@ -45,7 +45,7 @@ class Api::UsersController < ApplicationController
         render :show, status: 200
       else
         # debugger
-        render json: { error: @user.errors.full_messages}, status: :unprocessable_entity
+        render json: {error: @user.errors.full_messages}, status: :unprocessable_entity
         # render json: {error: 'bad'}, status: 400
 
       end
