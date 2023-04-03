@@ -1,0 +1,29 @@
+.RegistrationModule {
+    /* background-color: rgb(70, 76, 79); */
+    /* max-width: 700px; */
+    /* border-radius: 10px; */
+    position: relative;
+    width: 100%;
+    
+}
+
+.RegistrationForm {
+    padding: 30px;
+    font-family: sans-serif;
+    background-color: rgb(70, 76, 79);
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    min-width: 400px;
+    top: 200px;
+    max-width: 500px;
+}
+
+.BackgroundImage {
+    position: absolute;
+    width: 100%;
+    min-width: 1200px;
+    min-height: 300px;
+    z-index: -1;
+    aspect-ratio: auto;
+}

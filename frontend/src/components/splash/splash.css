@@ -104,6 +104,7 @@ a.LL {
 #splash3 {
     
     position: absolute;
+    left: 66%;
     /* border: solid; */
     z-index: 2;
     max-width: 100%;

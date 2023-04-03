@@ -5,6 +5,8 @@ import { activateModalAC, resetModalAC } from "../../reducers/ModalReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import "./registration.css"
+
 import { MonthModal } from "./MonthModal";
 import { DayModal } from "./DayModal";
 import { YearModal } from "./YearModal";
@@ -180,35 +182,39 @@ export const RegistrationAIO = (props) => {
     // console.log(help)
     return (
         <>
-    
-            <div className="RegistrationForm" onClick={closeModal}>
+            <div className="RegistrationModule" >
+                <div className="RegistrationForm" onClick={closeModal}>
 
-                <h1>Create an account</h1>
+                    <h1>Create an account</h1>
 
-                <form onSubmit={submitHandler}>
+                    <form onSubmit={submitHandler}>
 
-                    <label htmlFor="email">EMAIL</label>
-                    <input id="email" type="text" value={email} onChange={changeHandler} required />
+                        <label htmlFor="email">EMAIL</label>
+                        <input id="email" type="text" value={email} onChange={changeHandler} required />
 
-                    <label htmlFor="username">USERNAME</label>
-                    <input id="username" type="text" value={username} onChange={changeHandler} required />
+                        <label htmlFor="username">USERNAME</label>
+                        <input id="username" type="text" value={username} onChange={changeHandler} required />
 
-                    <label htmlFor="password">PASSWORD</label> 
-                    <SessionErrorModal target={PWERROR} />
-                    <input id="password" type="password" value={password} onChange={changeHandler} required />
+                        <label htmlFor="password">PASSWORD</label> 
+                        <SessionErrorModal target={PWERROR} />
+                        <input id="password" type="password" value={password} onChange={changeHandler} required />
 
-                        <br />
-                    <label >DATE OF BIRTH</label>
-                    <input id="month" type="text" onFocus={openModal} onChange={changeHandler} value={month} /> 
-                    <input id="day" type="text" onFocus={openModal} onChange={changeHandler} value={day} />
-                    <input id="year" type="text" onFocus={openModal} onChange={changeHandler} value={year} />
-                    {dateError ? `${dateError}` : ""}
-                        <br />
-                    <input type="submit" value="Continue"/>
+                            <br />
+                        <label >DATE OF BIRTH</label>
+                        <input id="month" type="text" onFocus={openModal} onChange={changeHandler} value={month} /> 
+                        <input id="day" type="text" onFocus={openModal} onChange={changeHandler} value={day} />
+                        <input id="year" type="text" onFocus={openModal} onChange={changeHandler} value={year} />
+                        {dateError ? `${dateError}` : ""}
+                            <br />
+                        <input type="submit" value="Continue"/>
 
-                        <br />
-                    <Link to={`/login/${email ? email : ""}`}>Already have an account?</Link>
-                </form>
+                            <br />
+                        <Link to={`/login/${email ? email : ""}`}>Already have an account?</Link>
+                    </form>
+
+                </div>
+
+                <img className="BackgroundImage" src="/assets/splash/login.png" />
 
             </div>
 

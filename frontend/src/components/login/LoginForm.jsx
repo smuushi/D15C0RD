@@ -58,31 +58,33 @@ export const LoginForm = (props) => {
 
     return (
 
-        <div style={{maxWidth:"850px", border:"solid", padding: "10px"}}>
-            <h2>Welcome Back!</h2>
+        <div className="Wrapper">
+            <h2>Welcome back!</h2>
             <h4>We're so excited to see you again!</h4>
-            <form 
-                className="LoginForm" 
-                style={{display: "flex", flexDirection:"column", maxWidth: "600px"}}
-                onSubmit={submitHandler}
-                >
+            <div>
                 
-                <label className="formlabel" htmlFor="email">EMAIL {sessionError[0]? `- ${sessionError[0]}` : ""}</label> 
-                <input id="email" type="text" value={email} onChange={changeHandler} required />
+                <form 
+                    className="LoginForm" 
+                    onSubmit={submitHandler}
+                    >
+                    
+                    <label className="formlabel" htmlFor="email">EMAIL <span className="ErrorText">{sessionError[0]? `- ${sessionError[0]}` : ""}</span></label> 
+                    <input id="email" type="text" value={email} onChange={changeHandler} required />
 
-                <label className="formlabel" htmlFor="password">PASSWORD {sessionError[0]? `- ${sessionError[0]}` : ""}</label> 
-                <input id="password" type="password" value={password} onChange={changeHandler}/>
+                    <label className="formlabel" htmlFor="password" >PASSWORD <span className="ErrorText">{sessionError[0]? `- ${sessionError[0]}` : ""}</span></label> 
+                    <input id="password" type="password" value={password} onChange={changeHandler}/>
 
-                <Link to="/login" >Forgot Your password?</Link>
+                    <Link to="/login" >Forgot Your password?</Link>
 
-                <button>Log In</button>
+                    <button className="LButton" >Log In</button>
 
-                    <br />
+                        <br />
 
-                Need an account?
-                <Link to={`/register/${email ? email : ""}`}>Register</Link>
-            </form>
 
+                    <div id="someTextlmao" >Need an account? <Link to={`/register/${email ? email : ""}`}>Register</Link> </div>
+                </form>
+
+            </div>
 
         </div>
 
