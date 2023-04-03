@@ -1,3 +1,8 @@
+body {
+    background-color: rgb(89, 97, 255);
+
+}
+
 .RegistrationModule {
     /* background-color: rgb(70, 76, 79); */
     /* max-width: 700px; */
@@ -10,13 +15,15 @@
 .RegistrationForm {
     padding: 30px;
     font-family: sans-serif;
-    background-color: rgb(70, 76, 79);
+    background-color: rgb(63, 66, 68);
     position: absolute;
     left: 25%;
     right: 25%;
     min-width: 400px;
-    top: 200px;
-    max-width: 500px;
+    top: 170px;
+    max-width: 50%;
+    height: 470px;
+    border-radius: 6px;
 }
 
 .BackgroundImage {
@@ -26,4 +33,60 @@
     min-height: 300px;
     z-index: -1;
     aspect-ratio: auto;
+}
+
+.RegForm {
+    display: flex;
+    /* text-align: left; */
+    flex-direction: column;
+    
+}
+
+.dinfo {
+    margin-right: 3%;
+    width: 25%;
+    
+    
+    border-radius: 3px;
+    padding: 12px;
+    background-color: rgb(35, 35, 35);
+    color: rgb(208, 208, 208);
+    border-style: none;
+    font-size: 15px;
+    
+}
+
+.dinfo:last-of-type {
+    margin-right: 0;
+}
+
+
+
+#username {
+    border-radius: 3px;
+    padding: 12px;
+    background-color: rgb(35, 35, 35);
+    color: rgb(208, 208, 208);
+    border-style: none;
+    font-size: 15px;
+
+}
+
+
+.BirthdayContainer {
+    display: flex;
+   
+    justify-content: space-around;
+    width: 100%;
+
+
+    
+}
+
+h1 {
+    text-align: center;
+    font-weight: 560;
+    color: whitesmoke;
+    font-size: 20px;
+    margin: 10px;
 }

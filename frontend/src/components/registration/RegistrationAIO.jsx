@@ -187,30 +187,34 @@ export const RegistrationAIO = (props) => {
 
                     <h1>Create an account</h1>
 
-                    <form onSubmit={submitHandler}>
+                    <form className="RegForm" onSubmit={submitHandler}>
 
-                        <label htmlFor="email">EMAIL</label>
+                        <label className="formlabel" htmlFor="email">EMAIL</label>
                         <input id="email" type="text" value={email} onChange={changeHandler} required />
 
-                        <label htmlFor="username">USERNAME</label>
+                        <label className="formlabel" htmlFor="username">USERNAME</label>
                         <input id="username" type="text" value={username} onChange={changeHandler} required />
 
-                        <label htmlFor="password">PASSWORD</label> 
+                        <label className="formlabel" htmlFor="password">PASSWORD</label> 
                         <SessionErrorModal target={PWERROR} />
                         <input id="password" type="password" value={password} onChange={changeHandler} required />
 
                             <br />
-                        <label >DATE OF BIRTH</label>
-                        <input id="month" type="text" onFocus={openModal} onChange={changeHandler} value={month} /> 
-                        <input id="day" type="text" onFocus={openModal} onChange={changeHandler} value={day} />
-                        <input id="year" type="text" onFocus={openModal} onChange={changeHandler} value={year} />
-                        {dateError ? `${dateError}` : ""}
+                                <label className="formlabel" >DATE OF BIRTH</label>
+                            <div className="BirthDayContainer">
+
+                                <input className="dinfo" id="month" type="text" onFocus={openModal} onChange={changeHandler} value={month} /> 
+                                <input className="dinfo" id="day" type="text" onFocus={openModal} onChange={changeHandler} value={day} />
+                                <input className="dinfo" id="year" type="text" onFocus={openModal} onChange={changeHandler} value={year} />
+                            
+                            </div>
+                        <span className="ErrorText" >{dateError ? `${dateError}` : ""}</span>
                             <br />
-                        <input type="submit" value="Continue"/>
+                        <input className="LButton" type="submit" value="Continue"/>
 
                             <br />
-                        <Link to={`/login/${email ? email : ""}`}>Already have an account?</Link>
                     </form>
+                        <Link to={`/login/${email ? email : ""}`}>Already have an account?</Link>
 
                 </div>
 

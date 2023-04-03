@@ -7,6 +7,10 @@
     
 }
 
+body {
+    background-color: rgb(89, 97, 255);
+}
+
 .Wrapper {
     padding: 30px;
     font-family: sans-serif;
@@ -62,6 +66,9 @@ h2 {
 .ErrorText {
     color: rgb(220, 78, 78);
     font-style: italic;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
 }
 
 .formlabel {

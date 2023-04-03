@@ -28,7 +28,7 @@ export const SessionErrorModal = (props) => {
 
     return (
         <>
-            {positiveMatch? <div>{positiveMatch} </div>: <></>}
+            {positiveMatch? <span className="ErrorText" >{positiveMatch} </span>: <></>}
         </>
     )
 }
