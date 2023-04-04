@@ -7,6 +7,7 @@ import { ServersNavBar } from "./servers/ServersNavBar";
 import { useParams } from "react-router-dom";
 import { SubNav } from "./SubNav";
 import { ServerShow } from "./servers/ServerShow";
+import { fetchAllUsers } from "../../reducers/UserReducer";
 
 export const HomePage = (props) => {
 
@@ -29,6 +30,7 @@ export const HomePage = (props) => {
     useEffect(() => {
         console.log("papayaing")
         dispatch(fetchAllServers())
+        dispatch(fetchAllUsers())
     },[isLoggedIn])
 
 

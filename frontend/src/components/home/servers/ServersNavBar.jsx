@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 
 
+
 export const ServersNavBar = (props) => {
 
     const allServers = useSelector(state => state.entities.servers);
@@ -10,11 +11,13 @@ export const ServersNavBar = (props) => {
     const currentUser = useSelector(state => state.entities.session.user);
 
 
-    let serverIdsToRender = [];
+    let serverIdsToRender = currentUser.servers;
 
-    currentUser.servers.forEach((server) => {
-        serverIdsToRender.push(server.id)
-    }); 
+    // debugger
+
+    // currentUser.servers.forEach((server) => {
+    //     serverIdsToRender.push(server.id)
+    // }); 
     // debugger
 
     const serversListElements = serverIdsToRender.map((id) => {

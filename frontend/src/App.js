@@ -47,6 +47,7 @@ function App() {
         <Route path="/login/" element={ !isLoggedIn ? <LoginPage /> : <Navigate to="/home" /> } />
           <Route path="/login/:dfdf" element={ !isLoggedIn ? <LoginPage /> : <Navigate to="/home" /> } />
         <Route path="/home" element={ isLoggedIn ? < HomePage /> : <Navigate to="/login" />}>
+          <Route path="server" element={<HomePage />}/>
           <Route path="server/:serverId" element={<HomePage />}>
             <Route path="channel/:channelId" element={<HomePage />} />
           </Route>

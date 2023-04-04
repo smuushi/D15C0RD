@@ -33,7 +33,7 @@ export const ServerShow = (props) => {
 
 
                 <div className="ParticipantsList" style={{margin: "5px", border: "dotted"}}>
-                    <ParticipantsList />
+                    <ParticipantsList server={targetServer}/>
                 </div>
 
 
