@@ -45,8 +45,13 @@ function App() {
       <Routes>
         <Route path="/" element={ <SplashPage /> } />
         <Route path="/login/" element={ !isLoggedIn ? <LoginPage /> : <Navigate to="/home" /> } />
-          <Route path="/login/:slug" element={ !isLoggedIn ? <LoginPage /> : <Navigate to="/home" /> } />
-        <Route path="/home" element={ isLoggedIn ? < HomePage /> : <Navigate to="/login" />} />
+          <Route path="/login/:dfdf" element={ !isLoggedIn ? <LoginPage /> : <Navigate to="/home" /> } />
+        <Route path="/home" element={ isLoggedIn ? < HomePage /> : <Navigate to="/login" />}>
+          <Route path="server/:serverId" element={<HomePage />}>
+            <Route path="channel/:channelId" element={<HomePage />} />
+          </Route>
+          
+        </Route>
         <Route path="/register/" element={ !isLoggedIn? <RegistrationAIO /> : <Navigate to="/home" /> } />
           <Route path="/register/:slug" element={ !isLoggedIn? <RegistrationAIO /> : <Navigate to="/home" /> } />
 

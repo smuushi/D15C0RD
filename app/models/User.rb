@@ -7,7 +7,7 @@
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  username        :string           not null
-#  tag             :integer          not null
+#  tag             :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -67,6 +67,14 @@ class User < ApplicationRecord
         bcrypt_obj.is_password?(password)
 
     end
+
+
+    has_many(
+        :servers, 
+        class_name: :Server, 
+        foreign_key: :owner_id,
+        primary_key: :id
+    )
 
 
 end

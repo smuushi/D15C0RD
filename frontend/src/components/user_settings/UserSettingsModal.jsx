@@ -30,15 +30,15 @@ export const UserSettingsModal = (props) => {
 
     if (isActive) {
         return(
-            <div className="UserModalWrapper" style={{border: "dotted"}}>
+            <div className="UserModalWrapper" >
 
                 {/* SETTINGS MODAL HERE HAHAH */}
 
                 <div className="UserSettingsSubNav">
                     <h3>USER SETTINGS</h3>
                     <ul className="SettingsList">
-                        <li className="notSelected">
-                            <div className="logg" onClick={logOutHandler} >
+                        <li className="notSelected" onClick={logOutHandler}>
+                            <div className="logg">
                                 <div>
                                 {`Log Out`}
                                 </div>
@@ -46,7 +46,7 @@ export const UserSettingsModal = (props) => {
                             </div>
                             <div>
 
-                                <i id="logouticon" class="fa-solid fa-arrow-right-from-bracket" style={{color: "#dcdbdb"}}></i>
+                                <i id="logouticon" className="fa-solid fa-arrow-right-from-bracket" style={{color: "#dcdbdb"}}></i>
                             </div>
                         </li>
                     </ul>

@@ -3,8 +3,9 @@ class Api::SessionsController < ApplicationController
   
       if current_user
         @user = current_user
-        render 'api/users/show'
         # debugger
+        
+        render 'api/users/show'
       else 
         # debugger
         if !@user

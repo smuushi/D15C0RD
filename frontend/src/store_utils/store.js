@@ -13,9 +13,11 @@ import { SessionReducer, SessionErrorReducer } from "../reducers/SessionReducer"
 
 import { ModalReducer } from "../reducers/ModalReducer";
 
+import { ServerReducer } from "../reducers/ServerReducer";
 
 const entitiesReducer = combineReducers({
-    session: SessionReducer
+    session: SessionReducer,
+    servers: ServerReducer
 })
 
 
