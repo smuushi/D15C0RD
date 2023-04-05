@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { activateModalAC, resetModalAC } from "../../reducers/ModalReducer"
 import { SubSettingsModal } from "./SubSettingsModal"
+import { ServerSettingsModal } from "./servers/ServerSettingsModal"
 
 
 export const SubNav = (props) => {
@@ -37,9 +38,7 @@ export const SubNav = (props) => {
             <nav className="subNav">
                 <header id="serverHeader" onClick={openModal}>
                     <h5>
-                        <div>
-                            {renderTarget?.name}
-                        </div>
+                        {renderTarget?.name}
                         <div>
 
                             <i className="fa-solid fa-chevron-down" style={{color: "#969696"}}></i>
@@ -47,9 +46,9 @@ export const SubNav = (props) => {
                     </h5>
 
                 </header>
-                    SERVER SETTINGS MODAL WILL GO HERE.
-                    <SubSettingsModal modalCloser={modalCloser}/>
 
+                    <SubSettingsModal modalCloser={modalCloser}/>
+                    <ServerSettingsModal currentServer={renderTarget} />
                 SOME SERVER SUBNAVVING HERE
 
             </nav>

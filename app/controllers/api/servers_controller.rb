@@ -44,6 +44,7 @@ class Api::ServersController < ApplicationController
   # DELETE /servers/1
   # DELETE /servers/1.json
   def destroy
+    @server = Server.find_by_id(params[:id])
     @server.destroy
   end
 

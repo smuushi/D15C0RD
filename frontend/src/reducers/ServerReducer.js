@@ -5,10 +5,21 @@ const RECEIVESERVERINFO = "server/RECEIVESERVERINFO"
 
 const RECEIVEALLSERVERS = "server/RECEIVEALLSERVERS"
 
+const REMOVESERVER = "server/REMOVESERVER"
 
 
 
 //---Thunks---//
+
+export const destroyServer = (serverId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/servers/${serverId}`, {
+        method:'DELETE'
+    })
+    // debugger
+    if (res.ok) {
+        dispatch(removeServer(serverId))
+    }
+}
 
 export const createServer = (serverInfo) => async (dispatch) => {
 
@@ -39,6 +50,8 @@ export const createServer = (serverInfo) => async (dispatch) => {
 }
 
 
+
+
 export const fetchAllServers = () => async (dispatch) => {
     const res = await csrfFetch(`/api/servers`)
 
@@ -54,6 +67,12 @@ export const fetchAllServers = () => async (dispatch) => {
 
 
 //---AC---//
+
+
+export const removeServer = (serverId) => ({
+    type: REMOVESERVER, 
+    serverId
+})
 
 export const receiveAllServers = (serversArrayCollection) => ({
     type: RECEIVEALLSERVERS, 
@@ -92,7 +111,10 @@ export const ServerReducer = (state = {}, action) => {
 
             return nextState;
 
-        
+        case REMOVESERVER:
+            delete nextState[action.serverId]
+
+            return nextState;
         // debugger
         
 

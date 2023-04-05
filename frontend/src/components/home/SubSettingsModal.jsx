@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { activateModalAC } from "../../reducers/ModalReducer";
 import "./subnav.css"
 
 export const SubSettingsModal = (props) => {
@@ -9,7 +10,11 @@ export const SubSettingsModal = (props) => {
 
     const isActive = !!(modalId === useSelector(state => state.activeModal));
 
+    const dispatch = useDispatch();
 
+    const openSettingsModal = (e) => {
+        dispatch(activateModalAC(e.currentTarget.id))
+    }
 
     if (isActive) {
         return (
@@ -19,7 +24,7 @@ export const SubSettingsModal = (props) => {
                         <div className="SubSettingsModalWrapper">
             
                             <ul>
-                                <li>Server Settings</li>
+                                <li id="ServerSetting" onClick={openSettingsModal}>Server Settings</li>
                                 <li>Create Channel</li>
                             </ul>
 

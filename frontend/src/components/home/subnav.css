@@ -38,4 +38,12 @@
 
     align-items: center;
     justify-content: space-between;
+    transition-property: all;
+    transition-duration: 200ms;
+}
+
+#serverHeader:hover {
+    background-color: rgb(55, 55, 60);
+    transition-property: all;
+    transition-duration: 200ms;
 }

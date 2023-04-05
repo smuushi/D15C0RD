@@ -60,7 +60,10 @@ export const ServersNavBar = (props) => {
 
     const serversListElements = serverIdsToRender.map((id) => {
         // debugger
-
+       if (allServers[id] === undefined) {
+        return <></>
+       }
+        
        return <li key={JSON.stringify(id * Math.random())}>
         <Link to={`/home/server/${id}`}>
             {selectedServer == id? <div className="activeIndicator selected"></div> : <div className="activeIndicator notselected"></div>}

@@ -172,6 +172,7 @@ export const SessionReducer = (state = {}, action) => {
             nextState.user.servers.push(action.payload);
             return nextState;
 
+
         default: 
         return nextState;
     }
