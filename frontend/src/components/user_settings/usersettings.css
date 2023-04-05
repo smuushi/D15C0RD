@@ -30,7 +30,7 @@
     transition-property: all;
     transition-duration: 300ms;
     /* transform: translateX(-50%); */
-    animation: .20s ease-out 0s 1 slideInLeft;
+    /* animation: .20s ease-out 0s 1 slideInLeft; */
 }
 
 .UserSettingsSubNav {

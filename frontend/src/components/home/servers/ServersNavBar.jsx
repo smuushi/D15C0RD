@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom";
+import { useRef } from "react";
+import { activateModalAC } from "../../../reducers/ModalReducer";
 import "./ServersNavBar.css"
-
+import { NewServerModal } from "./new_server/NewServerModal";
+import { resetModalAC } from "../../../reducers/ModalReducer";
 
 export const ServersNavBar = (props) => {
 
@@ -15,8 +18,35 @@ export const ServersNavBar = (props) => {
 
     const currentUser = useSelector(state => state.entities.session.user);
 
+    const newServerButton = document.getElementById("newserverdiv")
+
+    const dispatch = useDispatch();
 
     let serverIdsToRender = currentUser.servers;
+
+    const closeModal = (e) => {
+        // debugger
+        if (e.target.className === 'backdrop') {
+            newServerButton.classList.remove('active')
+            newServerButton.classList.add('inactive')
+            dispatch(resetModalAC())
+        } else {
+            console.log("closeModal was ran, but target wasn't the backdrop")
+        }
+    }
+
+    const activateModal = (e) => {
+        // debugger
+        e.preventDefault();
+        console.log('activationnnn')
+        console.log(newServerButton)
+        newServerButton.classList.remove('inactive')
+        newServerButton.classList.add('active')
+
+            dispatch(activateModalAC(e.currentTarget.id))
+            // debugger
+    
+    }
 
     // debugger
 
@@ -57,7 +87,7 @@ export const ServersNavBar = (props) => {
 
     return (
         <>
-            <ul className="ServerNavList">
+            <ul className="ServerNavList" >
 
                 <li className="Home" key={JSON.stringify(Math.random())}>
                     <Link to={`/home`}>
@@ -77,10 +107,16 @@ export const ServersNavBar = (props) => {
                     <div className="someseparationlmao"></div>
                 {serversListElements}
 
-                <li>
-                    NEW SERVER BUTTON COMING HERE
+                <li id="newserverform" onClick={activateModal}>
+                    
+                        <div id="newserverdiv" className="inactive logoblock">
+                            +
+                        </div> 
+                        <span>Add a server</span>
+
                 </li>
             </ul>
+            <NewServerModal modalcloser={closeModal} />
         </>
     )
 

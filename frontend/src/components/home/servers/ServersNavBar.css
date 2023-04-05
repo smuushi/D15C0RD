@@ -8,7 +8,7 @@
     margin-right: 12px;
     max-width: 67%;
     aspect-ratio: 1/1;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .ServerNavList .Home {
