@@ -18,7 +18,7 @@ export const SubNav = (props) => {
         return (
             <nav>
                 <header>
-                    <h5 style={{padding: "10px", border: "solid"}}>
+                    <h5 style={{padding: "15px", border: "solid"}}>
                         {renderTarget?.name}
                     </h5>
                     SERVER SETTINGS MODAL WILL GO HERE.

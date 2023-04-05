@@ -1,9 +1,11 @@
 .UserStatusBar {
     margin: 0px;
-    background-color: rgb(33, 33, 37);
+    background-color: rgb(40, 43, 48);
     display: flex;
     width: 100%;
-    height: 53px
+    height: 53px;
+    justify-content: space-evenly;
+    padding-right: 0px;
 }
 
 .infosection .UserName {
@@ -25,7 +27,7 @@
 
 .UserInfo {
     display: flex;
-    background-color: rgb(33, 33, 37);
+    background-color: rgb(40, 43, 48);
     border-radius: 5px;
     margin: 5px;
 }

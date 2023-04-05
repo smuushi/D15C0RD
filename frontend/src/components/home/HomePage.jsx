@@ -43,7 +43,7 @@ export const HomePage = (props) => {
             
             <div className="Convos">
                 <div className="SubNavigation">
-                    SUBNAV HERE
+
                     <SubNav 
                         server={location.serverId? location.serverId : null}
                         misc = {location.misc? location.misc : null}
