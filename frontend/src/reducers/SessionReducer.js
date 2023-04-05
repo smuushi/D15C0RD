@@ -6,6 +6,8 @@ const REMOVESESSIONINFO = "sess/REMOVESESSIONINFO"
 const RECEIVEERROR = "sess/RECEIVEERROR"
 const CLEARERRORS = "whatever.. i'm just trying to clear the errors"
 
+const ADDOWNEDSERVER = "sess/ADDOWNEDSERVER"
+
 export const sessionSignUp = (user) => async (dispatch) => {
 
     // debugger
@@ -111,7 +113,10 @@ export const clearSessionErrorAC = () => ({
    // no need for anything in the session because 
    // we're just setting our session slice of state's user to null.. 
 
-
+export const addServerToOwnedServersAC = (serverId) => ({
+    type: ADDOWNEDSERVER, 
+    payload: serverId
+})
 
 
 //--- MISC.. ---//
@@ -163,6 +168,9 @@ export const SessionReducer = (state = {}, action) => {
             nextState.user = null;
             return nextState;
 
+        case ADDOWNEDSERVER:
+            nextState.user.servers.push(action.payload);
+            return nextState;
 
         default: 
         return nextState;

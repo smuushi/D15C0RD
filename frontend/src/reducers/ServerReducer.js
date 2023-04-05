@@ -1,11 +1,43 @@
 import { csrfFetch } from "../store_utils/csrf"
+import { addServerToOwnedServersAC } from "./SessionReducer"
 
 const RECEIVESERVERINFO = "server/RECEIVESERVERINFO"
 
 const RECEIVEALLSERVERS = "server/RECEIVEALLSERVERS"
 
 
+
+
 //---Thunks---//
+
+export const createServer = (serverInfo) => async (dispatch) => {
+
+    // debugger
+
+    const res = await csrfFetch(`/api/servers`,{ 
+        method: 'POST', 
+        body: JSON.stringify({
+            server: {
+                ...serverInfo
+            }
+
+        })
+    })
+
+    if (res.ok) {
+        let serverInfo = await res.json();
+
+        dispatch(receiveServer(serverInfo))
+        dispatch(addServerToOwnedServersAC(serverInfo.id))
+
+    } else {
+
+        console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
+    }
+
+
+}
+
 
 export const fetchAllServers = () => async (dispatch) => {
     const res = await csrfFetch(`/api/servers`)
@@ -29,6 +61,11 @@ export const receiveAllServers = (serversArrayCollection) => ({
 })
 
 
+export const receiveServer = (serverInfo) => ({
+    type: RECEIVESERVERINFO, 
+    payload: serverInfo
+})
+
 
 //---Server Reducer---//
 
@@ -50,6 +87,9 @@ export const ServerReducer = (state = {}, action) => {
 
 
         case RECEIVESERVERINFO:
+
+            nextState[action.payload.id] = action.payload;
+
             return nextState;
 
         

@@ -1,0 +1,41 @@
+.transparentbackdrop {
+    position: absolute;
+    /* border: solid; */
+    top: 0px;
+    left: -78px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+    background-color: rgba(255, 228, 196, 0);
+}
+
+.subNav {
+    position: relative;
+}
+
+.SubSettingsModalWrapper {
+    position: absolute;
+
+    padding: 15px;
+    left: 85px;
+    top: 60px;
+    min-width: 195px;
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    color: whitesmoke
+}
+
+#serverHeader h5 {
+    padding: 15px;
+    border-bottom: 2px solid rgb(37, 37, 37);
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 18px;
+
+    align-items: center;
+    justify-content: space-between;
+}

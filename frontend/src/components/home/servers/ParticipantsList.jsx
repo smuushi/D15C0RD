@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 
 export const ParticipantsList = (props) => {
 
-    console.log(props)
+    // console.log(props)
 
     const targetServerId = props.server
 
@@ -14,8 +14,8 @@ export const ParticipantsList = (props) => {
     const owner = useSelector(state => targetServer? state.entities.users[targetServer.ownerId] : null)
     const ownerLiElement = owner? <li className="King"> {owner.username} -- OWNER </li> : null
 
-    console.log(targetServer)
-    console.log(owner)
+    // console.log(targetServer)
+    // console.log(owner)
 
     return (
 

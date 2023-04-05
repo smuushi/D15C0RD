@@ -25,7 +25,7 @@ export const NewServerModal = (props) => {
                 <div className="newservermodalwrapper">
     
     
-                    <NewServerForm />
+                    <NewServerForm closeModal={modalCloserCallback}/>
     
     
                 </div>

@@ -1,4 +1,6 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { activateModalAC, resetModalAC } from "../../reducers/ModalReducer"
+import { SubSettingsModal } from "./SubSettingsModal"
 
 
 export const SubNav = (props) => {
@@ -14,15 +16,39 @@ export const SubNav = (props) => {
 
     console.log(whatWeAreRenderingThisFineEvening) // lmao
 
+    const dispatch = useDispatch();
+
+    const modalCloser = (e) => {
+        // debugger
+        if (e.target.className === "transparentbackdrop"){
+            dispatch(resetModalAC())
+
+        }
+    }
+
+    const openModal = (e) => {
+        // debugger
+        e.preventDefault();
+        dispatch(activateModalAC(e.currentTarget.id))
+    }
+
     if (whatWeAreRenderingThisFineEvening === "serverNav") {
         return (
-            <nav>
-                <header>
-                    <h5 style={{padding: "15px", border: "solid"}}>
-                        {renderTarget?.name}
+            <nav className="subNav">
+                <header id="serverHeader" onClick={openModal}>
+                    <h5>
+                        <div>
+                            {renderTarget?.name}
+                        </div>
+                        <div>
+
+                            <i className="fa-solid fa-chevron-down" style={{color: "#969696"}}></i>
+                        </div>
                     </h5>
-                    SERVER SETTINGS MODAL WILL GO HERE.
+
                 </header>
+                    SERVER SETTINGS MODAL WILL GO HERE.
+                    <SubSettingsModal modalCloser={modalCloser}/>
 
                 SOME SERVER SUBNAVVING HERE
 

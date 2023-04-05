@@ -6,9 +6,6 @@ class Api::ServersController < ApplicationController
   def index
     # I want to only render the servers for the current_user???
     all_servers = Server.all
-
-
-
     @servers = Server.all
 
     
@@ -19,7 +16,7 @@ class Api::ServersController < ApplicationController
   # GET /servers/1
   # GET /servers/1.json
   def show
-
+    @server = Server.find_by_id(params[:id])
   end
 
   # POST /servers
@@ -28,9 +25,9 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
-      render :show, status: :created, location: @server
+      render :show, status: 200
     else
-      render json: @server.errors, status: :unprocessable_entity
+      render json: {error: @server.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -52,12 +49,13 @@ class Api::ServersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_server
-      @server = Server.find(params[:id])
-    end
+    # def set_server
+    #   @server = Server.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def server_params
-      params.fetch(:server, {})
+
+      params.require(:server).permit(:owner_id, :name)
     end
 end

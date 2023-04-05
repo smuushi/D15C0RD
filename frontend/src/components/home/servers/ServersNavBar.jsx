@@ -12,7 +12,7 @@ export const ServersNavBar = (props) => {
     const selectedServer = useParams().serverId;
     console.log(`selectedServer is ${selectedServer}`)
 
-    console.log("rerendering serversnav")
+    // console.log("rerendering serversnav")
 
     const allServers = useSelector(state => state.entities.servers);
 
@@ -26,10 +26,13 @@ export const ServersNavBar = (props) => {
 
     const closeModal = (e) => {
         // debugger
-        if (e.target.className === 'backdrop') {
+        if (e.target.className === 'backdrop' || (e.target.form?.id === "newserverform" && e.target.id === 'submissionbutton')) {
+            // debugger
             newServerButton.classList.remove('active')
             newServerButton.classList.add('inactive')
-            dispatch(resetModalAC())
+            // debugger
+            setTimeout(() => {dispatch(resetModalAC())},20)
+
         } else {
             console.log("closeModal was ran, but target wasn't the backdrop")
         }

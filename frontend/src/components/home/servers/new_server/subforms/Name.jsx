@@ -3,9 +3,12 @@
 export const Name = (props) => {
 
     const {setName} = props;
+    const {name} = props;
 
-    const clickHandler = (e) => {
-        setName(() => "sometruthyvalfornow...")
+    const changeHandler = (e) => {
+        setName(() => e.target.value)
+
+
     }
 
     return (
@@ -18,12 +21,12 @@ export const Name = (props) => {
         </header>
 
         <label htmlFor="servername"></label>
-        <input id="servername" type="text" placeholder="SERVER NAME" />
+        <input onChange={changeHandler} id="servername" type="text" placeholder="SERVER NAME" />
 
-        <button onClick={clickHandler}>
-
+        {name? <button id="submissionbutton" type="submit">
             CREATE
-        </button>
+        </button> :
+        <button id="notworkingbutton"> fill name pls </button>}
     
     </>
 
