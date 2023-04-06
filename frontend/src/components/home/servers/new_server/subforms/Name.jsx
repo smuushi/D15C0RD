@@ -20,13 +20,19 @@ export const Name = (props) => {
 
         </header>
 
-        <label htmlFor="servername"></label>
-        <input onChange={changeHandler} id="servername" type="text" placeholder="SERVER NAME" />
+        <div className="nameInput">
+            <label htmlFor="servername">Server Name</label>
+            <br />
+            <input onChange={changeHandler} id="servername" type="text" placeholder="Enter your server name here" />
+        </div>
 
-        {name? <button id="submissionbutton" type="submit">
-            CREATE
-        </button> :
-        <button id="notworkingbutton"> fill name pls </button>}
+        <div id="submitters">
+
+            {name? <button id="submissionbutton" type="submit">
+                Create
+            </button> :
+            <button id="notworkingbutton"> fill name pls </button>}
+        </div>
     
     </>
 

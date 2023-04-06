@@ -13,14 +13,19 @@ export const Creation = (props) => {
         <>
             <header>
                 <h3> Create a server </h3>
-                <h3> Your server is where you and your friends hang out. Make yours and start talking.</h3>
+                <h5> Your server is where you and your friends hang out. Make yours and start talking.</h5>
             </header>
 
             <button onClick={clickHandler}> 
                 <img src="/assets/misc/createmyown.svg"/>
                 Create My Own 
+
+                
             </button>
 
+                    
+
+                    
         </>
     )
 

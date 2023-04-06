@@ -24,7 +24,12 @@ export const SubSettingsModal = (props) => {
                         <div className="SubSettingsModalWrapper">
             
                             <ul>
-                                <li id="ServerSetting" onClick={openSettingsModal}>Server Settings</li>
+                                <li id="ServerSetting" onClick={openSettingsModal}>
+                                    <div>
+                                        Server Settings
+                                    </div>
+                                <i className="fa-solid fa-gear" style={{color: "#9e9e9e"}}></i>
+                                </li>
                                 <li>Create Channel</li>
                             </ul>
 

@@ -52,9 +52,9 @@ export const NewServerForm = (props) => {
     return (
         <>  
         <form id="newserverform" onSubmit={submithandler}>
-            {!creation? <Creation setCreation={setCreation}/> : <h5>first subform is notrendering</h5> }
-            {creation && !setting? <Setting setSetting={setSetting}/>: <h5>second subform is not rendering</h5>}
-            {creation && setting? <Name name={name} setName={setName}/>: <h5>third subform is not rendering</h5>}
+            {!creation? <Creation setCreation={setCreation}/> : <></> }
+            {creation && !setting? <Setting setSetting={setSetting}/>: <></>}
+            {creation && setting? <Name name={name} setName={setName}/>: <></>}
         </form>
         </>
       

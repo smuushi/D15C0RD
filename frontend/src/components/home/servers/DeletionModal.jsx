@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { resetModalAC } from "../../../reducers/ModalReducer";
 import { useState } from "react";
 import { destroyServer } from "../../../reducers/ServerReducer";
+import "./serversettings.css"
 
 export const DeletionModal = (props) => {
 
@@ -31,6 +32,7 @@ export const DeletionModal = (props) => {
             return
             
         }
+        setDeleting(false)
 
         dispatch(destroyServer(currentServer.id))
 
@@ -41,26 +43,31 @@ export const DeletionModal = (props) => {
 
     if (isDeleting) {
         return (
-            <div className="DeletionWrapper">
-                <header> 
-                    <h3>
-                        Confirm deletion for {currentServer.name}.
-                    </h3>
-                    <h5>write server name to confirm and then press delete..</h5>
-
-                </header>
-
-                <form className="DeletionForm" onSubmit={submitHandler}>
-                    <label htmlFor="confirmationtext">Write Server Name Here</label>
-                    <input id="confirmationtext" type="text" placeholder="server name" onChange={changeHandler} value={confirmation}/>
+            <div className="backdrop">
 
 
-                    <button type="submit">DELETE FOREVER</button>
-    
-                </form>
+                <div className="DeletionWrapper">
+                    <header> 
+                        <h3>
+                            Confirm deletion for {currentServer.name}.
+                        </h3>
+                        <h5>write server name to confirm and then press delete..</h5>
 
-                <button onClick={resetModals}>Turn Back</button>
+                    </header>
+
+                    <form className="DeletionForm" onSubmit={submitHandler}>
+                        <label htmlFor="confirmationtext">Write Server Name Here</label>
+                        <input id="confirmationtext" type="text" placeholder="server name" onChange={changeHandler} value={confirmation}/>
+
+
+                        <button type="submit">DELETE FOREVER</button>
+        
+                    </form>
+
+                    <button id="turnback" onClick={resetModals}>Turn Back</button>
+                </div>
             </div>
+
         )
 
     } else {

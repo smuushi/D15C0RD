@@ -20,11 +20,35 @@
     left: 85px;
     top: 60px;
     min-width: 195px;
-    background-color: black;
+    background-color: rgb(25, 25, 25);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
     border-radius: 5px;
-    color: whitesmoke
+    color: whitesmoke;
+}
+
+.SubSettingsModalWrapper ul {
+    display: flex;
+    flex-direction: column;
+    color: rgb(206, 206, 206);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.SubSettingsModalWrapper ul li{
+    margin: 2px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.SubSettingsModalWrapper ul li:hover{
+    background-color: rgb(105, 76, 221);
+    transition-property: all;
+    transition-duration: 300ms;
+
 }
 
 #serverHeader h5 {

@@ -4,6 +4,7 @@ import { resetModalAC } from "../../../reducers/ModalReducer"
 import { DeletionModal } from "./DeletionModal"
 import { useState } from "react"
 import { useEffect } from "react"
+import "./serversettings.css"
 
 
 export const ServerSettingsModal = (props) => {
@@ -40,7 +41,7 @@ export const ServerSettingsModal = (props) => {
                 {/* SERVER SETTINGS MODAL HERE HAHAH */}
 
                 <div className="ServerSettingsSubNav">
-                    <h3>SERVER SETTINGS</h3>
+                    <h3>{currentServer.name} Settings</h3>
                     <ul className="SettingsList">
                         {currentServer.ownerId === currentUser.id?
                             <li className="notSelected">
@@ -55,12 +56,12 @@ export const ServerSettingsModal = (props) => {
                         }
 
                         {currentServer.ownerId === currentUser.id?
-                            <li className="notSelected">
-                                <div className="DELETE" onClick={openDeletionConfirmation}>
-                                    delete server
+                            <li className="notSelected" onClick={openDeletionConfirmation}>
+                                <div className="DELETE">
+                                    Delete Server
                                 </div>
                                 <div>
-                                    ICON
+                                <i className="fa-solid fa-trash-can" style={{color: "#b5b5b5"}}></i>
                                 </div>
                             </li>
                             :

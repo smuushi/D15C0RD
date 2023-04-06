@@ -4,7 +4,7 @@ import "./home.css"
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllServers } from "../../reducers/ServerReducer";
 import { ServersNavBar } from "./servers/ServersNavBar";
-import { useParams } from "react-router-dom";
+import { Navigate, redirect, useParams } from "react-router-dom";
 import { SubNav } from "./SubNav";
 import { ServerShow } from "./servers/ServerShow";
 import { fetchAllUsers } from "../../reducers/UserReducer";
@@ -14,8 +14,12 @@ export const HomePage = (props) => {
     // document.getElementById('root'))
     const isLoggedIn = !!useSelector(state => state.entities.session.user);
 
+    
+
     const location = useParams()
+    const currentServer = useSelector(state => state.entities.servers[location.serverId])
     console.log(location)
+
 
 
     // debugger
@@ -31,8 +35,17 @@ export const HomePage = (props) => {
         console.log("papayaing")
         dispatch(fetchAllServers())
         dispatch(fetchAllUsers())
+        if (location.serverId && !currentServer) {
+            redirect("/home")
+        }
     },[isLoggedIn])
 
+    if (location.serverId && !currentServer) {
+        return <Navigate to="/home" />
+    }
+
+    // debugger
+    
 
     return (
         <div className="HomePageWrapper" >

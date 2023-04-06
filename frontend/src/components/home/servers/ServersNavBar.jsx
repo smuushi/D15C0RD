@@ -43,8 +43,8 @@ export const ServersNavBar = (props) => {
         e.preventDefault();
         console.log('activationnnn')
         console.log(newServerButton)
-        newServerButton.classList.remove('inactive')
-        newServerButton.classList.add('active')
+        newServerButton?.classList.remove('inactive')
+        newServerButton?.classList.add('active')
 
             dispatch(activateModalAC(e.currentTarget.id))
             // debugger
