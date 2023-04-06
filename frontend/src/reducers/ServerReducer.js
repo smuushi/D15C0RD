@@ -21,31 +21,89 @@ export const destroyServer = (serverId) => async (dispatch) => {
     }
 }
 
-export const createServer = (serverInfo) => async (dispatch) => {
 
-    // debugger
+export const updateServer = (serverInfo) => async (dispatch) => {
 
-    const res = await csrfFetch(`/api/servers`,{ 
-        method: 'POST', 
-        body: JSON.stringify({
-            server: {
-                ...serverInfo
-            }
-
+    if (!serverInfo.icon) {
+        const res = await csrfFetch(`/api/servers/${serverInfo.id}`, {
+            method: 'PATCH', 
+            body: JSON.stringify({
+                server: {
+                    name: serverInfo.name
+                }
+            })
         })
-    })
 
-    if (res.ok) {
-        let serverInfo = await res.json();
+        if (res.ok) {
+            let data = await res.json();
 
-        dispatch(receiveServer(serverInfo))
-        dispatch(addServerToOwnedServersAC(serverInfo.id))
+            dispatch(receiveServer(data));
+        }
+
+        return res;
 
     } else {
 
-        console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
+        
+            const res = await csrfFetch(`/api/servers/${serverInfo.id}`, 
+        
+            )
+
+
     }
 
+
+}
+
+
+export const createServer = (serverInfo) => async (dispatch) => {
+
+
+    if (serverInfo.icon === null) {
+        const res = await csrfFetch(`/api/servers`,{ 
+            method: 'POST', 
+            body: JSON.stringify({
+                server: {
+                    ...serverInfo
+                }
+
+            })
+        })
+
+        if (res.ok) {
+            let serverInfo = await res.json();
+
+            dispatch(receiveServer(serverInfo))
+            dispatch(addServerToOwnedServersAC(serverInfo.id))
+
+        } else {
+
+            console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
+        }
+    } else if (serverInfo.icon) {
+        const formData = new FormData();
+        formData.append('server[name]', serverInfo.name);
+        formData.append('server[ownerId]', serverInfo.ownerId);
+        formData.append('server[icon]', serverInfo.icon)
+
+        const res = await csrfFetch('/api/servers', {
+            method: 'POST', 
+            body: formData
+        });
+
+        if (res.ok) {
+
+            let responseInfo = await res.json();
+
+
+
+            dispatch(receiveServer(responseInfo))
+            dispatch(addServerToOwnedServersAC(responseInfo.id))
+
+        }
+
+
+    }
 
 }
 

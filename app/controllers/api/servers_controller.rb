@@ -34,8 +34,11 @@ class Api::ServersController < ApplicationController
   # PATCH/PUT /servers/1
   # PATCH/PUT /servers/1.json
   def update
+
+    @server = Server.find_by_id(params[:id])
+
     if @server.update(server_params)
-      render :show, status: :ok, location: @server
+      render :show, status: :ok
     else
       render json: @server.errors, status: :unprocessable_entity
     end
@@ -57,6 +60,6 @@ class Api::ServersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def server_params
 
-      params.require(:server).permit(:owner_id, :name)
+      params.require(:server).permit(:owner_id, :name, :icon)
     end
 end

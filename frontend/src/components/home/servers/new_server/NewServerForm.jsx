@@ -15,6 +15,8 @@ export const NewServerForm = (props) => {
 
     const [name, setName] = useState();
 
+    const [icon, setIcon] = useState(null);
+
     const currentUser = useSelector(state => state.entities.session.user)
 
     const closeModal = props.closeModal
@@ -33,9 +35,14 @@ export const NewServerForm = (props) => {
 
         console.log("submission attempt")
 
+
+
+        
+
         const newServer = ({
             name: name, 
-            ownerId: currentUser.id
+            ownerId: currentUser.id,
+            icon: icon
         })
 
         if (name) {
@@ -54,7 +61,7 @@ export const NewServerForm = (props) => {
         <form id="newserverform" onSubmit={submithandler}>
             {!creation? <Creation setCreation={setCreation}/> : <></> }
             {creation && !setting? <Setting setSetting={setSetting}/>: <></>}
-            {creation && setting? <Name name={name} setName={setName}/>: <></>}
+            {creation && setting? <Name icon={icon} setIcon={setIcon} name={name} setName={setName}/>: <></>}
         </form>
         </>
       

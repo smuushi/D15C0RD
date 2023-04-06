@@ -1,0 +1,7 @@
+.previewer img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    box-shadow: 5px 5px 20px rgb(2, 2, 2);
+}
+

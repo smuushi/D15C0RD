@@ -5,22 +5,38 @@ import { DeletionModal } from "./DeletionModal"
 import { useState } from "react"
 import { useEffect } from "react"
 import "./serversettings.css"
+import { OverviewSettingShow } from "./OverviewSettingShow"
 
 
 export const ServerSettingsModal = (props) => {
 
     const { currentServer } = props;
 // debugger
-    const modalId = "ServerSetting"
+    const modalId = "ServerSetting";
 
-    const currentUser = useSelector(state => state.entities.session.user)
+    const currentUser = useSelector(state => state.entities.session.user);
 
     const isActive = !!(modalId === useSelector(state => state.activeModal))
 
-    const [deleting, setDeleting] = useState(false)
+    const [selection, setSelection] = useState("");
 
-    const dispatch = useDispatch()
+    const [deleting, setDeleting] = useState(false);
 
+    const dispatch = useDispatch();
+
+    const selectionHandler = async (e) => {
+        e.preventDefault();
+        console.log(selection)
+        // debugger
+        let theSelection = e.currentTarget.id;
+        // e.currentTarget.
+        setSelection(() => (theSelection))
+
+        e.currentTarget.classList.add("selected")
+
+        e.currentTarget.classList.remove("notSelected")
+
+    }
 
 
     const resetModal = (e) => {
@@ -44,7 +60,7 @@ export const ServerSettingsModal = (props) => {
                     <h3>{currentServer.name} Settings</h3>
                     <ul className="SettingsList">
                         {currentServer.ownerId === currentUser.id?
-                            <li className="notSelected">
+                            <li id="ServerOverview" className="notSelected" onClick={selectionHandler}>
 
                                 <div className="overview">
                                     Overview
@@ -71,7 +87,11 @@ export const ServerSettingsModal = (props) => {
                 </div>
 
                 <div className="SettingsShowSection">
+
+                    <OverviewSettingShow currentServer={currentServer} selection={selection}/>
                     SOME RANDOM SHOWPAGE FOR A SETTINGS GOES HERE!
+
+
                 </div>
 
                 <button onClick={resetModal} > ESC </button>

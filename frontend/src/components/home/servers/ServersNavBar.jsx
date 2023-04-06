@@ -63,17 +63,19 @@ export const ServersNavBar = (props) => {
        if (allServers[id] === undefined) {
         return <></>
        }
-        
+       
+    //    debugger
+
        return <li key={JSON.stringify(id * Math.random())}>
         <Link to={`/home/server/${id}`}>
             {selectedServer == id? <div className="activeIndicator selected"></div> : <div className="activeIndicator notselected"></div>}
             {selectedServer == id? 
             <div className="active logoblock">
-                {allServers[id]?.logo? <>somelogo</> : allServers[id]?.name[0]}
+                {allServers[id]?.icon? <img src={allServers[id].icon} /> : allServers[id]?.name[0]}
             </div> 
             : 
             <div className="inactive logoblock">
-                {allServers[id]?.logo? <>somelogo</> : allServers[id]?.name[0]}
+                {allServers[id]?.icon? <img src={allServers[id].icon} /> : allServers[id]?.name[0]}
             </div> 
             }
         </Link>

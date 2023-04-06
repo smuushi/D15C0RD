@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
+    has_one_attached :avatar
+
     attr_reader :password
 
     def password=(pw)

@@ -12,6 +12,8 @@ class Server < ApplicationRecord
 
     validates :name, :owner_id, presence: true
 
+    has_one_attached :icon
+
     belongs_to(
         :owner, 
         class_name: :User, 

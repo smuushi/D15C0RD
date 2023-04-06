@@ -174,6 +174,7 @@ export const SessionReducer = (state = {}, action) => {
 
 
         default: 
+        // sessionStorage.setItem("currentUser", JSON.stringify(nextState.user? nextState.user : null))
         return nextState;
     }
 

@@ -66,6 +66,13 @@
 
 
 }
+
+.ServerSettingsSubNav ul li.selected {
+    background-color: rgb(83, 83, 83);
+
+}
+
+
 .ServerSettingsModalWrapper button {
 
     position: absolute;

@@ -21,7 +21,7 @@
     align-items: center;
     padding: 30px;
     max-width: 40vw;
-    min-width: 35vw;
+    min-width: 300px;
 
 
     transition-property: all;
@@ -139,3 +139,25 @@
     justify-content: end;
 
 }
+
+.iconInput img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    aspect-ratio: 1/1;
+    margin-bottom: 10px;
+}
+
+.iconInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconInput input {
+    margin-left: 10%;
+
+
+}
+

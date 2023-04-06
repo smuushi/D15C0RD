@@ -9,9 +9,11 @@ export async function csrfFetch(url, options = {}) {
     // "application/json" and the "X-CSRF-Token" header to the value of the 
     // "X-CSRF-Token" cookie
     if (options.method.toUpperCase() !== 'GET') {
-      options.headers['Content-Type'] =
-      options.headers['Content-Type'] || 'application/json';
-      options.headers['X-CSRF-Token'] = sessionStorage.getItem('X-CSRF-Token');
+        if (!options.headers["Content-Type"] && !(options.body instanceof FormData)) {
+            options.headers['Content-Type'] =
+            options.headers['Content-Type'] || 'application/json';
+        }
+        options.headers['X-CSRF-Token'] = sessionStorage.getItem('X-CSRF-Token');
     }
   
     // call fetch with the url and the updated options hash

@@ -187,3 +187,13 @@
     background-color: rgb(86, 192, 86);
     color: white;
 }
+
+.logoblock img {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    overflow: hidden;
+
+
+
+}
