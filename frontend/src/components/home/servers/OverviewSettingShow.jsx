@@ -66,6 +66,11 @@ export const OverviewSettingShow = (props) => {
 
     }
 
+    const removeiconhandler = () => {
+        dispatch(updateServer({icon: null, removeicon: true, id: currentServer.id}))
+
+    }
+
     let preview = currentServer.icon? <img src={currentServer?.icon}/> :<></>
 
     
@@ -77,7 +82,7 @@ export const OverviewSettingShow = (props) => {
         <div className="ShowDiv">
 
                 <header>
-                    <h3>Server Overview for {currentServer.name}</h3>
+                    <h3>Server Overview for "{currentServer.name}"</h3>
                 </header>
 
             <form id="ServerUpdateForm" onSubmit={submitHandler}>
@@ -88,14 +93,23 @@ export const OverviewSettingShow = (props) => {
                     <div className="previewer">
                         {preview}
                     </div>
+                    <button id="remover" onClick={removeiconhandler}>
+                        X
+                    </button>
 
-                    <div className="texter">
-                        We reccomend an Image of at least 512x512 for the server.
-                    </div>
-                    
-                    <div className="inputter">
-                        <input type="file" onChange={fileHandler} />
-                    </div>
+
+                        <section>
+
+                            <div className="texter">
+                                We reccomend an Image of at least 512x512 for the server.
+                            </div>
+                            
+                            <div className="inputter">
+                                <input type="file" onChange={fileHandler} />
+                            </div>
+
+                        </section>
+            
                 </div>
 
                 <div className="namer">
@@ -107,7 +121,11 @@ export const OverviewSettingShow = (props) => {
                     SAVE CHANGES
                 </button>
 
+               
+
             </form>
+
+            
 
         </div>
     ) 

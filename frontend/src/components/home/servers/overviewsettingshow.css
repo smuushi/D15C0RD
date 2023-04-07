@@ -5,3 +5,88 @@
     box-shadow: 5px 5px 20px rgb(2, 2, 2);
 }
 
+.ShowDiv {
+    position: relative;
+    width: 140vw;
+    height: 100vh;
+    background-color: rgb(56, 56, 62);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-top: 65px;
+}
+
+.ShowDiv header {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 35px;
+
+}
+
+.ShowDiv header h3{
+    margin-left: 45px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#ServerUpdateForm {
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    max-width: 75vw;
+}
+
+#ServerUpdateForm .icon{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.icon {
+    padding-left: 30px;
+}
+
+.icon section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 20px;
+
+}
+
+button#submitter {
+    position: initial;
+    max-width: 300px;
+    margin-left: 30px;
+}
+
+button#remover {
+    position: initial;
+    border-radius: 50px;
+    max-height: 21px;
+}
+
+.namer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-left: 30px;
+    margin-top: 30px;
+    font-size: 17px;
+}
+
+.namer *{
+    margin-bottom: 10px;
+    
+}
+
+.namer input {
+    padding: 13px;
+    border-radius: 5px;
+    background-color: rgb(39, 39, 41);
+    border: none;
+    color: whitesmoke
+}
+

@@ -24,6 +24,25 @@ export const destroyServer = (serverId) => async (dispatch) => {
 
 export const updateServer = (serverInfo) => async (dispatch) => {
 
+    if(serverInfo.removeicon){
+        debugger
+        const res = await csrfFetch(`/api/servers/${serverInfo.id}`, {
+            method: 'PATCH', 
+            body: JSON.stringify({
+                server: {
+                    icon: null
+                }
+            })
+        });
+
+        if (res.ok) {
+            let data = await res.json();
+            dispatch(receiveServer(data));
+        }
+        return res
+    }
+
+
     if (!serverInfo.icon) {
         const res = await csrfFetch(`/api/servers/${serverInfo.id}`, {
             method: 'PATCH', 
@@ -36,18 +55,33 @@ export const updateServer = (serverInfo) => async (dispatch) => {
 
         if (res.ok) {
             let data = await res.json();
-
             dispatch(receiveServer(data));
+
+        } else {
+
+            console.log('THE UPDATE DIED SOMEHOW...')
+
         }
 
         return res;
 
     } else {
+        const formData = new FormData();
+        
+        if (serverInfo.name){
+            formData.append('server[name]', serverInfo.name)
+        }
+        formData.append('server[icon]', serverInfo.icon);
+        
+        const res = await csrfFetch(`/api/servers/${serverInfo.id}`,{ 
+            method: 'PATCH', 
+            body: formData
+        });
 
-        
-            const res = await csrfFetch(`/api/servers/${serverInfo.id}`, 
-        
-            )
+        if (res.ok) {
+            let responseInfo = await res.json();
+            dispatch(receiveServer(responseInfo))
+        }        
 
 
     }

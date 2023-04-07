@@ -41,6 +41,7 @@ export const ServerSettingsModal = (props) => {
 
     const resetModal = (e) => {
         console.log("trying to close settings modal..")
+        setSelection(null)
         dispatch(resetModalAC())
         setDeleting(false)
 
@@ -60,7 +61,7 @@ export const ServerSettingsModal = (props) => {
                     <h3>{currentServer.name} Settings</h3>
                     <ul className="SettingsList">
                         {currentServer.ownerId === currentUser.id?
-                            <li id="ServerOverview" className="notSelected" onClick={selectionHandler}>
+                            <li id="ServerOverview" className={selection === "ServerOverview"? "selected" : "notSelected"} onClick={selectionHandler}>
 
                                 <div className="overview">
                                     Overview
