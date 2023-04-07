@@ -75,7 +75,8 @@ class User < ApplicationRecord
         :servers, 
         class_name: :Server, 
         foreign_key: :owner_id,
-        primary_key: :id
+        primary_key: :id,
+        dependent: :destroy
     )
 
 
