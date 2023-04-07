@@ -30,7 +30,7 @@ export const SubSettingsModal = (props) => {
                                     </div>
                                 <i className="fa-solid fa-gear" style={{color: "#9e9e9e"}}></i>
                                 </li>
-                                <li>Create Channel</li>
+                                <li id="NewChannel" onClick={openSettingsModal} >Create Channel</li>
                             </ul>
 
             

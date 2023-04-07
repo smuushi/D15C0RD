@@ -16,13 +16,15 @@ export const ServersNavBar = (props) => {
 
     const allServers = useSelector(state => state.entities.servers);
 
-    const currentUser = useSelector(state => state.entities.session.user);
+    const currentUserId = useSelector(state => state.entities.session.user?.id)
+
+    const currentUser = useSelector(state => state.entities.users[currentUserId]);
 
     const newServerButton = document.getElementById("newserverdiv")
 
     const dispatch = useDispatch();
 
-    let serverIdsToRender = currentUser.servers;
+    let serverIdsToRender = currentUser?.servers;
 
     const closeModal = (e) => {
         // debugger
@@ -58,7 +60,7 @@ export const ServersNavBar = (props) => {
     // }); 
     // debugger
 
-    const serversListElements = serverIdsToRender.map((id) => {
+    const serversListElements = serverIdsToRender?.map((id) => {
         // debugger
        if (allServers[id] === undefined) {
         return <></>

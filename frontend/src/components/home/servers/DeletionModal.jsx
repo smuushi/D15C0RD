@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetModalAC } from "../../../reducers/ModalReducer";
 import { useState } from "react";
 import { destroyServer } from "../../../reducers/ServerReducer";
 import "./serversettings.css"
+import { destroyChannel } from "../../../reducers/ChannelReducer";
 
 export const DeletionModal = (props) => {
 
@@ -11,6 +12,10 @@ export const DeletionModal = (props) => {
     const {setDeleting} = props;
 
     const {currentServer} = props;
+
+    const { currentChannelId } = props; // this is only passed in if accessed from a channel related button.. 
+                                        // so if this is a truthy val, we will render the channel deletion jsx..
+    const currentChannelName = useSelector(state => state.entities.channels[currentChannelId]?.name)
 
     const dispatch = useDispatch();
 
@@ -26,6 +31,20 @@ export const DeletionModal = (props) => {
     }
 
     const submitHandler = (e) => {
+
+        if (!!currentChannelId) {
+            // debugger
+            //DESTROY CHANNEL THUNK GOES HERE. 
+            // its important to not reach the rest of the code below this lmao
+            dispatch(destroyChannel(currentChannelId)).then(() => {
+                dispatch(resetModalAC());
+                console.log("deleting channelll.. dispatches already sent.");
+                
+            })
+            return
+        }
+
+
         e.preventDefault();
         if (confirmation !== currentServer.name) {
             console.log("not matching...")
@@ -42,6 +61,34 @@ export const DeletionModal = (props) => {
     }
 
     if (isDeleting) {
+
+        if (currentChannelId) {
+            // see line 15 for more info
+            return (
+                    <div className="backdrop">
+
+
+                    <div className="DeletionWrapper">
+                        <header> 
+                            <h3>
+                                Delete Channel
+                            </h3>
+                            <h5>{`Are you sure you want to delete #${currentChannelName}?? This cannot be undone`}</h5>
+                        </header>
+
+                        <form className="DeletionForm" onSubmit={submitHandler}>
+
+                            <button type="submit">DELETE FOREVER</button>
+
+                        </form>
+
+                        <button id="turnback" onClick={resetModals}>Cancel</button>
+                    </div>
+                    </div>
+
+            )
+        }
+
         return (
             <div className="backdrop">
 
@@ -64,7 +111,7 @@ export const DeletionModal = (props) => {
         
                     </form>
 
-                    <button id="turnback" onClick={resetModals}>Turn Back</button>
+                    <button id="turnback" onClick={resetModals}>Cancel</button>
                 </div>
             </div>
 

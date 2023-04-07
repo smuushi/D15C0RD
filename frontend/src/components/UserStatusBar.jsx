@@ -23,7 +23,7 @@ export const UserStatusBar = (props) => {
         <div className="UserStatusBar" >
             <div className="UserInfo" onClick={() => {console.log("i'll open the userinfo modal with this click lmaooo")}}>
                 <div className="UserImage" >
-                    <img src={currentUser.avatar} />
+                    <img src={currentUser.avatar? currentUser.avatar : "/assets/avatars/DefaultAvatar.png"} />
                 </div>
                 <section className="infosection">
                     <div className="UserName">

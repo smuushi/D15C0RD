@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { activateModalAC, resetModalAC } from "../../reducers/ModalReducer"
 import { SubSettingsModal } from "./SubSettingsModal"
 import { ServerSettingsModal } from "./servers/ServerSettingsModal"
+import { ChannelsList } from "./channels/ChannelsList"
 
 
 export const SubNav = (props) => {
@@ -35,6 +36,8 @@ export const SubNav = (props) => {
 
     if (whatWeAreRenderingThisFineEvening === "serverNav") {
         return (
+
+        
             <nav className="subNav">
                 <header id="serverHeader" onClick={openModal}>
                     <h5>
@@ -49,9 +52,16 @@ export const SubNav = (props) => {
 
                     <SubSettingsModal modalCloser={modalCloser}/>
                     <ServerSettingsModal currentServer={renderTarget} />
-                SOME SERVER SUBNAVVING HERE
+
+                <section>
+
+                    <ChannelsList />
+
+                </section>
 
             </nav>
+
+
         )
     } else { // the subnav will show convos or server stuff... so atm, it's just else, but maybe i can put a specific key later. 
         return (

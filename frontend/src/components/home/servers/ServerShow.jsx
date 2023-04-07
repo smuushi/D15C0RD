@@ -1,8 +1,11 @@
 
+import { useParams } from "react-router-dom"
 import { MessageForm } from "../MessageForm"
 import { DetailNav } from "./DetailNav"
 import { MessageLog } from "./MessageLog"
 import { ParticipantsList } from "./ParticipantsList"
+import { Navigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 export const ServerShow = (props) => {
 
@@ -11,9 +14,20 @@ export const ServerShow = (props) => {
 
     const targetServer = props.server
 
+    const actualServerObject = useSelector(state => state.entities.servers[targetServer]?.id )
+
     const targetContext = props.channel? props.channel : null
 
+    let location = useParams();
 
+
+
+    // if (location.serverId && !actualServerObject) {
+    //     debugger
+    //     setTimeout(() => {
+    //         return <Navigate to="/home" />
+    //     },200)
+    // }
 
     return (
         

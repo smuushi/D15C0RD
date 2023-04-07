@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :channels
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
@@ -13,7 +12,8 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy] ####
     
     resources :servers, only: [:show, :index, :create, :destroy, :update]
-
+    
+    resources :channels, only: [:show, :index, :create, :destroy, :update]
   end
 
   get '*path', to: "static_pages#frontend_index"

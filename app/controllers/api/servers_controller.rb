@@ -5,8 +5,8 @@ class Api::ServersController < ApplicationController
   # GET /servers.json
   def index
     # I want to only render the servers for the current_user???
-    all_servers = Server.all
-    @servers = Server.all
+
+    @servers = Server.includes(:channels).all
 
     
 

@@ -17,10 +17,13 @@ import { ServerReducer } from "../reducers/ServerReducer";
 
 import { UserReducer } from "../reducers/UserReducer";
 
+import { ChannelReducer } from "../reducers/ChannelReducer";
+
 const entitiesReducer = combineReducers({
     session: SessionReducer,
     servers: ServerReducer,
-    users: UserReducer
+    users: UserReducer,
+    channels: ChannelReducer
 })
 
 

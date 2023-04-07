@@ -4,6 +4,10 @@
     height: 100vh;
 }
 
+button {
+    cursor: pointer;
+}
+
 .ServersNav {
     max-width: 74px;
     min-width: 74px;

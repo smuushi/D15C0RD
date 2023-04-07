@@ -4,6 +4,8 @@ const RECEIVEALLUSERS = "user/RECEIVEALLUSERS"
 
 const RECEIVEUSERINFO = "user/RECEIVEUSERINFO"
 
+const ADDOWNEDSERVER = "user/ADDOWNEDSERVER"
+
 
 //--- Thunks---//
 
@@ -19,6 +21,8 @@ export const fetchAllUsers = () => async (dispatch) => {
         console.log("HAVING ISSUES WHILE GETTING ALL THE USERS FAM")
     }
 
+    return res
+
 }
 
 
@@ -29,6 +33,10 @@ export const receiveAllTheUsers = (collectionArrayOfUsers) => ({
     payload: collectionArrayOfUsers
 })
 
+export const addNewOwnedServerToUsersSlice = (object) => ({
+    type: ADDOWNEDSERVER, 
+    payload: {serverId: object.serverId, ownerId: object.ownerId}
+})
 
 
 //---User Reducer---//
@@ -55,7 +63,10 @@ export const UserReducer = (state = {}, action) => {
 
         
         // debugger
-        
+        case ADDOWNEDSERVER:
+            // debugger
+            nextState[action.payload.ownerId].servers.push(action.payload.serverId)
+            return nextState;
 
         // case REMOVESESSIONINFO:
             // incomplete

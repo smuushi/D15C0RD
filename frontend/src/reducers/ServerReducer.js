@@ -1,11 +1,14 @@
 import { csrfFetch } from "../store_utils/csrf"
 import { addServerToOwnedServersAC } from "./SessionReducer"
+import { addNewOwnedServerToUsersSlice } from "./UserReducer"
 
 const RECEIVESERVERINFO = "server/RECEIVESERVERINFO"
 
 const RECEIVEALLSERVERS = "server/RECEIVEALLSERVERS"
 
 const REMOVESERVER = "server/REMOVESERVER"
+
+const ADDCHANNEL = "server/ADDCHANNEL"
 
 
 
@@ -25,7 +28,7 @@ export const destroyServer = (serverId) => async (dispatch) => {
 export const updateServer = (serverInfo) => async (dispatch) => {
 
     if(serverInfo.removeicon){
-        debugger
+
         const res = await csrfFetch(`/api/servers/${serverInfo.id}`, {
             method: 'PATCH', 
             body: JSON.stringify({
@@ -109,7 +112,8 @@ export const createServer = (serverInfo) => async (dispatch) => {
 
             dispatch(receiveServer(serverInfo))
             dispatch(addServerToOwnedServersAC(serverInfo.id))
-
+            dispatch(addNewOwnedServerToUsersSlice({ownerId: serverInfo.ownerId, serverId: serverInfo.id}))
+            return res
         } else {
 
             console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
@@ -133,7 +137,9 @@ export const createServer = (serverInfo) => async (dispatch) => {
 
             dispatch(receiveServer(responseInfo))
             dispatch(addServerToOwnedServersAC(responseInfo.id))
+            dispatch(addNewOwnedServerToUsersSlice({ownerId: serverInfo.ownerId, serverId: responseInfo.id}))
 
+            return res
         }
 
 
@@ -155,6 +161,7 @@ export const fetchAllServers = () => async (dispatch) => {
     } else {
         console.log("SO BAD... from trying to get all servers. ")
     }
+    return res;
 }
 
 
@@ -176,6 +183,11 @@ export const receiveServer = (serverInfo) => ({
     type: RECEIVESERVERINFO, 
     payload: serverInfo
 })
+
+export const addChannel = (channelInfo) => ({
+    type: ADDCHANNEL, 
+    payload: channelInfo
+}) // note that channel info should be an object with the keys of Id and serverId.
 
 
 //---Server Reducer---//
@@ -210,9 +222,14 @@ export const ServerReducer = (state = {}, action) => {
         // debugger
         
 
+        case ADDCHANNEL:
+
+            // debugger
+            nextState[action.payload.serverId].channels.push(action.payload.id)
         // case REMOVESESSIONINFO:
             // incomplete
-            // return nextState;
+            return nextState;
+
 
         default: 
         return nextState;

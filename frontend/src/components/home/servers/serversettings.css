@@ -114,7 +114,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 100px;
+    height: auto;
 
 }
 
@@ -133,5 +133,18 @@ button#turnback {
 .DeletionForm button {
     position: initial;
     background-color: rgb(255, 45, 45);
+    margin-top: 5px;
     color: whitesmoke
+}
+
+.DeletionWrapper h3 {
+    margin-top: 10px;
+    margin: 20px;
+    margin-bottom: 40px;
+}
+
+.DeletionWrapper h5 {
+    margin-top: 10px;
+    margin: 20px;
+    margin-bottom: 40px;
 }
