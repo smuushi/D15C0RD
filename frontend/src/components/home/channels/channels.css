@@ -1,0 +1,214 @@
+
+.subNav section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+}
+
+.subNav {
+    height: 100vh;
+}
+
+.textchannels{
+    margin: 5px;
+    margin-top: 13px;
+    color: rgb(202, 202, 202);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.headerheader {
+    display: flex;
+}
+
+.headerheader div {
+    margin-right: 4px;
+    margin-left: 5px;
+}
+
+.ChannelHeader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    align-items: center;
+    cursor: default;
+}
+
+.ChannelHeader:hover {
+    color:rgb(232, 232, 232);
+}
+
+.ChannelHeader button {
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: rgb(223, 223, 223)
+}
+
+/* .ChannelHeader span {
+    position: absolute;
+    right: -32px;
+    background-color: rgb(17, 17, 17);
+    padding: 8px;
+    border-radius: 8px;
+    top:30px;
+} */
+
+.ChannelHeader span{
+    display: none;
+    position: absolute;
+    transition-property: all;
+    transition-delay: 200ms;
+}
+
+#addbutton{
+    pointer-events:all;
+}
+
+.ChannelHeader .addbutton:hover #thespan{
+    display: block;
+    position: absolute;
+    right: -32px;
+    background-color: rgb(17, 17, 17);
+    padding: 8px;
+    border-radius: 8px;
+    top:30px;
+
+    transition-property: all;
+    transition-duration: 100ms;
+}
+
+.textchannels a {
+    margin-top: 3px;
+
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 400;
+    padding: 10px;
+    color:rgb(153, 153, 153);
+
+}
+
+#namecontainer {
+    display: flex;
+    align-items: center;
+    min-width: 60%;
+    width: 80%;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#uiop {
+    display: flex;
+    align-items: center;
+    width: 80%;
+
+}
+
+#buffer {
+    margin-right: 0px;
+    width: 13%;
+}
+
+
+.textchannels li button {
+    margin: 0;
+    width: 8px;
+    height: 10px;
+    margin-left: 15px;
+    display: none;
+}
+
+.textchannels a {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 90% 10%;
+
+}
+
+.textchannels li:hover button {
+    width: 8px;
+    height: 10px;
+
+
+    display: block;
+
+
+    flex-direction: row;
+    z-index: 0;
+}
+
+
+    
+
+
+li button:last-child {
+    margin-right: 10px;
+}
+
+#buttonns {
+    display: flex;
+    justify-content: end;
+    width: 30%;
+    position:relative;
+    z-index: 30;
+    align-items: center;
+    margin-right: 0;
+}
+
+#buttonns button {
+    background: none;
+    border: none;
+    text-align: center;
+    padding-bottom: 14px;
+
+}
+
+
+
+.textchannels li:hover {
+    background-color: rgb(65, 65, 70);
+    transition-property: all;
+    transition-duration: 150ms;
+    border-radius: 7px;
+    color:rgb(234, 234, 234);
+}
+
+.textchannels li:hover a {
+
+    color:rgb(189, 189, 189);
+
+}
+
+#selectedchannel {
+    background-color: rgb(65, 65, 70);
+
+    border-radius: 7px;
+    
+
+}
+
+#selectedchannel a {
+    color:rgb(255, 255, 255);
+}
+
+.ServerSettingsModalWrapper {
+    z-index: 50;
+}
+
+
+.textchannels p {
+
+    padding: 15px;
+
+    text-align: center;
+
+
+}
+

@@ -16,10 +16,10 @@
 .SubSettingsModalWrapper {
     position: absolute;
 
-    padding: 15px;
+    padding: 5px;
     left: 85px;
     top: 60px;
-    min-width: 195px;
+    min-width: 215px;
     background-color: rgb(25, 25, 25);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;

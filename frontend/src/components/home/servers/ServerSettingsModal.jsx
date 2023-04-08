@@ -90,7 +90,7 @@ export const ServerSettingsModal = (props) => {
                 <div className="SettingsShowSection">
 
                     <OverviewSettingShow currentServer={currentServer} selection={selection}/>
-                    SOME RANDOM SHOWPAGE FOR A SETTINGS GOES HERE!
+
 
 
                 </div>

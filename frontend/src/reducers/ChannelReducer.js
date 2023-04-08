@@ -8,6 +8,25 @@ const REMOVECHANNEL = "channel/REMOVECHANNEL"
 
 //---THUNKS---//
 
+export const updateChannel = (channelInfo) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/channels/${channelInfo.id}`,{
+        method:'PATCH', 
+        body: JSON.stringify({
+            channel: {
+                ...channelInfo
+            }
+        })
+    })
+
+    if (res.ok) {
+        let data = await res.json();
+
+        dispatch(receiveChannel(data))
+    }
+
+} 
+
 export const destroyChannel = (channelId) => async (dispatch) => {
 
     const res = await csrfFetch(`/api/channels/${channelId}`,{
@@ -82,6 +101,8 @@ export const removeChannel = (channelId) => ({
     type: REMOVECHANNEL,
     channelId
 })
+
+
 
 
 //---REDUCER---//

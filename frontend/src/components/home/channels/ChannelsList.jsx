@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { activateModalAC } from "../../../reducers/ModalReducer";
 import { ChannelSettingsModal } from "./ChannelSettingsModal";
 import { NewChannelModal } from "./new_channel/NewChannelModal";
+import "./channels.css"
 
 export const ChannelsList = (props) => {
 
     const { serverId } = useParams();
+
+    const parchannelId = useParams().channelId;
 
     const channelIdsArray = useSelector(state => state.entities.servers[serverId]?.channels)
     
@@ -22,9 +25,10 @@ export const ChannelsList = (props) => {
         // debugger
         // e.preventDefault();
 
-        if (e.target.id === "ChannelSetting"){
-            dispatch(activateModalAC(e.target.id))
-
+        if (e.currentTarget.id === "ChannelSetting"){
+            dispatch(activateModalAC(e.currentTarget.id))
+            // e.target.setAttribute("style", "display: none")
+            
         } 
     }
 
@@ -40,16 +44,25 @@ export const ChannelsList = (props) => {
     const channelLiElements = channelIdsArray?.map((channelId) => {
 
         return(
-            <li>
+            <li id={channelId == parchannelId ? "selectedchannel" : ""}>
                 
-                <Link to={`/home/server/${serverId}/channel/${channelId}`} onClick={openSettingsModal}>
-                    <p>
-                        # {`${allChannels[channelId]?.name}`} 
-                    </p> 
-                    
-                    <button>create invite</button>
+                <Link to={`/home/server/${serverId}/channel/${channelId}`} >
+                    <div id="uiop">
 
-                    <button id="ChannelSetting">settings</button>
+                        <div id="buffer">#</div> 
+                        <div id="namecontainer">
+                            {`${allChannels[channelId]?.name}`} 
+                        </div> 
+                    </div>
+
+                    
+                    <div id="buttonns">
+                        <button><i className="fa-solid fa-user-plus" style={{color: "#c9c9c9"}}></i></button>
+
+                        <button id="ChannelSetting" onClick={openSettingsModal}>
+                            <i className="fa-solid fa-gear" style={{color: "#cccccc"}}></i>
+                        </button>
+                    </div>
                     
                 </Link>
 
@@ -60,14 +73,26 @@ export const ChannelsList = (props) => {
     })
 
     return (
-        <ul>
+        <ul className="textchannels">
             <ChannelSettingsModal currentServerId={serverId}/>
-            <div>
+            <div className="ChannelHeader">
+                <div className="headerheader">
+
+                <div>
+                    <i className="fa-solid fa-chevron-down" style={{color: "#969696"}}></i>
+                </div>
+
                 <div>TEXT CHANNELS</div>
-                <button id="NewChannel" onClick={openNewChannelModal}>+</button>
+                </div>
+                <div>
+                <div className="addbutton">
+                    <span id="thespan">Create Channel</span>
+                    <button id="NewChannel" onClick={openNewChannelModal}>+</button>
+                </div>
+                </div>
             </div>
 
-            {channelLiElements}
+            {channelLiElements?.length !== 0 ? channelLiElements : <p> Try adding a channel with the plus icon!</p>}
 
             <NewChannelModal />
         </ul>

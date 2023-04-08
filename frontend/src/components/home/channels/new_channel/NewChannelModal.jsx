@@ -24,8 +24,8 @@ export const NewChannelModal = (props) => {
     
             <div className="backdrop" 
             style={{position:"absolute",
-             border:"solid",
-              top:"0px",
+             border: "none",
+              top:"-3px",
               left:"-75px",
                width:"100vw",
                 height:"100vh",
@@ -37,7 +37,8 @@ export const NewChannelModal = (props) => {
                     <NewChannelForm />
     
                 </div>
-    
+
+
     
             </div>
         )

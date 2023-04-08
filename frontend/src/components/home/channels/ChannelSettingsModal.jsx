@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { DeletionModal } from "../servers/DeletionModal"
 import { resetModalAC } from "../../../reducers/ModalReducer";
 import { useParams } from "react-router-dom";
+import { ChannelOverviewSettingShow } from "./ChannelOverviewSettingShow";
 
 export const ChannelSettingsModal = (props) => {
     
@@ -97,8 +98,10 @@ export const ChannelSettingsModal = (props) => {
                 <div className="SettingsShowSection">
 
                     {/* <OverviewSettingShow currentServer={currentServer} selection={selection}/> */}
-                    SOME RANDOM SHOWPAGE FOR A SETTINGS GOES HERE!
 
+
+                        <ChannelOverviewSettingShow selection={selection} currentChannel={currentChannel}/>
+                    
 
                 </div>
 

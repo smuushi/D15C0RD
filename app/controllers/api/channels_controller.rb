@@ -37,8 +37,11 @@ class Api::ChannelsController < ApplicationController
   # PATCH/PUT /channels/1
   # PATCH/PUT /channels/1.json
   def update
+
+    @channel = Channel.find_by_id(params[:id])    
+
     if @channel.update(channel_params)
-      render :show, status: :ok, location: @channel
+      render :show, status: :ok
     else
       render json: {error: @channel.errors.full_messages}, status: :unprocessable_entity
     end

@@ -30,7 +30,15 @@ export const NewServerModal = (props) => {
     
                 </div>
     
-    
+                <img id="encouragement" src="/assets/misc/encouragement.png"
+                    style={{position:"absolute",
+                    left:"0px",
+                    top:"33vh",
+                    maxWidth:"250px"
+                }}
+
+                />
+            
             </div>
         )
 

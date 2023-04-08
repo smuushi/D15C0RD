@@ -84,6 +84,9 @@ export const DeletionModal = (props) => {
 
                         <button id="turnback" onClick={resetModals}>Cancel</button>
                     </div>
+
+                    <img id="warning" src="/assets/misc/warning.png" />
+
                     </div>
 
             )
@@ -96,23 +99,30 @@ export const DeletionModal = (props) => {
                 <div className="DeletionWrapper">
                     <header> 
                         <h3>
-                            Confirm deletion for {currentServer.name}.
+                            Confirm deletion for "{currentServer.name}"
                         </h3>
-                        <h5>write server name to confirm and then press delete..</h5>
+                        <div id="deletionwarning">
+
+                            <h5>Are you sure you want to delete {currentServer.name}? This action cannot be undone.</h5>
+                        </div>
 
                     </header>
 
                     <form className="DeletionForm" onSubmit={submitHandler}>
-                        <label htmlFor="confirmationtext">Write Server Name Here</label>
+                        <label htmlFor="confirmationtext">ENTER SERVER NAME</label>
                         <input id="confirmationtext" type="text" placeholder="server name" onChange={changeHandler} value={confirmation}/>
 
+                    <div id="buttonss">
 
-                        <button type="submit">DELETE FOREVER</button>
+                        <button id="turnback" onClick={resetModals}>Cancel</button>
+                        <button id="submitterr" type="submit">Delete Server</button>
         
+                    </div>
                     </form>
-
-                    <button id="turnback" onClick={resetModals}>Cancel</button>
                 </div>
+
+                <img id="warning" src="/assets/misc/warning.png" />
+
             </div>
 
         )

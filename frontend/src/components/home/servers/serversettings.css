@@ -23,6 +23,29 @@
 
 }
 
+.DeletionWrapper header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+header #deletionwarning {
+
+    width: 92%;
+    margin-left: 4%;
+    display: flex;
+    justify-content: center;
+
+    background-color: rgb(210, 159, 38);
+    margin-bottom: 20px;
+    height: 70px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+
 .ServerSettingsModalWrapper .ServerSettingsSubNav {
     display: flex;
     /* position: fixed; */
@@ -107,44 +130,101 @@
     align-items: center;
     border-radius: 10px;
     font-weight: 600;
+    z-index: 51;
 }
 
 .DeletionForm {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: auto;
+    
 
 }
 
 .DeletionForm input {
-    width: 100%;
-    padding: 10px
+    margin-top: 15px;
+    width: 87%;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 15px;
+    background-color: rgb(34, 33, 38);
 }
+
+.DeletionForm label {
+    font-size: 12px;
+    width: 92%;
+
+}
+
 
 
 
 button#turnback {
-    position: initial
+    position: initial;
+    background: none;
+    font-size: 13px;
+    color: rgb(181, 181, 181)
 
 }
 
-.DeletionForm button {
+.DeletionForm button#submitterr {
     position: initial;
-    background-color: rgb(255, 45, 45);
-    margin-top: 5px;
-    color: whitesmoke
+    background-color: rgb(236, 67, 67);
+    /* margin-top: 5px; */
+    color: whitesmoke;
+    font-size: 13px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3px;
+}
+.DeletionForm button#submitterr:hover {
+    background-color: rgb(116, 36, 36);
+    transition-property: all;
+    transition-duration: 200ms;
+}
+
+#buttonss {
+    display: flex;
+    width: 100%;
+    padding-top:5px;
+    padding-bottom: 5px;
+    align-items: center;
+
+    justify-content: end;
+    margin-top: 20px;
+    background-color: rgb(36, 36, 37);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+#buttonss button {
+    margin: 15px;
 }
 
 .DeletionWrapper h3 {
+    font-size: 22px;
     margin-top: 10px;
     margin: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+
+
+
 }
 
 .DeletionWrapper h5 {
     margin-top: 10px;
     margin: 20px;
     margin-bottom: 40px;
+}
+
+img#warning {
+    position: absolute;
+    left:0;
+    top: 200px;
+    z-index: 50;
 }
