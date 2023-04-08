@@ -156,8 +156,8 @@ export const HomePage = (props) => {
             </div>
 
             <div className="ShowDisplay">
-                <div>
-                    SERVER SHOW
+                <div className="ShowWrapper">
+
 
                     <ServerShow 
                         server={location.serverId? location.serverId : null}

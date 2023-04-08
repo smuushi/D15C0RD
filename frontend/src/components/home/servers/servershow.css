@@ -1,0 +1,46 @@
+.ShowDisplay {
+    width: 100%;
+}
+
+.ShowWrapper {
+    width: 100%;
+}
+
+.DetailNav {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    border-bottom: solid 2px rgb(44, 44, 44);
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgb(214, 212, 212);
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.DetailNav .bufferhash {
+    color: gray;
+    font-size: 28px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.DetailNav .descript {
+    display: flex;
+    justify-content: start;
+    margin-left:  20px;
+    align-items: center;
+    color: rgb(150, 150, 151);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.descript .smalldiv {
+    min-height: 24px;
+    width: 1px;
+    background-color: rgb(118, 118, 118);
+    border-radius: 15px;
+    margin-right: 18px;
+}
+

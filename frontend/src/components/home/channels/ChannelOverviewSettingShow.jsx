@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateChannel } from "../../../reducers/ChannelReducer";
+import "./channeloverviewsettingshow.css"
 
 export const ChannelOverviewSettingShow = (props) => {
 
@@ -82,7 +83,7 @@ export const ChannelOverviewSettingShow = (props) => {
                     </div>
 
                     <button id="submitter" type="submit">
-                        SAVE CHANGES
+                        Save Changes
                     </button>
 
                 
@@ -90,7 +91,7 @@ export const ChannelOverviewSettingShow = (props) => {
                 </form>
 
                 
-                <img src="/assets/misc/settingsimage.svg" />
+                <img id="settingsimage" src="/assets/misc/settingsimage.svg" />
 
             </div>
         ) 

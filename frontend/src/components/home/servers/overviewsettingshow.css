@@ -58,8 +58,16 @@
 
 button#submitter {
     position: initial;
-    max-width: 300px;
+    max-width: 150px;
     margin-left: 30px;
+    color: whitesmoke;
+    background-color: rgb(138, 56, 215);
+}
+
+button#submitter:hover {
+    background-color: rgb(111, 51, 167);
+    transition-property: all;
+    transition-duration: 200ms;
 }
 
 button#remover {

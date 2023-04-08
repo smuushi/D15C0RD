@@ -34,7 +34,8 @@ export const NewServerModal = (props) => {
                     style={{position:"absolute",
                     left:"0px",
                     top:"33vh",
-                    maxWidth:"250px"
+                    maxWidth:"250px",
+                    zIndex:"1"
                 }}
 
                 />

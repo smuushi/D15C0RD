@@ -22,6 +22,7 @@ export const destroyServer = (serverId) => async (dispatch) => {
     if (res.ok) {
         dispatch(removeServer(serverId))
     }
+    return res;
 }
 
 

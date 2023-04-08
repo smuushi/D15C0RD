@@ -1,0 +1,82 @@
+
+
+.newchannelmodalwrapper {
+    background-color: rgb(52, 54, 57);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    width: 40vw;
+    max-width: 50vw;
+    min-width: 300px;
+    transition-property: all;
+    transition-duration: 500ms;
+
+}
+
+.newChannelForm {
+    display: flex;
+    flex-direction: column;
+    min-width: 290px;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.newChannelForm header {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 15px;
+}
+
+.newChannelForm header h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.newChannelForm header h5 {
+    font-size: 14px;
+    color: rgb(120, 119, 119);
+}
+
+.newChannelForm .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-left: 15px;
+}
+
+.content input {
+    width: 90%;
+    background-color: rgb(23, 23, 23);
+    border: none;
+    border-radius: 3px;
+    padding: 13px;
+    color: rgb(191, 191, 191);
+    font-size: 15px;
+}
+
+.content label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#buttonss #submitter {
+    background-color: rgb(85, 73, 223);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(202, 200, 200);
+}
+
+#buttonss #submitter:hover {
+    transition-property: all;
+    transition-duration: 500ms;
+
+    background-color: rgb(62, 53, 167);
+}

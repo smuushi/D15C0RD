@@ -118,7 +118,7 @@ export const OverviewSettingShow = (props) => {
                 </div>
 
                 <button id="submitter" type="submit">
-                    SAVE CHANGES
+                    Save Changes
                 </button>
 
                

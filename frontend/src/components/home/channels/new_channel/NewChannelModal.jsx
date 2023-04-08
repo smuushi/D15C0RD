@@ -31,7 +31,7 @@ export const NewChannelModal = (props) => {
                 height:"100vh",
                 zIndex:"11"}}
                 onClick={closeModals}>
-                <div className="newservermodalwrapper">
+                <div className="newchannelmodalwrapper">
     
     
                     <NewChannelForm />
@@ -39,6 +39,14 @@ export const NewChannelModal = (props) => {
                 </div>
 
 
+                <img id="encouragement" src="/assets/misc/encouragement.png"
+                    style={{position:"absolute",
+                    left:"0px",
+                    top:"33vh",
+                    maxWidth:"250px"
+                }}
+
+                />
     
             </div>
         )

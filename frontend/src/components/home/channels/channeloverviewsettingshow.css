@@ -1,0 +1,33 @@
+#ChannelUpdateForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    justify-content: start;
+}
+
+.descriptioner {
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px
+}
+
+.descriptioner label {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.descriptioner input {
+    padding: 13px;
+    border-radius: 5px;
+    background-color: rgb(39, 39, 41);
+    border: none;
+    color: whitesmoke
+}
+
+#settingsimage {
+    margin-left: 20%;
+    margin-top: 50px    ;
+}
+

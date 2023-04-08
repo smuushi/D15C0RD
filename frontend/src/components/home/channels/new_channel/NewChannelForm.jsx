@@ -3,6 +3,8 @@ import { Navigate, useParams } from "react-router-dom";
 import { createNewChannel } from "../../../../reducers/ChannelReducer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./newchannel.css";
+
 
 
 export const NewChannelForm = (props) => {
@@ -44,7 +46,7 @@ export const NewChannelForm = (props) => {
 
     return (
 
-        <form onSubmit={submitHandler}>
+        <form className="newChannelForm" onSubmit={submitHandler}>
 
             <header>
                 <h3>Create Channel</h3>
@@ -60,7 +62,9 @@ export const NewChannelForm = (props) => {
 
             </div>
 
-            <button id="submitter">Create New Channel</button>
+            <div id="buttonss">
+                <button id="submitter">Create Channel</button>
+            </div>
 
         </form>
     )

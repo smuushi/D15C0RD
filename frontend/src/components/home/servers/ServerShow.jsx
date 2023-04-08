@@ -6,17 +6,24 @@ import { MessageLog } from "./MessageLog"
 import { ParticipantsList } from "./ParticipantsList"
 import { Navigate } from "react-router-dom"
 import { useSelector } from "react-redux"
+import "./servershow.css"
 
 export const ServerShow = (props) => {
 
 
-    // console.log(props)
+    console.log(props)
+
 
     const targetServer = props.server
 
-    const actualServerObject = useSelector(state => state.entities.servers[targetServer]?.id )
+    const actualServerObject = useSelector(state => state.entities.servers[targetServer] )
+
 
     const targetContext = props.channel? props.channel : null
+
+    // debugger
+
+
 
     let location = useParams();
 

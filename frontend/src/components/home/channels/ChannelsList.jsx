@@ -41,8 +41,12 @@ export const ChannelsList = (props) => {
     }
 
 
+
     const channelLiElements = channelIdsArray?.map((channelId) => {
 
+        if (!allChannels[channelId]) {
+            return 
+        }    
         return(
             <li id={channelId == parchannelId ? "selectedchannel" : ""}>
                 
@@ -71,6 +75,7 @@ export const ChannelsList = (props) => {
         )
         
     })
+    // console.log(channelLiElements)
 
     return (
         <ul className="textchannels">
@@ -93,6 +98,7 @@ export const ChannelsList = (props) => {
             </div>
 
             {channelLiElements?.length !== 0 ? channelLiElements : <p> Try adding a channel with the plus icon!</p>}
+            
 
             <NewChannelModal />
         </ul>
