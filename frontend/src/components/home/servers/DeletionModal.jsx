@@ -76,26 +76,26 @@ export const DeletionModal = (props) => {
                     <div className="backdrop">
 
 
-                    <div className="DeletionWrapper">
-                        <header> 
-                            <h3>
-                                Delete Channel
-                            </h3>
-                            <h5>{`Are you sure you want to delete #${currentChannelName}?? This cannot be undone.`}</h5>
-                        </header>
+                        <div className="DeletionWrapper">
+                            <header> 
+                                <h3>
+                                    Delete Channel
+                                </h3>
+                                <h5>{`Are you sure you want to delete #${currentChannelName}?? This cannot be undone.`}</h5>
+                            </header>
 
-                        <form className="DeletionForm" onSubmit={submitHandler}>
+                            <form className="DeletionForm" onSubmit={submitHandler}>
 
-                            <div id="buttonss">
-                                <button type="button" id="turnback" onClick={resetModals}>Cancel</button>
-                                <button id="submitterr" type="submit">Delete Channel</button>
-                            </div>
+                                <div id="buttonss">
+                                    <button type="button" id="turnback" onClick={resetModals}>Cancel</button>
+                                    <button id="submitterr" type="submit">Delete Channel</button>
+                                </div>
 
-                        </form>
+                            </form>
 
-                    </div>
+                        </div>
 
-                    <img id="warning" src="/assets/misc/warning.png" />
+                        <img id="warning" src="/assets/misc/warning.png" />
 
                     </div>
 

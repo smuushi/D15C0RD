@@ -6,6 +6,7 @@ import { activateModalAC } from "../../../reducers/ModalReducer";
 import "./ServersNavBar.css"
 import { NewServerModal } from "./new_server/NewServerModal";
 import { resetModalAC } from "../../../reducers/ModalReducer";
+import { LeaveServerModal } from "./leave_server/LeaveServerModal";
 
 export const ServersNavBar = (props) => {
 
@@ -97,6 +98,8 @@ export const ServersNavBar = (props) => {
 
     return (
         <>
+            <LeaveServerModal />
+
             <ul className="ServerNavList" >
 
                 <li className="Home" key={JSON.stringify(Math.random())}>
@@ -127,6 +130,8 @@ export const ServersNavBar = (props) => {
                 </li>
             </ul>
             <NewServerModal modalcloser={closeModal} />
+
+
         </>
     )
 

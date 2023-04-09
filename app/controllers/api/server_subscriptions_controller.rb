@@ -58,7 +58,33 @@ class Api::ServerSubscriptionsController < ApplicationController
   # DELETE /server_subscriptions/1
   # DELETE /server_subscriptions/1.json
   def destroy
-    @server_subscription.destroy
+    #params can hold the serverId since i can use subId from earlier architecture.. 
+    # debugger
+    @user = User.includes(:subscriptions).find_by_id(server_subscription_params[:subscriber_id])
+
+    @subscription_to_destroy = @user.subscriptions.where(server_id: params[:id])[0]
+
+    if @subscription_to_destroy
+
+      # debugger
+
+      @subscription_to_destroy.destroy
+
+      # @server = Server.find_by_id(params[:id]) 
+      # don't need to render back server info to update the store for the end user
+      # because they left the server lmao... 
+      # debugger
+
+      render 'api/users/show', status: 200
+
+    else 
+
+      render json: "could not find subscription to destroy...??", status: 469
+
+    end
+
+
+
   end
 
   private

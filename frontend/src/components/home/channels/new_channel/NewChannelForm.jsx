@@ -56,8 +56,8 @@ export const NewChannelForm = (props) => {
             </header>
 
             <div className="content">
-
                 <label htmlFor="channelName">CHANNEL NAME</label>
+
 
                 <input type="text" id="channelName" value={channelName} onChange={changeHandler}/>
                 

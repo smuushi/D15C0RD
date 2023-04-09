@@ -88,7 +88,7 @@ export const ServerSettingsModal = (props) => {
                 </div>
 
                 <div className="SettingsShowSection">
-                    {currentServer?.ownerId !== currentUser.id? <h5>You must be the server owner to change settings!</h5> : <></>}
+                    {currentServer?.ownerId !== currentUser.id? <h5 className="OwnerWarning">You must be the server owner to change settings!</h5> : <></>}
                     <OverviewSettingShow currentServer={currentServer} selection={selection}/>
 
 

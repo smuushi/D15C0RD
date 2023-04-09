@@ -18,6 +18,10 @@ export const SubSettingsModal = (props) => {
         dispatch(activateModalAC(e.currentTarget.id))
     }
 
+    const openLeaveModal = (e) => {
+        dispatch(activateModalAC(e.currentTarget.id))
+    }
+
     if (isActive) {
         return (
 
@@ -30,9 +34,15 @@ export const SubSettingsModal = (props) => {
                                     <div>
                                         Server Settings
                                     </div>
-                                <i className="fa-solid fa-gear" style={{color: "#9e9e9e"}}></i>
+                                <i className="fa-solid fa-gear" ></i>
                                 </li>
                                 {isOwner? <li id="NewChannel" onClick={openSettingsModal} >Create Channel</li> : <></>}
+                                {!isOwner? <li id="leaveserver" onClick={openLeaveModal}>
+                                    <div>
+                                        Leave Server
+                                    </div>
+                                <i className="fa-solid fa-circle-arrow-left" ></i>
+                                </li> : <></>}
                             </ul>
 
             

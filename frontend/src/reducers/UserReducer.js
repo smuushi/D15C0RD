@@ -45,6 +45,10 @@ export const addNewServerToJoinedServers = (object) => ({
     payload: {serverId: object.serverId, subscriberId: object.subscriberId}
 })
 
+export const receiveUser = (userObject) => ({
+    type: RECEIVEUSERINFO, 
+    payload: userObject
+})
 
 //---User Reducer---//
 
@@ -66,6 +70,9 @@ export const UserReducer = (state = {}, action) => {
 
 
         case RECEIVEUSERINFO:
+
+            nextState[action.payload.id] = action.payload
+
             return nextState;
 
         

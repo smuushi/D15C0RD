@@ -1,6 +1,7 @@
 import { csrfFetch } from "../store_utils/csrf"
 import { addServerToOwnedServersAC } from "./SessionReducer"
 import { addNewOwnedServerToUsersSlice, addNewServerToJoinedServers } from "./UserReducer"
+import { receiveUser } from "./UserReducer"
 
 const RECEIVESERVERINFO = "server/RECEIVESERVERINFO"
 
@@ -15,6 +16,39 @@ const ADDSERVERERROR = "server/ADDSERVERERROR"
 
 
 //---Thunks---//
+
+export const leaveServer = (request) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/server_subscriptions/${request.serverId}`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+            subrequest: {
+                subscriberId: request.userId
+            }
+        })
+    })
+
+    if (res.ok) {
+
+        let data = await res.json()
+
+        dispatch(receiveUser(data))
+        // debugger
+        
+
+
+    } else {
+        console.log("DELETION FAILED HARD BRO")
+        console.log("DELETION FAILED HARD BRO")
+        console.log("DELETION FAILED HARD BRO")
+        console.log("DELETION FAILED HARD BRO")
+        console.log("DELETION FAILED HARD BRO")
+
+    }
+
+
+
+}
 
 
 export const joinServer = (request) => async (dispatch) => {

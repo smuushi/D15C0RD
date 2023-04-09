@@ -4,6 +4,7 @@ import { SubSettingsModal } from "./SubSettingsModal"
 import { ServerSettingsModal } from "./servers/ServerSettingsModal"
 import { ChannelsList } from "./channels/ChannelsList"
 import { render } from "react-dom"
+import { LeaveServerModal } from "./servers/leave_server/LeaveServerModal"
 
 
 export const SubNav = (props) => {
@@ -59,6 +60,7 @@ export const SubNav = (props) => {
 
                     <SubSettingsModal isOwner={isOwner} modalCloser={modalCloser}/>
                     <ServerSettingsModal currentServer={renderTarget} />
+
 
                 <section>
 

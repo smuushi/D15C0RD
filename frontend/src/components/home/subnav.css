@@ -71,3 +71,15 @@
     transition-property: all;
     transition-duration: 200ms;
 }
+
+#leaveserver {
+    color: rgb(252, 66, 66);
+
+}
+
+#leaveserver:hover {
+    background-color: rgb(252, 66, 66);
+    color: whitesmoke;
+    transition-property: all;
+    transition-duration: 400ms;
+}

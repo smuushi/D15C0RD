@@ -230,3 +230,12 @@ img#warning {
     top: 200px;
     z-index: 50;
 }
+
+.OwnerWarning {
+    position: relative;
+    left: 15%;
+    top: 30%;
+    font-size: 25px;
+    max-width: 300px;
+    font-weight: 600;
+}
