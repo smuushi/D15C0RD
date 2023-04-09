@@ -55,6 +55,32 @@
     top:30px;
 } */
 
+#buttonns #thespan {
+    display: none;
+    position: absolute;
+    z-index: 8;
+
+    transition-property: all;
+    transition-delay: 200ms;
+}
+
+#buttonns h5:hover #thespan {
+    display: block;
+    position: absolute;
+    right: -10px;
+    background-color: rgb(31, 31, 31);
+    padding: 8px;
+    border-radius: 8px;
+    top:-50px;
+    font-size: 13px;
+    width: 60px;
+    text-align: center;
+    z-index: 8;
+
+    transition-property: all;
+    transition-duration: 100ms;
+}
+
 .ChannelHeader span{
     display: none;
     position: absolute;

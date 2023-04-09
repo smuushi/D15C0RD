@@ -6,7 +6,7 @@ class Api::ServersController < ApplicationController
   def index
     # I want to only render the servers for the current_user???
 
-    @servers = Server.includes(:channels).all
+    @servers = Server.includes(:channels, :subscribers).all
 
     
 
@@ -25,6 +25,9 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
+      # owner_subscription = ServerSubscription.new(server_id: @server.id, subscriber_id: server_params[:owner_id])
+      # tried to move this to the model for after validation..
+
       render :show, status: 200
     else
       render json: {error: @server.errors.full_messages}, status: :unprocessable_entity
@@ -50,6 +53,26 @@ class Api::ServersController < ApplicationController
     @server = Server.find_by_id(params[:id])
     @server.destroy
   end
+
+
+  ###CUSTOM ROUTE BELOW###
+
+  def invite
+
+    new_invite = Invite.new(server_id: params[:id])
+
+
+
+    if new_invite.save
+      render json: {invite_code: new_invite.invite_code}
+    else
+      render json: {error: "unable to make new invite..."}, status: 589
+    end
+
+  end
+
+
+  ###########
 
   private
     # Use callbacks to share common setup or constraints between actions.

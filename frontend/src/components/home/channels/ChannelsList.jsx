@@ -4,13 +4,20 @@ import { Link } from "react-router-dom";
 import { activateModalAC } from "../../../reducers/ModalReducer";
 import { ChannelSettingsModal } from "./ChannelSettingsModal";
 import { NewChannelModal } from "./new_channel/NewChannelModal";
+import { InviteModal } from "../invites/InviteModal";
 import "./channels.css"
 
 export const ChannelsList = (props) => {
 
+    const {ownerId} = props;
+
+    const currentUserId = useSelector(state => state.entities.session.user?.id)
+
     const { serverId } = useParams();
 
     const parchannelId = useParams().channelId;
+
+
 
     const channelIdsArray = useSelector(state => state.entities.servers[serverId]?.channels)
     
@@ -42,6 +49,7 @@ export const ChannelsList = (props) => {
 
 
 
+
     const channelLiElements = channelIdsArray?.map((channelId) => {
 
         if (!allChannels[channelId]) {
@@ -61,11 +69,23 @@ export const ChannelsList = (props) => {
 
                     
                     <div id="buttonns">
-                        <button><i className="fa-solid fa-user-plus" style={{color: "#c9c9c9"}}></i></button>
+                        {currentUserId === ownerId ? 
+                        
+                        <>
+                        <h5>
+                            <span id="thespan">Create Invite</span>
+                            <button id="NewInvite" onClick={openNewChannelModal}><i className="fa-solid fa-user-plus" style={{color: "#c9c9c9"}}></i></button>
+                        </h5>
 
+                        <h5>
+
+                        <span id="thespan">Channel Settings</span>    
                         <button id="ChannelSetting" onClick={openSettingsModal}>
                             <i className="fa-solid fa-gear" style={{color: "#cccccc"}}></i>
-                        </button>
+                        </button> 
+                        </h5>
+                        
+                        </> : <></>}
                     </div>
                     
                 </Link>
@@ -90,14 +110,20 @@ export const ChannelsList = (props) => {
                 <div>TEXT CHANNELS</div>
                 </div>
                 <div>
-                <div className="addbutton">
-                    <span id="thespan">Create Channel</span>
-                    <button id="NewChannel" onClick={openNewChannelModal}>+</button>
-                </div>
+                    <InviteModal serverId = {serverId}/>
+
+                    { currentUserId === ownerId ?
+                        <div className="addbutton">
+                            <span id="thespan">Create Channel</span>
+                            <button id="NewChannel" onClick={openNewChannelModal}>+</button>
+                        </div>
+                        :
+                        <></>
+                    }
                 </div>
             </div>
 
-            {channelLiElements?.length !== 0 ? channelLiElements : <p> Try adding a channel with the plus icon!</p>}
+            {channelLiElements?.length !== 0 ? channelLiElements : ownerId === currentUserId ? <p> Try adding a channel with the plus icon!</p> : <p> You need to be the owner to add channels! </p>}
             
 
             <NewChannelModal />

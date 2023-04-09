@@ -158,7 +158,68 @@
 
 .iconInput input {
     margin-left: 10%;
+}
 
+#joinsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+#joinsection div {
+    margin-bottom: 10px;
 
 }
 
+#joinsection #joinbutton {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(107, 107, 107);
+    color: rgb(238, 238, 238);
+    padding: 15px;
+}
+
+#joinsection #joinbutton:hover {
+    background-color: rgb(90, 89, 89);
+}   
+
+
+#invitersection {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#invitersection span {
+    color: rgb(241, 32, 32);
+    font-size: 15px;
+    font-style: italic;
+
+}
+
+#invitersection input {
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    border: none;
+    color: rgb(102, 102, 102);
+    background-color: rgb(207, 219, 224);
+    margin-top: 5px;
+}
+
+#submitters #submissionbbutton {
+    background-color: rgb(127, 116, 243);
+    color: rgb(233, 230, 230);
+    padding: 10px;
+    max-width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#submitters #submissionbbutton:hover {
+    background-color: rgb(96, 87, 189);
+
+}   

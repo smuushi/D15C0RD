@@ -3,6 +3,7 @@ import { activateModalAC, resetModalAC } from "../../reducers/ModalReducer"
 import { SubSettingsModal } from "./SubSettingsModal"
 import { ServerSettingsModal } from "./servers/ServerSettingsModal"
 import { ChannelsList } from "./channels/ChannelsList"
+import { render } from "react-dom"
 
 
 export const SubNav = (props) => {
@@ -14,7 +15,13 @@ export const SubNav = (props) => {
     // ONLY IF a serverID was passed as a prop to the component.
     // otherwise return null for the state selector for now....
 
+    const ownerId = renderTarget?.ownerId
+
+    const currentUserId = useSelector(state => state.entities.session.user.id)
+
     // console.log(renderTarget)
+
+    const isOwner = ownerId === currentUserId? true : false
 
     console.log(whatWeAreRenderingThisFineEvening) // lmao
 
@@ -50,12 +57,12 @@ export const SubNav = (props) => {
 
                 </header>
 
-                    <SubSettingsModal modalCloser={modalCloser}/>
+                    <SubSettingsModal isOwner={isOwner} modalCloser={modalCloser}/>
                     <ServerSettingsModal currentServer={renderTarget} />
 
                 <section>
 
-                    <ChannelsList />
+                    <ChannelsList ownerId={ownerId}/>
 
                 </section>
 

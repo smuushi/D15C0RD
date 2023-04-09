@@ -6,6 +6,8 @@ const RECEIVEUSERINFO = "user/RECEIVEUSERINFO"
 
 const ADDOWNEDSERVER = "user/ADDOWNEDSERVER"
 
+const ADDNEWJOINEDSERVER = "user/ADDNEWJOINEDSERVER"
+
 
 //--- Thunks---//
 
@@ -36,6 +38,11 @@ export const receiveAllTheUsers = (collectionArrayOfUsers) => ({
 export const addNewOwnedServerToUsersSlice = (object) => ({
     type: ADDOWNEDSERVER, 
     payload: {serverId: object.serverId, ownerId: object.ownerId}
+})
+
+export const addNewServerToJoinedServers = (object) => ({
+    type: ADDNEWJOINEDSERVER,
+    payload: {serverId: object.serverId, subscriberId: object.subscriberId}
 })
 
 
@@ -72,6 +79,10 @@ export const UserReducer = (state = {}, action) => {
             // incomplete
             // return nextState;
 
+        case ADDNEWJOINEDSERVER:
+            // debugger
+            nextState[action.payload.subscriberId].joinedServers.push(action.payload.serverId)
+            return nextState
         default: 
         return nextState;
     }

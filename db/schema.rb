@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_07_182449) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_08_231602) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_182449) do
     t.index ["server_id"], name: "index_channels_on_server_id"
   end
 
+  create_table "invites", force: :cascade do |t|
+    t.bigint "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "invite_code", null: false
+    t.index ["invite_code"], name: "index_invites_on_invite_code", unique: true
+    t.index ["server_id"], name: "index_invites_on_server_id"
+  end
+
+  create_table "server_subscriptions", force: :cascade do |t|
+    t.bigint "subscriber_id", null: false
+    t.bigint "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_server_subscriptions_on_server_id"
+    t.index ["subscriber_id", "server_id"], name: "index_server_subscriptions_on_subscriber_id_and_server_id", unique: true
+    t.index ["subscriber_id"], name: "index_server_subscriptions_on_subscriber_id"
+  end
+
   create_table "servers", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "owner_id", null: false
@@ -74,5 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_182449) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "invites", "servers"
+  add_foreign_key "server_subscriptions", "servers"
+  add_foreign_key "server_subscriptions", "users", column: "subscriber_id"
   add_foreign_key "servers", "users", column: "owner_id"
 end

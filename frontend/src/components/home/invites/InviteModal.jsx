@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux"
-import { resetModalAC } from "../../../../reducers/ModalReducer";
-import { NewChannelForm } from "./NewChannelForm";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { resetModalAC } from "../../../reducers/ModalReducer";
+import { InviteForm } from "./InviteForm";
 
-export const NewChannelModal = (props) => {
-    
+export const InviteModal = (props) => {
 
-    const modalId = "NewChannel";
+    const modalId = "NewInvite";
 
     const isActive = !!(modalId === useSelector(state => state.activeModal));
 
@@ -34,7 +34,7 @@ export const NewChannelModal = (props) => {
                 <div className="newchannelmodalwrapper">
     
     
-                    <NewChannelForm />
+                    <InviteForm />
     
                 </div>
 
@@ -43,7 +43,9 @@ export const NewChannelModal = (props) => {
                     style={{position:"absolute",
                     left:"0px",
                     top:"33vh",
-                    maxWidth:"250px"
+                    maxWidth:"250px",
+                    userSelect: "none",
+                    zIndex:"0"
                 }}
 
                 />
@@ -58,4 +60,4 @@ export const NewChannelModal = (props) => {
     }
 
 
-}  
+}

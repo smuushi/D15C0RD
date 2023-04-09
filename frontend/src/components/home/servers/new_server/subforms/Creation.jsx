@@ -3,6 +3,7 @@ export const Creation = (props) => {
 
     const {setCreation} = props;
 
+    const {setNewsub} = props;
     // console.log(setCreation)
 
     const clickHandler = (e) => {
@@ -22,6 +23,17 @@ export const Creation = (props) => {
 
                 
             </button>
+
+            <section id="joinsection">
+
+                <div>Have an invite already?</div>
+
+                <button id="joinbutton" onClick={() => {setNewsub(() => "some other truthy val lmao")}}>
+
+                    Join a Server
+
+                </button>
+            </section>
 
                     
 

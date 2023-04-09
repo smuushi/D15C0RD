@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 
 const RECEIVEACTIVEMODAL = "modal/RECEIVEACTIVEMODAL"
 
+const IATEMYWORDS = "literally nothing will match this in the reducers.. just trying to reset stuff to their default."
+
 
 //---misc---//
 
@@ -25,7 +27,7 @@ export const activateModalAC = (someIdentifier) => ({
 })
 
 export const resetModalAC = () => ({
-    type: "literally nothing will match this in the reducers.. just trying to reset stuff to their default."
+    type: IATEMYWORDS
 })
 
 
@@ -34,7 +36,7 @@ export const resetModalAC = () => ({
 export const ModalReducer = (state = null, action) => {
 
     // debugger
-    let nextState = null;
+    let nextState = state;
 
     switch(action.type) {
 
@@ -43,8 +45,13 @@ export const ModalReducer = (state = null, action) => {
             nextState = action.modalId;
             return nextState;
             
+            
+        case IATEMYWORDS:
+            nextState = null;
+            return nextState
+
         default: 
-        return nextState;
+            return nextState;
     }
 
 

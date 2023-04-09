@@ -4,6 +4,7 @@ import { createNewChannel } from "../../../../reducers/ChannelReducer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./newchannel.css";
+import { resetModalAC } from "../../../../reducers/ModalReducer";
 
 
 
@@ -39,6 +40,7 @@ export const NewChannelForm = (props) => {
         if (channelName) {
             dispatch(createNewChannel(newChannelInfo)).then(([res, channelId]) => {
                 navigate(`/home/server/${serverId}/channel/${channelId}`)
+                dispatch(resetModalAC())
             })
         }
 

@@ -58,9 +58,9 @@ export const ServerSettingsModal = (props) => {
                 {/* SERVER SETTINGS MODAL HERE HAHAH */}
 
                 <div className="ServerSettingsSubNav">
-                    <h3>{currentServer.name} Settings</h3>
+                    <h3>{currentServer?.name} Settings</h3>
                     <ul className="SettingsList">
-                        {currentServer.ownerId === currentUser.id?
+                        {currentServer?.ownerId === currentUser.id?
                             <li id="ServerOverview" className={selection === "ServerOverview"? "selected" : "notSelected"} onClick={selectionHandler}>
 
                                 <div className="overview">
@@ -72,7 +72,7 @@ export const ServerSettingsModal = (props) => {
                             <></>
                         }
 
-                        {currentServer.ownerId === currentUser.id?
+                        {currentServer?.ownerId === currentUser.id?
                             <li className="notSelected" onClick={openDeletionConfirmation}>
                                 <div className="DELETE">
                                     Delete Server
@@ -88,7 +88,7 @@ export const ServerSettingsModal = (props) => {
                 </div>
 
                 <div className="SettingsShowSection">
-
+                    {currentServer?.ownerId !== currentUser.id? <h5>You must be the server owner to change settings!</h5> : <></>}
                     <OverviewSettingShow currentServer={currentServer} selection={selection}/>
 
 

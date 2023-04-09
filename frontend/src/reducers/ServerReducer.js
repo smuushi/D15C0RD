@@ -1,6 +1,6 @@
 import { csrfFetch } from "../store_utils/csrf"
 import { addServerToOwnedServersAC } from "./SessionReducer"
-import { addNewOwnedServerToUsersSlice } from "./UserReducer"
+import { addNewOwnedServerToUsersSlice, addNewServerToJoinedServers } from "./UserReducer"
 
 const RECEIVESERVERINFO = "server/RECEIVESERVERINFO"
 
@@ -10,9 +10,42 @@ const REMOVESERVER = "server/REMOVESERVER"
 
 const ADDCHANNEL = "server/ADDCHANNEL"
 
+const ADDSERVERERROR = "server/ADDSERVERERROR"
+
 
 
 //---Thunks---//
+
+
+export const joinServer = (request) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/server_subscriptions`, {
+        method: 'POST',
+        body: JSON.stringify({
+            subrequest: {
+                ...request
+            }
+        })
+    })
+
+    if (res.ok) {
+        let data = await res.json();
+        // debugger
+        dispatch(addNewServerToJoinedServers({subscriberId: data.subscriberId, serverId: data.serverId}))
+
+        return data
+        
+    } else {
+
+        let errorArray = await res.json();
+        // debugger
+        console.log("failed to join server")
+        dispatch(receiveError(errorArray))
+
+        throw new Error
+    }
+
+}
 
 export const destroyServer = (serverId) => async (dispatch) => {
     const res = await csrfFetch(`/api/servers/${serverId}`, {
@@ -114,7 +147,8 @@ export const createServer = (serverInfo) => async (dispatch) => {
             dispatch(receiveServer(serverInfo))
             dispatch(addServerToOwnedServersAC(serverInfo.id))
             dispatch(addNewOwnedServerToUsersSlice({ownerId: serverInfo.ownerId, serverId: serverInfo.id}))
-            return res
+            dispatch(addNewServerToJoinedServers({subscriberId: serverInfo.ownerId, serverId: serverInfo.id}))
+            return serverInfo
         } else {
 
             console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
@@ -138,9 +172,10 @@ export const createServer = (serverInfo) => async (dispatch) => {
 
             dispatch(receiveServer(responseInfo))
             dispatch(addServerToOwnedServersAC(responseInfo.id))
-            dispatch(addNewOwnedServerToUsersSlice({ownerId: serverInfo.ownerId, serverId: responseInfo.id}))
+            dispatch(addNewOwnedServerToUsersSlice({ownerId: responseInfo.ownerId, serverId: responseInfo.id}))
+            dispatch(addNewServerToJoinedServers({subscriberId: responseInfo.ownerId, serverId: responseInfo.id}))
 
-            return res
+            return responseInfo
         }
 
 
@@ -167,6 +202,11 @@ export const fetchAllServers = () => async (dispatch) => {
 
 
 //---AC---//
+
+export const receiveError = (errorArray) => ({
+    type: ADDSERVERERROR, 
+    payload: errorArray
+})
 
 
 export const removeServer = (serverId) => ({
@@ -237,4 +277,25 @@ export const ServerReducer = (state = {}, action) => {
     }
 
 
+}
+
+export const serverErrorReducer = (state = [], action) => {
+
+    let nextState = []
+
+    switch (action.type) {
+
+        case ADDSERVERERROR: 
+        // debugger
+            action.payload.forEach((error) => {
+                nextState.push(error)
+            })
+
+            return nextState;
+
+        default:
+            return nextState;
+
+
+    }
 }

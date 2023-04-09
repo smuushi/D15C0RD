@@ -12,6 +12,19 @@ class Server < ApplicationRecord
 
     validates :name, :owner_id, presence: true
 
+    after_save :create_owner_subscription
+
+    
+
+    def create_owner_subscription
+
+        owner_subscription = ServerSubscription.new(server_id: self.id, subscriber_id: self.owner_id)
+
+        owner_subscription.save!
+
+    end
+
+
     has_one_attached :icon
 
     belongs_to(
@@ -28,5 +41,29 @@ class Server < ApplicationRecord
         primary_key: :id, 
         dependent: :destroy
     )
+
+    has_many(
+        :subscriptions, 
+        class_name: :ServerSubscription, 
+        foreign_key: :server_id, 
+        primary_key: :id, 
+        dependent: :destroy
+    )
+
+    has_many(
+        :invites, 
+        class_name: :Invite, 
+        foreign_key: :server_id, 
+        primary_key: :id, 
+        dependent: :destroy
+    )
+
+    has_many(
+        :subscribers, 
+        through: :subscriptions, 
+        source: :subscriber
+    )
+
+
 
 end

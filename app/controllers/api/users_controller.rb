@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
       render json: {error: 'u need to be logged in to see everyone'}, status: :unauthorized
     else
 
-      @users = User.all
+      @users = User.includes(:servers, :joined_servers).all
 
       render :index
 

@@ -71,7 +71,7 @@ export const OverviewSettingShow = (props) => {
 
     }
 
-    let preview = currentServer.icon? <img src={currentServer?.icon}/> :<></>
+    let preview = currentServer?.icon? <img src={currentServer?.icon}/> :<></>
 
     
 
@@ -82,7 +82,7 @@ export const OverviewSettingShow = (props) => {
         <div className="ShowDiv">
 
                 <header>
-                    <h3>Server Overview for "{currentServer.name}"</h3>
+                    <h3>Server Overview for "{currentServer?.name}"</h3>
                 </header>
 
             <form id="ServerUpdateForm" onSubmit={submitHandler}>

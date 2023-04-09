@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export const Name = (props) => {
@@ -31,6 +31,8 @@ export const Name = (props) => {
         }
 
     }
+
+
 
     let preview = null;
 

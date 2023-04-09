@@ -4,6 +4,8 @@ import "./subnav.css"
 
 export const SubSettingsModal = (props) => {
 
+    const {isOwner} = props;
+
     const modalCloserCallback = props.modalCloser;
 
     const modalId = "serverHeader";
@@ -30,7 +32,7 @@ export const SubSettingsModal = (props) => {
                                     </div>
                                 <i className="fa-solid fa-gear" style={{color: "#9e9e9e"}}></i>
                                 </li>
-                                <li id="NewChannel" onClick={openSettingsModal} >Create Channel</li>
+                                {isOwner? <li id="NewChannel" onClick={openSettingsModal} >Create Channel</li> : <></>}
                             </ul>
 
             

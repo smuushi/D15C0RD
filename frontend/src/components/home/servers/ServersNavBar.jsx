@@ -24,7 +24,7 @@ export const ServersNavBar = (props) => {
 
     const dispatch = useDispatch();
 
-    let serverIdsToRender = currentUser?.servers;
+    let serverIdsToRender = currentUser?.joinedServers;
 
     const closeModal = (e) => {
         // debugger

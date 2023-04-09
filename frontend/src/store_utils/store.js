@@ -13,23 +13,28 @@ import { SessionReducer, SessionErrorReducer } from "../reducers/SessionReducer"
 
 import { ModalReducer } from "../reducers/ModalReducer";
 
-import { ServerReducer } from "../reducers/ServerReducer";
+import { ServerReducer, serverErrorReducer } from "../reducers/ServerReducer";
 
 import { UserReducer } from "../reducers/UserReducer";
 
 import { ChannelReducer } from "../reducers/ChannelReducer";
 
+import { InviteReducer } from "../reducers/InviteReducer";
+
+
 const entitiesReducer = combineReducers({
     session: SessionReducer,
     servers: ServerReducer,
     users: UserReducer,
-    channels: ChannelReducer
+    channels: ChannelReducer,
+    invite: InviteReducer
 })
 
 
 
 const errorsReducer = combineReducers({
-    sessionError: SessionErrorReducer
+    sessionError: SessionErrorReducer,
+    serverError: serverErrorReducer
 })
 
 const rootReducer = combineReducers({

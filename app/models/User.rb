@@ -79,6 +79,20 @@ class User < ApplicationRecord
         dependent: :destroy
     )
 
+    has_many(
+        :subscriptions, 
+        class_name: :ServerSubscription, 
+        foreign_key: :subscriber_id, 
+        primary_key: :id, 
+        dependent: :destroy
+    )
+
+    has_many(
+        :joined_servers,
+        through: :subscriptions,
+        source: :server
+    )
+
     
 
 end

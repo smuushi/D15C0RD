@@ -7,4 +7,10 @@ json.channels do
 
 end
 
+json.subscribers do 
+
+    json.array! server.subscribers.ids
+
+end
+
 # json.url server_url(server, format: :json)

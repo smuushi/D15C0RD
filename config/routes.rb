@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     resources :servers, only: [:show, :index, :create, :destroy, :update]
     
     resources :channels, only: [:show, :index, :create, :destroy, :update]
+    
+    resources :server_subscriptions, only: [:create, :destroy]
   end
+
+  get 'api/generate_invite/server/:id', to: "api/servers#invite"
 
   get '*path', to: "static_pages#frontend_index"
 end

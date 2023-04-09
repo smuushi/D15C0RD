@@ -1,0 +1,37 @@
+.newchannelmodalwrapper .inviteform {
+    margin: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inviteform header{
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inviteform header h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.inviteform header h5 {
+    font-size: 15px;
+}
+
+.inviteform section {
+    margin-top: 30px;
+    background-color: rgb(29, 29, 29);
+    padding: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition-property: all;
+    transition-duration: 500ms;
+}

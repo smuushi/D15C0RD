@@ -20,6 +20,8 @@ export const UserSettingsModal = (props) => {
 
         console.log("trying to logout")
         dispatch(sessionLogout())
+        dispatch(resetModalAC())
+
     }
 
     const resetModal = (e) => {
