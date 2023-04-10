@@ -49,8 +49,8 @@ export const NewServerForm = (props) => {
             })
             
             dispatch(joinServer(subrequest)).then((data) => {
-                debugger
-                navigate(`/home/server/${data.serverId}`)
+                // debugger
+                navigate(`/home/server/${data.id}`)
                 dispatch(resetModalAC())
             }).catch(() => {
                 // debugger

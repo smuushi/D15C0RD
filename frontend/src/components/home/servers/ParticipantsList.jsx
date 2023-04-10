@@ -1,7 +1,16 @@
 import { useSelector } from "react-redux"
 import "./participantslist.css"
 
+import { useDispatch } from "react-redux"
+
+import consumer from "../../../consumer"
+import { useEffect } from "react"
+
+import { addSubscribers } from "../../../reducers/ServerReducer"
+
 export const ParticipantsList = (props) => {
+
+    // console.log(consumer
 
     // console.log(props)
 
@@ -15,6 +24,53 @@ export const ParticipantsList = (props) => {
 
     const subscribersIdArray = targetServer?.subscribers
 
+    const dispatch = useDispatch();
+
+    const updateServerSubscribers = (broadcast) => {
+
+
+
+        if (broadcast.type === "joining") {
+            // debugger
+            dispatch(addSubscribers({serverId: targetServerId, subscribers: broadcast.body}))
+        }
+
+
+    }
+
+
+
+
+            // const webSocket = consumer.subscriptions.create({
+            //     channel: "ServerChannel", 
+            //     server_id: targetServerId 
+            // },
+            // {
+            //     received: updateServerSubscribers
+            // })
+
+
+
+    useEffect(() => {
+        const setUpWebsocket = () => {
+
+            var webSocket = consumer.subscriptions.create({
+                channel: "ServerChannel", 
+                server_id: targetServerId 
+            },
+            {
+                received: updateServerSubscribers
+            })
+            // debugger
+
+
+            window.ws = webSocket
+        }
+
+        setUpWebsocket();
+    },[targetServerId, dispatch])
+
+
 
 
     // const owner = useSelector(state => targetServer? state.entities.users[targetServer.ownerId] : null)
@@ -23,17 +79,19 @@ export const ParticipantsList = (props) => {
     // NOTE: don't rely on the session slice for anything other than the user ID.
     // I was young 4 days ago. now i am old and learned. 
 
-    const participantsLiElements = subscribersIdArray?.map((userId) => {
+    let participantsLiElements = [];
+
+    subscribersIdArray?.forEach((userId) => {
 
         if (targetServer.ownerId === userId) {
 
             // debugger
-            return (
+            participantsLiElements.unshift(
                 <li className="UserLi">
 
                     <div className="UserImageContainer">
-                        {allUsers[userId].avatar ? 
-                            <img src={allUsers[userId].avatar}/>
+                        {allUsers[userId]?.avatar ? 
+                            <img src={allUsers[userId]?.avatar}/>
                             :
                             <img src="/assets/avatars/DefaultAvatar.png" />
                         }
@@ -47,12 +105,12 @@ export const ParticipantsList = (props) => {
                 </li>
             )
         } else {
-            return (
+            participantsLiElements.push(
                 <li className="UserLi">
 
                     <div className="UserImageContainer">
-                        {allUsers[userId].avatar ? 
-                            <img src={allUsers[userId].avatar}/>
+                        {allUsers[userId]?.avatar ? 
+                            <img src={allUsers[userId]?.avatar}/>
                             :
                             <img src="/assets/avatars/DefaultAvatar.png" />
                         }

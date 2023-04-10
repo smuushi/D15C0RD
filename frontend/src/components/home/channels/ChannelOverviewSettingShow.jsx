@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateChannel } from "../../../reducers/ChannelReducer";
 import "./channeloverviewsettingshow.css"
+import { resetModalAC } from "../../../reducers/ModalReducer";
 
 export const ChannelOverviewSettingShow = (props) => {
 
@@ -48,7 +49,9 @@ export const ChannelOverviewSettingShow = (props) => {
         })
 
         if  (namee) {
-            dispatch(updateChannel(newChannel))
+            dispatch(updateChannel(newChannel)).then(() => {
+                dispatch(resetModalAC())
+            })
         } else {
             console.log('there was no name???')
         }

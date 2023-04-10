@@ -27,7 +27,7 @@ class Api::ServersController < ApplicationController
     if @server.save
       # owner_subscription = ServerSubscription.new(server_id: @server.id, subscriber_id: server_params[:owner_id])
       # tried to move this to the model for after validation..
-
+      
       render :show, status: 200
     else
       render json: {error: @server.errors.full_messages}, status: :unprocessable_entity
@@ -71,6 +71,40 @@ class Api::ServersController < ApplicationController
 
   end
 
+  def invite_index
+
+    @current_server = Server.find_by_id(params[:id])
+
+    @all_invites = @current_server.invites
+
+    render json: @all_invites, status: 200
+
+  end
+
+  def invite_destroy
+
+    @invite = Invite.includes(:server).find_by(invite_code: params[:invite_code])
+
+    if @invite
+
+
+      @current_server = Server.find_by_id(@invite.server_id)
+
+
+
+      @invite.destroy
+
+
+      @remaining_invites = @current_server.invites
+
+      render json: @remaining_invites, status: 200
+
+    else
+
+      render json: "oopies", status: 469
+    end
+
+  end
 
   ###########
 

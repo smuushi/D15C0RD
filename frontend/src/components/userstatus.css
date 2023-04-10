@@ -3,6 +3,7 @@
     background-color: rgb(34, 37, 41);
     display: flex;
     width: 100%;
+    max-width: 657px;
     height: 53px;
     justify-content: space-evenly;
     padding-right: 0px;
@@ -15,6 +16,10 @@
     font-size: 12px;
     margin: 5px;
     margin-top: 8px;
+    max-width: 65px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .Tag {

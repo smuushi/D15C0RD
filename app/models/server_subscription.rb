@@ -14,7 +14,7 @@ class ServerSubscription < ApplicationRecord
 
     validates :subscriber_id, uniqueness: {scope: :server_id, message: "already subscribed"}
 
-
+    
 
     belongs_to(
         :server, 
@@ -29,5 +29,8 @@ class ServerSubscription < ApplicationRecord
         foreign_key: :subscriber_id, 
         primary_key: :id
     )
+
+    
+
 
 end

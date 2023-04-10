@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
   # GET /users.json
   def index
     # debugger
-    if false #!current_user
+    if !current_user
       render json: {error: 'u need to be logged in to see everyone'}, status: :unauthorized
     else
 

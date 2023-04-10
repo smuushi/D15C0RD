@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import "./serversettings.css"
 import { OverviewSettingShow } from "./OverviewSettingShow"
+import { InviteSettingShow } from "../invites/InviteSettingShow"
 
 
 export const ServerSettingsModal = (props) => {
@@ -72,6 +73,22 @@ export const ServerSettingsModal = (props) => {
                             <></>
                         }
 
+
+                        {currentServer?.ownerId === currentUser.id?
+                            <li id="InviteManagement" className={selection === "InviteManagement"? "selected" : "notSelected"} onClick={selectionHandler}>
+
+                                <div className="overview">
+                                    Invite Management
+                                </div>
+
+                            </li>
+                            :
+                            <></>
+                        }
+
+
+
+
                         {currentServer?.ownerId === currentUser.id?
                             <li className="notSelected" onClick={openDeletionConfirmation}>
                                 <div className="DELETE">
@@ -91,7 +108,8 @@ export const ServerSettingsModal = (props) => {
                     {currentServer?.ownerId !== currentUser.id? <h5 className="OwnerWarning">You must be the server owner to change settings!</h5> : <></>}
                     <OverviewSettingShow currentServer={currentServer} selection={selection}/>
 
-
+                    <OverviewSettingShow currentServer={currentServer} selection={selection}/>
+                    <InviteSettingShow currentServer={currentServer} selection={selection}/>
 
                 </div>
 

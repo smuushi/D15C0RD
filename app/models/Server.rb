@@ -14,10 +14,10 @@ class Server < ApplicationRecord
 
     after_save :create_owner_subscription
 
+    after_create :create_owner_subscription
     
 
     def create_owner_subscription
-
 
         owner_subscription = ServerSubscription.new(server_id: self.id, subscriber_id: self.owner_id)
 

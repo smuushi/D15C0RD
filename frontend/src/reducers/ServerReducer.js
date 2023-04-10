@@ -13,6 +13,7 @@ const ADDCHANNEL = "server/ADDCHANNEL"
 
 const ADDSERVERERROR = "server/ADDSERVERERROR"
 
+const ADDSUBSCRIBER = "server/ADDSUBSCRIBER"
 
 
 //---Thunks---//
@@ -65,8 +66,10 @@ export const joinServer = (request) => async (dispatch) => {
     if (res.ok) {
         let data = await res.json();
         // debugger
-        dispatch(addNewServerToJoinedServers({subscriberId: data.subscriberId, serverId: data.serverId}))
 
+        dispatch(addNewServerToJoinedServers({subscriberId: request.subscriberId, serverId: data.id}))
+        receiveServer(data)
+        // debugger
         return data
         
     } else {
@@ -267,6 +270,12 @@ export const addChannel = (channelInfo) => ({
 }) // note that channel info should be an object with the keys of Id and serverId.
 
 
+export const addSubscribers = (allSubsForAServer) => ({
+    type: ADDSUBSCRIBER, 
+    payload: allSubsForAServer
+})
+
+
 //---Server Reducer---//
 
 export const ServerReducer = (state = {}, action) => {
@@ -307,6 +316,15 @@ export const ServerReducer = (state = {}, action) => {
             // incomplete
             return nextState;
 
+        case ADDSUBSCRIBER:
+        
+        // debugger
+
+            nextState[action.payload.serverId].subscribers = action.payload.subscribers
+
+            // nextState[action.payload.serverId].subscribers.push(action.payload.userId)
+
+            return nextState;
 
         default: 
         return nextState;

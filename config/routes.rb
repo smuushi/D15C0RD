@@ -20,5 +20,9 @@ Rails.application.routes.draw do
 
   get 'api/generate_invite/server/:id', to: "api/servers#invite"
 
+  get 'api/get_invites/server/:id', to: "api/servers#invite_index"
+
+  delete 'api/destroy_invite/:invite_code', to: "api/servers#invite_destroy"
+
   get '*path', to: "static_pages#frontend_index"
 end

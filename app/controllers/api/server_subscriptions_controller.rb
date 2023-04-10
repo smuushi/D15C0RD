@@ -18,15 +18,23 @@ class Api::ServerSubscriptionsController < ApplicationController
 
     # debugger
 
-    @invite_code = Invite.find_by(invite_code: server_subscription_params[:invite])
+    @invite_code = Invite.includes(:server).find_by(invite_code: server_subscription_params[:invite])
 
     if @invite_code
       server_id = @invite_code.server.id
+
+      @server = @invite_code.server
+
+      # debugger
+      
       @server_subscription = ServerSubscription.new(subscriber_id: server_subscription_params[:subscriber_id], server_id: server_id)
       # debugger
-
+      
       if @server_subscription.save
-        render :show, status: :created 
+        # ActionCable.server.broadcast("server_#{server_id}", {type: "joining", body: @server_subscription})
+        ServerChannel.broadcast_to(@server, {type: "joining", body: @server.subscribers.ids})
+
+        render "api/servers/show", status: :created 
       else
         render json: @server_subscription.errors.full_messages, status: 469
 
@@ -64,11 +72,20 @@ class Api::ServerSubscriptionsController < ApplicationController
 
     @subscription_to_destroy = @user.subscriptions.where(server_id: params[:id])[0]
 
+    @server = Server.find_by_id(@subscription_to_destroy.server_id)
+
     if @subscription_to_destroy
 
       # debugger
 
       @subscription_to_destroy.destroy
+
+
+      ServerChannel.broadcast_to(@server, {type: "joining", body: @server.subscribers.ids})
+
+
+      # ActionCable.server.broadcast("server_#{params[:id]}", {body: @server_subscription_to_destroy})
+
 
       # @server = Server.find_by_id(params[:id]) 
       # don't need to render back server info to update the store for the end user
@@ -94,6 +111,12 @@ class Api::ServerSubscriptionsController < ApplicationController
     # end
 
     # Only allow a list of trusted parameters through.
+
+    def from_template(template, locals = {})
+      JSON.parse(self.class.render(:json, template: template, locals: locals))
+    end
+
+
     def server_subscription_params
       params.require(:subrequest).permit(:subscriber_id, :invite)
     end
