@@ -1,0 +1,37 @@
+.UserLi {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.UserLi:hover {
+    background-color: rgb(65, 65, 72);
+    border-radius: 10px;
+    transition-property: all;
+    transition-duration: 200ms;
+}
+
+
+.ParticipantsList ul {
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(197, 197, 197);
+}
+.ParticipantsList ul header {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.UserImageContainer img {
+    max-width: 36px;
+    border-radius: 100px;
+    margin: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.UserImageContainer .Username {
+    margin-top: 10px;
+}

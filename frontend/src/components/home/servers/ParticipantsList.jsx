@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import "./participantslist.css"
 
 export const ParticipantsList = (props) => {
 
@@ -28,11 +29,41 @@ export const ParticipantsList = (props) => {
 
             // debugger
             return (
-                <li>{allUsers[userId]?.username} -- OWNER</li>
+                <li className="UserLi">
+
+                    <div className="UserImageContainer">
+                        {allUsers[userId].avatar ? 
+                            <img src={allUsers[userId].avatar}/>
+                            :
+                            <img src="/assets/avatars/DefaultAvatar.png" />
+                        }
+                    </div>
+                    
+                    <div className="UserName">
+                        {`${allUsers[userId]?.username} `} 
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    
+                </li>
             )
         } else {
             return (
-                <li>{allUsers[userId]?.username}</li>
+                <li className="UserLi">
+
+                    <div className="UserImageContainer">
+                        {allUsers[userId].avatar ? 
+                            <img src={allUsers[userId].avatar}/>
+                            :
+                            <img src="/assets/avatars/DefaultAvatar.png" />
+                        }
+                    </div>
+                    
+                    <div className="UserName">
+                        {allUsers[userId]?.username}
+                        
+                    </div>
+                    
+                </li>
             )
         }
 
@@ -46,10 +77,14 @@ export const ParticipantsList = (props) => {
 
     return (
 
+
         <ul>
+            <header>
+                <h5>Members - {participantsLiElements?.length}</h5>
+            </header>
             {participantsLiElements}
 
-            <li>MEMBERS PLACEHOLDER HERE..</li>
+
 
         </ul>
     )

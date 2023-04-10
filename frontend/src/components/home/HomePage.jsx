@@ -138,11 +138,17 @@ export const HomePage = (props) => {
     
 
     return (
+        <>
+        
+            <div className="ServersNav">
+
+
+                    <ServersNavBar />
+                
+            
+            </div>
         <div className="HomePageWrapper" >
             
-            <div className="ServersNav">
-                <ServersNavBar />
-            </div>
             
             <div className="Convos">
                 <div className="SubNavigation">
@@ -169,8 +175,11 @@ export const HomePage = (props) => {
 
 
             
+
+            
         </div>
 
+        </>
     )
 
 }

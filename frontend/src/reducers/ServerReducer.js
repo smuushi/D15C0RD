@@ -127,7 +127,7 @@ export const updateServer = (serverInfo) => async (dispatch) => {
         if (res.ok) {
             let data = await res.json();
             dispatch(receiveServer(data));
-
+            return res;
         } else {
 
             console.log('THE UPDATE DIED SOMEHOW...')
@@ -152,7 +152,9 @@ export const updateServer = (serverInfo) => async (dispatch) => {
         if (res.ok) {
             let responseInfo = await res.json();
             dispatch(receiveServer(responseInfo))
+            return res
         }        
+
 
 
     }

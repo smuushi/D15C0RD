@@ -101,7 +101,6 @@ export const ServersNavBar = (props) => {
             <LeaveServerModal />
 
             <ul className="ServerNavList" >
-
                 <li className="Home" key={JSON.stringify(Math.random())}>
                     <Link to={`/home`}>
                     {selectedServer === undefined? <div className="activeIndicator selected"></div> : <div className="activeIndicator notselected"></div>}
@@ -117,7 +116,10 @@ export const ServersNavBar = (props) => {
                         </Link>
                         <span> Direct Messages </span>
                 </li>
+
                     <div className="someseparationlmao"></div>
+
+                    
                 {serversListElements}
 
                 <li id="newserverform" onClick={activateModal}>

@@ -1,6 +1,4 @@
-.ShowDisplay {
-    width: 100%;
-}
+
 
 .ShowWrapper {
     width: 100%;
@@ -44,3 +42,26 @@
     margin-right: 18px;
 }
 
+.ChatWrapper {
+    display: flex;
+
+    min-width: 625px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ParticipantsList {
+
+    position: relative;
+    right: px;
+    width: 240px;
+    min-width: 240px;
+    padding: 10px;
+    height: 90vh;
+    display: flex;
+    background-color: rgb(42, 44, 49);
+}
+
+.ChatterBox {
+    width: 100%;
+}

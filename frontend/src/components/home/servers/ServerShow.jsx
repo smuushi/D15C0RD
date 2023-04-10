@@ -42,7 +42,7 @@ export const ServerShow = (props) => {
             <DetailNav serverId={targetServer} targetContext={targetContext}/>
 
 
-            <div className="ChatWrapper" style={{border: "solid"}}>
+            <div className="ChatWrapper">
                 <section className="ChatterBox">
                     chatting
 
@@ -53,7 +53,7 @@ export const ServerShow = (props) => {
                 </section>
 
 
-                <div className="ParticipantsList" style={{margin: "5px", border: "dotted"}}>
+                <div className="ParticipantsList" >
                     <ParticipantsList server={targetServer}/>
                 </div>
 

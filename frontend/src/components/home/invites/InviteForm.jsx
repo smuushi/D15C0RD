@@ -14,6 +14,8 @@ export const InviteForm = (props) => {
     console.log(inviteCode)
     const dispatch = useDispatch();
 
+    const [copying, setCopying] = useState(false)
+
     // const [code, setCode] = useState();
 
     useEffect(() => {
@@ -22,6 +24,17 @@ export const InviteForm = (props) => {
 
 
     },[currentServerId])
+
+    const clippingHandler = (e) => {
+        e.preventDefault();
+
+        navigator.clipboard.writeText(inviteCode)
+        setCopying(() => true)
+        setTimeout(()=> {
+            setCopying(() => false)
+        }, 1200)
+
+    }
 
 
     return (
@@ -34,10 +47,27 @@ export const InviteForm = (props) => {
                 <h5>Send them the invite code below for them to use when adding a new server!</h5>
             </header>
 
+            <div className="asdf">
 
-            <section>
-                {inviteCode? inviteCode : "creating invite code right now!! please wait.. "}
-            </section>
+
+
+                <section>
+                    {inviteCode? inviteCode : "creating invite code right now!! please wait.. "}
+                </section>
+
+                {   copying? 
+                    <button id="copiedbutton" className="copied"> 
+                        Copied
+                    </button> 
+                
+                
+                    :    
+                    <button id="copybutton" className="copythis" onClick={clippingHandler}>
+                        Copy
+                    </button>
+                }
+
+            </div>
 
 
         </form>

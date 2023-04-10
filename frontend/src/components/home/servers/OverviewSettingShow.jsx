@@ -3,6 +3,8 @@ import { useState } from "react";
 import './overviewsettingshow.css'
 import { useDispatch } from "react-redux";
 import { updateServer } from "../../../reducers/ServerReducer";
+import { useNavigate } from "react-router-dom";
+import { resetModalAC } from "../../../reducers/ModalReducer";
 
 export const OverviewSettingShow = (props) => {
 
@@ -18,6 +20,8 @@ export const OverviewSettingShow = (props) => {
     const [iconUrl, setIconUrl] = useState()
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate()
 
 
     const changeHandler = (e) => {
@@ -59,7 +63,11 @@ export const OverviewSettingShow = (props) => {
         })
 
         if  (namee) {
-            dispatch(updateServer(newServer))
+            dispatch(updateServer(newServer)).then(() => {
+                navigate(`/home/server/${currentServer.id}`)
+                dispatch(resetModalAC())
+            })
+            setNamee(() => "updating!! please wait!!")
         } else {
             console.log('there was no name???')
         }

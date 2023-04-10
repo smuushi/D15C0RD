@@ -75,7 +75,31 @@ export const SubNav = (props) => {
     } else { // the subnav will show convos or server stuff... so atm, it's just else, but maybe i can put a specific key later. 
         return (
             <nav>
-                SOME CONVO SUBNAVVING HERE
+                <header id="serverHeader" onClick={openModal}>
+                    <h5>
+
+                        direct messaging features here
+
+
+
+                    </h5>
+
+                </header>
+
+
+
+
+                <section style={{height: "100vh", fontFamily: "sans-serif", color:"whitesmoke"}}>
+                    <img style={{maxWidth:"237px", borderRadius:"3px"}} src="/assets/misc/workinginprogress.png" alt="" />
+
+                    welp... 
+                    gonna need more time to work on this.. sorry :(
+
+                </section>
+
+
+
+
             </nav>
         )
     }

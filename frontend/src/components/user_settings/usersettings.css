@@ -27,6 +27,7 @@
     overflow: auto;
     min-width: 725px;
 
+    z-index: 66;
     transition-property: all;
     transition-duration: 300ms;
     /* transform: translateX(-50%); */

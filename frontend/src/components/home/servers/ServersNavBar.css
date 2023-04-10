@@ -1,4 +1,5 @@
 .ServerNavList li {
+    width: 49px;
     /* border-radius: 25px; */
     padding: 0px;
     /* border: solid white 1px; */
@@ -9,6 +10,13 @@
     max-width: 67%;
     aspect-ratio: 1/1;
     /* pointer-events: none; */
+
+}
+.ServerNavList {
+    position: absolute;
+
+    z-index: 0;
+
 }
 
 .ServerNavList .Home {
@@ -37,6 +45,7 @@
 
 .logoblock {
 
+    min-height: 49px;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -143,7 +152,7 @@
     transition-property: all;
     transition-duration: 300ms;
     font-family: sans-serif;
-    z-index: 10;
+    z-index: 100;
     font-size: 13px;
 }
 
@@ -151,7 +160,7 @@
     /* border: solid white 1px; */
     color: whitesmoke;
     position: relative;
-    display: inline-block;
+    display: block;
     top: -40px;
     left: 53px;
     background-color: rgb(0, 0, 0);
@@ -162,9 +171,11 @@
     transition-property: all;
     transition-duration: 300ms;
     font-family: sans-serif;
-    z-index: 10;
+    z-index: 100;
     font-size: 13px;
+    
 }
+
 
 
 

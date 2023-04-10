@@ -18,9 +18,13 @@ class Server < ApplicationRecord
 
     def create_owner_subscription
 
+
         owner_subscription = ServerSubscription.new(server_id: self.id, subscriber_id: self.owner_id)
 
-        owner_subscription.save!
+        if (!ServerSubscription.find_by(server_id: self.id, subscriber_id: self.owner_id))
+            owner_subscription.save!
+        end
+
 
     end
 
