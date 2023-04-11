@@ -56,13 +56,17 @@ export const ServerShow = (props) => {
 
 
             <div className="ChatWrapper">
-                <section className="ChatterBox" style={{overflowY:"scroll", maxHeight:"92vh"}}>
-                    chatting
+                <section className="ChatterBox">
 
                 { channelId? 
                     <>
+                    <div className="ChatLog">
                         <MessageLog />
+                    </div>
+
+                    <div className="ChatForm">
                         <MessageForm />
+                    </div>
                     </>
                     :
                     <></>

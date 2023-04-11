@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux"
 import consumer from "../../../consumer"
 import { useEffect } from "react"
 
-import { addSubscribers } from "../../../reducers/ServerReducer"
+import { addSubscribers, updateChannels } from "../../../reducers/ServerReducer"
+import { receiveChannel } from "../../../reducers/ChannelReducer"
 
 export const ParticipantsList = (props) => {
 
@@ -33,6 +34,20 @@ export const ParticipantsList = (props) => {
         if (broadcast.type === "joining") {
             // debugger
             dispatch(addSubscribers({serverId: targetServerId, subscribers: broadcast.body}))
+        }
+
+        if (broadcast.type === "newchannel") {
+
+
+            dispatch(receiveChannel(broadcast.channel))
+
+            const updatedChannelsArray = broadcast.server_channels
+
+            const serverId = broadcast.channel.server_id
+
+            const channelUpdateObject = ({serverId: serverId, channels: updatedChannelsArray})
+
+            dispatch(updateChannels(channelUpdateObject))
         }
 
 

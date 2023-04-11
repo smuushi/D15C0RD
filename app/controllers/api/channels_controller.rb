@@ -28,6 +28,11 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
 
     if @channel.save
+
+      @server = Server.includes(:channels).find_by_id(channel_params[:server_id])
+
+      ServerChannel.broadcast_to(@server, {type: "newchannel", channel: @channel, server_channels: @server.channels.ids})
+
       render :show, status: :created 
     else
       render json: {error: @channel.errors.full_messages}, status: :unprocessable_entity

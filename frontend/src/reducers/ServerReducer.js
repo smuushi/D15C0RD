@@ -15,6 +15,8 @@ const ADDSERVERERROR = "server/ADDSERVERERROR"
 
 const ADDSUBSCRIBER = "server/ADDSUBSCRIBER"
 
+const UPDATECHANNELS = "server/UPDATECHANNELS"
+
 
 //---Thunks---//
 
@@ -276,6 +278,11 @@ export const addSubscribers = (allSubsForAServer) => ({
     payload: allSubsForAServer
 })
 
+export const updateChannels = (channelUpdateRequestObject) => ({
+    type: UPDATECHANNELS,
+    payload: channelUpdateRequestObject
+})
+
 
 //---Server Reducer---//
 
@@ -318,6 +325,8 @@ export const ServerReducer = (state = {}, action) => {
             return nextState;
 
         case ADDSUBSCRIBER:
+
+
         
         // debugger
 
@@ -326,6 +335,10 @@ export const ServerReducer = (state = {}, action) => {
             // nextState[action.payload.serverId].subscribers.push(action.payload.userId)
 
             return nextState;
+
+        case UPDATECHANNELS:
+            // debugger
+            nextState[action.payload.serverId].channels = action.payload.channels
 
         default: 
         return nextState;

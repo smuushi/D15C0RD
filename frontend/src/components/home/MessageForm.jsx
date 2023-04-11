@@ -70,8 +70,11 @@ export const MessageForm = () => {
     }
 
     return (
+        <>
+
+            {!picturePreview ? <></> : <img id="MessageImagePreview" src={picturePreview} style={{maxHeight: "200px", maxWidth:"200px"}}></img>}
         <form onSubmit={submitHandler}>
-            {!picturePreview ? <label htmlFor="picture">upload image!</label> : <img id="MessageImagePreview" src={picturePreview} style={{maxHeight: "200px", maxWidth:"200px"}}></img>}
+            <label htmlFor="picture">upload image!</label> 
             <input id="picture" type="file" style={{display: "none"}} onChange={fileHandler} />
             
             <input type="text" placeholder="Message" value={message} onChange={changeHandler}/>
@@ -79,5 +82,6 @@ export const MessageForm = () => {
 
 
         </form>
+        </>
     )
 }
