@@ -31,7 +31,7 @@ export const HomePage = (props) => {
 
     if (isLoggedIn) {
         let bodyy = document.getElementsByTagName('body')[0]
-        bodyy.setAttribute("style", "height: 100%; overflow: hidden; background-color: rgb(54, 57, 62)")
+        bodyy.setAttribute("style", "height: 100%; overflow: hidden; background-color: rgb(49,51,56)")
     }
 
     const dispatch = useDispatch();

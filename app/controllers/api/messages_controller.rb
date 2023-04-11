@@ -21,7 +21,7 @@ class Api::MessagesController < ApplicationController
         if @message.save 
             @channel = Channel.find_by_id(params[:context_id])
 
-            ChannelChannel.broadcast_to(@channel, {message_list: @channel.messages.ids, message: @message, picture: @message.picture.url})
+            ChannelChannel.broadcast_to(@channel, {message_list: @channel.messages.ids, message: from_template('api/messages/message', message: @message), picture: @message.picture.url})
         
             render :show, status: :created
 
@@ -41,6 +41,10 @@ class Api::MessagesController < ApplicationController
 
     def updated_at
 
+    end
+
+    def from_template(partial, locals = {})
+        JSON.parse(self.class.render(:json, partial: partial, locals: locals))
     end
 
 

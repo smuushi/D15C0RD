@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { fetchAllMessages, receiveMessageInfo } from "../../../reducers/MessagesReducer"
 import consumer from "../../../consumer"
 import { updateMessageList } from "../../../reducers/ChannelReducer"
+import "./messagelog.css"
 
 
 export const MessageLog = () => {
@@ -15,14 +16,17 @@ export const MessageLog = () => {
 
     const messageIdsToRender = useSelector(state => state.entities.channels[currentChannelId]?.messages)
 
+    const allUsers = useSelector(state => state.entities.users)
     // debugger
 
     const dispatch = useDispatch()
 
     const updateMessageLog = (broadcast) => {
-        // debugger
+        debugger
         let newMessageInfo = broadcast.message;
+        // debugger
         newMessageInfo.picture = broadcast.picture;
+
         dispatch(receiveMessageInfo(newMessageInfo))
 
 
@@ -73,30 +77,113 @@ export const MessageLog = () => {
 
     },[currentChannelId])
 
-    console.log(messageIdsToRender)
 
-    let messageLiElements = messageIdsToRender?.map((messageId) => {
+
+    let messageLiElements = messageIdsToRender?.map((messageId, idx) => {
         
+        //BROADCAST COMING IN IS BUGGY.. it has author_id and context_id...
+
         const message = allMessages[messageId];
+        const date2 = new Date(message?.createdAt)
 
         const messageContent = allMessages[messageId]?.content;
+
+                        function _shouldRenderAvatar() {    
+                            if (idx === 0) {
+                                return true
+                            }
+
+                            const previousMessageId = messageIdsToRender[idx-1];
+                            const previousMessage = allMessages[previousMessageId];
+                            if (message?.authorId !== previousMessage?.authorId){
+                                // debugger
+                                return true;
+                            } else {
+                                let date1 = new Date(previousMessage?.createdAt);
+
+                                let differenceInMInutes = Math.abs(date1 - date2)/1000/60;
+
+                                if (differenceInMInutes > 5) {
+                                    return true
+                                } else {
+                                    return false
+                                }
+                            } 
+                        } // private internal method sorta!
+                          // if u refactor this, I think it will break... lmaoo
+
+            const _turnDateIntoNicerString = (dateObject) => {
+                if (!dateObject) {
+                    return null
+                }
+
+                let month = dateObject.getMonth()
+                let day = dateObject.getDate()
+                let year = dateObject.getFullYear()
+
+                if (!month ||
+                    !day ||
+                    !year) {
+                        // debugger
+                        return undefined
+                    }
+
+
+                return `${month}/${day}/${year} ${dateObject.toLocaleTimeString()}`
+            }
+
+            let date = date2? _turnDateIntoNicerString(date2) : undefined
+            
+            let currentAuthor = allUsers[message?.authorId]
+            
+            if (!currentAuthor){ 
+                currentAuthor = allUsers[message?.author_id]
+            } 
+
+            const willRender = _shouldRenderAvatar()
+
+        if (!willRender) {
+            debugger
+            return (
+                <li className="message"> 
+                    <div className="emptyImageContainer">
+
+                    </div>
+
+                    <div className="messagecontents">
+                        <p>{messageContent? messageContent : "_"}</p>
+                        {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
+                    </div>
+
+                </li>
+            )
+        } else if (willRender){
+            debugger
+            return (
+                <li className="message withimage"> 
+                    <div className="ImageContainer">
+                        <img className="avatar" src={currentAuthor?.avatar ? currentAuthor?.avatar : "/assets/avatars/DefaultAvatar.png" }/>    
+                    </div>
+
+                    <div className="messagecontents">
+                        <header>
+                            <h5 className="username">{currentAuthor?.username}</h5>
+                            <span>{date}</span>
+                        </header>
+
+                        <p>{messageContent? messageContent : "_"}</p>
+                        {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
+                    </div>
+
+                </li>
+            )
         
-        return (
-            <li> 
-                
-
-                <div className="messagecontents">
-                    <p>{messageContent? messageContent : "_"}</p>
-                    {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
-                </div>
-
-            </li>
-        )
+        }
     })
 
     return (
-        <ol>
-            {messageLiElements}
+        <ol className="ChatLog">
+            {messageLiElements?.reverse()}
         </ol>
     )
 }

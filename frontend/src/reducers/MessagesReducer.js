@@ -71,6 +71,7 @@ export const createNewMessage = (messageObject) => async (dispatch) => {
 
         if (res.ok){
             let data = await res.json();
+            debugger
 
             dispatch(receiveMessageInfo(data.message))
             dispatch(receiveChannel(data.channel))

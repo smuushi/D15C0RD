@@ -1,0 +1,56 @@
+.message {
+    display: flex;
+    margin-left: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(223, 226, 229);
+    margin-top: 5px;
+}
+
+.message img.avatar {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border-radius: 50px;
+}
+
+
+.message header {
+    display: flex;
+    align-items: end;
+    margin-bottom: 6px;
+}
+
+.message header h5 {
+    font-weight: 600;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.messagecontents {
+    margin-left: 10px;
+}
+
+.messagecontents p {
+    font-weight: 300;
+}
+
+.message header span {
+    color:rgb(139, 142, 144);
+    font-weight: 400;
+    font-size: 12.5px;
+}
+
+.message .ImageContainer {
+    width: 45px;
+}
+
+.message .emptyImageContainer {
+    width: 45px;
+    height: 10px;
+}
+
+.message.withimage {
+    margin-top: 20px;
+}
+

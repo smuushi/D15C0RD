@@ -58,19 +58,16 @@ export const ServerShow = (props) => {
             <div className="ChatWrapper">
                 <section className="ChatterBox">
 
-                { channelId? 
                     <>
                     <div className="ChatLog">
                         <MessageLog />
                     </div>
 
                     <div className="ChatForm">
-                        <MessageForm />
+                        <MessageForm channelId = {channelId}/>
                     </div>
                     </>
-                    :
-                    <></>
-                }
+                  
 
                 </section>
 

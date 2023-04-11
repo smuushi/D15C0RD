@@ -4,9 +4,11 @@ import { createNewMessage } from "../../reducers/MessagesReducer";
 import { useParams } from "react-router-dom";
 
 
-export const MessageForm = () => {
+export const MessageForm = (props) => {
 
     const currentUserId = useSelector(state => state.entities.session.user.id)
+
+    const { channelId } = props
 
     const [message, setMessage] = useState();
 
@@ -61,6 +63,10 @@ export const MessageForm = () => {
     }
 
     const changeHandler = (e) => {
+
+        if (!channelId) {
+            return
+        }
         e.preventDefault();
 
 
@@ -69,16 +75,59 @@ export const MessageForm = () => {
 
     }
 
+    if (!channelId) {
+
+        return (
+
+            <>
+
+            <form onSubmit={submitHandler}>
+                
+                {!picturePreview ? <></> :
+                <div style={{borderBottom: "1px solid gray", paddingTop:"10px"}}>
+                    <img id="MessageImagePreview" src={picturePreview} style={{maxHeight: "200px", maxWidth:"200px"}}></img>
+                </div>}
+                
+                <div className="inputwrapper">
+                    
+                    <label htmlFor="picture">
+                        <i className="fa-solid fa-circle-plus"></i>
+                    </label>
+    
+                <input id="picture" type="file" style={{display: "none"}} onChange={fileHandler} />
+                
+                <span> Select a channel to start chatting!</span>
+    
+                </div>
+    
+    
+            </form>
+            </>
+        )
+
+    }
+
     return (
         <>
 
-            {!picturePreview ? <></> : <img id="MessageImagePreview" src={picturePreview} style={{maxHeight: "200px", maxWidth:"200px"}}></img>}
         <form onSubmit={submitHandler}>
-            <label htmlFor="picture">upload image!</label> 
+            
+            {!picturePreview ? <></> :
+            <div style={{borderBottom: "1px solid gray", paddingTop:"10px"}}>
+                <img id="MessageImagePreview" src={picturePreview} style={{maxHeight: "200px", maxWidth:"200px"}}></img>
+            </div>}
+            
+            <div className="inputwrapper">
+                
+                <label htmlFor="picture">
+                    <i className="fa-solid fa-circle-plus"></i>
+                </label>
+
             <input id="picture" type="file" style={{display: "none"}} onChange={fileHandler} />
             
             <input type="text" placeholder="Message" value={message} onChange={changeHandler}/>
 
+            </div>
 
 
         </form>

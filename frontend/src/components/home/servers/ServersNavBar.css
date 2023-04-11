@@ -8,13 +8,17 @@
     margin-top: 9px;
     margin-right: 12px;
     max-width: 67%;
+    max-height: 49px;
     aspect-ratio: 1/1;
     /* pointer-events: none; */
 
 }
 .ServerNavList {
     position: absolute;
-
+    width: 100vw;
+    overflow-y: scroll;
+    height: 100vh;
+    pointer-events: none;
     z-index: 0;
 
 }
