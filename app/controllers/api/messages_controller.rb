@@ -37,6 +37,19 @@ class Api::MessagesController < ApplicationController
 
     def destroy
 
+        @message = Message.find_by_id(params[:id])
+        @channel = Channel.includes(:messages).find_by_id(@message.context_id)
+
+        if @message.destroy
+
+            ChannelChannel.broadcast_to(@channel, {message_list: @channel.messages.ids})
+
+            render json: {message_list: @channel.messages.ids}
+
+        else
+            render json: {error: "bad"}, status: 469
+        end
+
     end
 
     def updated_at

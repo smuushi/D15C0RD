@@ -10,6 +10,22 @@ const UPDATECHANNELMESSAGES = "channel/UPDATECHANNELMESSAGES"
 
 //---THUNKS---//
 
+export const destroyMessageAndUpdateChannelMessages = (deletionRequest) => async (dispatch) => {
+
+
+    const res = await csrfFetch(`/api/messages/${deletionRequest.messageId}`, {
+        method: 'DELETE'
+    })
+
+    if (res.ok) {
+        let data = await res.json();
+        debugger
+        dispatch(updateMessageList({channelId: deletionRequest.channelId, messageList: data.message_list}))
+    }
+
+}
+
+
 export const updateChannel = (channelInfo) => async (dispatch) => {
 
     const res = await csrfFetch(`/api/channels/${channelInfo.id}`,{

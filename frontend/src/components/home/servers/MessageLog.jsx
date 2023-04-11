@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { fetchAllMessages, receiveMessageInfo } from "../../../reducers/MessagesReducer"
 import consumer from "../../../consumer"
-import { updateMessageList } from "../../../reducers/ChannelReducer"
+import { destroyMessageAndUpdateChannelMessages, updateMessageList } from "../../../reducers/ChannelReducer"
 import "./messagelog.css"
 
 
@@ -22,15 +22,19 @@ export const MessageLog = () => {
     const dispatch = useDispatch()
 
     const updateMessageLog = (broadcast) => {
-        debugger
-        let newMessageInfo = broadcast.message;
-        // debugger
-        newMessageInfo.picture = broadcast.picture;
 
-        dispatch(receiveMessageInfo(newMessageInfo))
+        if(broadcast.message) {
 
+            
+            let newMessageInfo = broadcast.message;
+            // debugger
+            newMessageInfo.picture = broadcast.picture;
+            
+            dispatch(receiveMessageInfo(newMessageInfo))
+            
+        }
 
-        const newMessageIdsToRender = broadcast.message_list;
+        const newMessageIdsToRender = broadcast?.message_list;
         const channelUpdate = ({
             channelId: currentChannelId, 
             messageList: newMessageIdsToRender
@@ -77,7 +81,24 @@ export const MessageLog = () => {
 
     },[currentChannelId])
 
+    const deleteHandler = (e) => {
+        e.preventDefault();
+        // debugger
 
+        const messageIdToDestroy = e.currentTarget.id;
+
+        const deletionRequest = ({
+            messageId: messageIdToDestroy, 
+            channelId: currentChannelId
+        })
+
+        dispatch(destroyMessageAndUpdateChannelMessages(deletionRequest))
+
+
+    }
+
+
+ 
 
     let messageLiElements = messageIdsToRender?.map((messageId, idx) => {
         
@@ -143,9 +164,9 @@ export const MessageLog = () => {
             const willRender = _shouldRenderAvatar()
 
         if (!willRender) {
-            debugger
+            // debugger
             return (
-                <li className="message"> 
+                <li className="message" key={messageId}> 
                     <div className="emptyImageContainer">
 
                     </div>
@@ -154,13 +175,17 @@ export const MessageLog = () => {
                         <p>{messageContent? messageContent : "_"}</p>
                         {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
                     </div>
+                    <span><button id={messageId} onClick={deleteHandler}>
+                        <i className="fa-solid fa-trash-can"></i>
+                        
+                        </button></span>
 
                 </li>
             )
         } else if (willRender){
-            debugger
+            // debugger
             return (
-                <li className="message withimage"> 
+                <li className="message withimage" key={messageId}> 
                     <div className="ImageContainer">
                         <img className="avatar" src={currentAuthor?.avatar ? currentAuthor?.avatar : "/assets/avatars/DefaultAvatar.png" }/>    
                     </div>
@@ -174,7 +199,9 @@ export const MessageLog = () => {
                         <p>{messageContent? messageContent : "_"}</p>
                         {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
                     </div>
-
+                    <span><button id={messageId} onClick={deleteHandler}>
+                        <i className="fa-solid fa-trash-can"></i>
+                        </button></span>
                 </li>
             )
         

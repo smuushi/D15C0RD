@@ -8,7 +8,9 @@ export const UserStatusBar = (props) => {
 
     const dispatch = useDispatch()
 
-    const currentUser = useSelector(state => state.entities.session.user)
+    const currentUserId = useSelector(state => state.entities.session.user?.id)
+
+    const currentUser = useSelector(state => state.entities.users[currentUserId])
 
     const modalOpen = (e) => {
 
@@ -23,15 +25,15 @@ export const UserStatusBar = (props) => {
         <div className="UserStatusBar" >
             <div className="UserInfo" onClick={() => {console.log("i'll open the userinfo modal with this click lmaooo")}}>
                 <div className="UserImage" >
-                    <img src={currentUser.avatar? currentUser.avatar : "/assets/avatars/DefaultAvatar.png"} />
+                    <img src={currentUser?.avatar? currentUser?.avatar : "/assets/avatars/DefaultAvatar.png"} />
                 </div>
                 <section className="infosection">
                     <div className="UserName">
-                        {currentUser.username}
+                        {currentUser?.username}
                     
                     </div> 
                     <div className="Tag">
-                        {`#${currentUser.tag}`}
+                        {`#${currentUser?.tag}`}
                     </div>
                 </section>
 
