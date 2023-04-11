@@ -5,6 +5,8 @@ const RECEIVEALLCHANNELS = "channel/RECEIVEALLCHANNELS"
 const RECEIVECHANNELINFO = "channel/RECEIVECHANNELINFO"
 const REMOVECHANNEL = "channel/REMOVECHANNEL"
 
+const UPDATECHANNELMESSAGES = "channel/UPDATECHANNELMESSAGES"
+
 
 //---THUNKS---//
 
@@ -102,6 +104,11 @@ export const removeChannel = (channelId) => ({
     channelId
 })
 
+export const updateMessageList = (updateObject) => ({
+    type: UPDATECHANNELMESSAGES,
+    payload: updateObject
+})
+
 
 
 
@@ -139,6 +146,10 @@ export const ChannelReducer = (state = {}, action) => {
 
             return nextState; //TENTATIVE COPYPASTA FROM SERVERREDUCER
         
+
+        case UPDATECHANNELMESSAGES:
+            nextState[action.payload.channelId].messages = action.payload.messageList;
+            return nextState;
 
         default: 
         return nextState;

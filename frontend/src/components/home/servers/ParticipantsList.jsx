@@ -64,7 +64,7 @@ export const ParticipantsList = (props) => {
             // debugger
 
 
-            window.ws = webSocket
+
         }
 
         setUpWebsocket();

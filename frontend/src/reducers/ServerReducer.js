@@ -67,8 +67,9 @@ export const joinServer = (request) => async (dispatch) => {
         let data = await res.json();
         // debugger
 
+        dispatch(receiveServer(data))
         dispatch(addNewServerToJoinedServers({subscriberId: request.subscriberId, serverId: data.id}))
-        receiveServer(data)
+        // debugger
         // debugger
         return data
         
@@ -296,7 +297,7 @@ export const ServerReducer = (state = {}, action) => {
 
 
         case RECEIVESERVERINFO:
-
+            // debugger
             nextState[action.payload.id] = action.payload;
 
             return nextState;

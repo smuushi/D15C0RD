@@ -4,7 +4,7 @@ class Api::ChannelsController < ApplicationController
   # GET /channels
   # GET /channels.json
   def index
-    @channels = Channel.all
+    @channels = Channel.includes(:messages).all
   end
 
   # GET /channels/1

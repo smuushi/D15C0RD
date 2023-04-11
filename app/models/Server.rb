@@ -68,6 +68,12 @@ class Server < ApplicationRecord
         source: :subscriber
     )
 
+    has_many(
+        :messages,
+        through: :channels,
+        source: :messages
+    )
+
 
 
 end

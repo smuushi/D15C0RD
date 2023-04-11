@@ -6,7 +6,7 @@ class Api::ServersController < ApplicationController
   def index
     # I want to only render the servers for the current_user???
 
-    @servers = Server.includes(:channels, :subscribers).all
+    @servers = Server.includes(:channels, :subscribers, :icon_blob).all
 
     
 
@@ -16,7 +16,7 @@ class Api::ServersController < ApplicationController
   # GET /servers/1
   # GET /servers/1.json
   def show
-    @server = Server.find_by_id(params[:id])
+    @server = Server.includes(:icon_blob, :channels, :subscribers).find_by_id(params[:id])
   end
 
   # POST /servers

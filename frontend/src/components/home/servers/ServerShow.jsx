@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom"
 import { MessageForm } from "../MessageForm"
 import { DetailNav } from "./DetailNav"
@@ -7,6 +6,9 @@ import { ParticipantsList } from "./ParticipantsList"
 import { Navigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import "./servershow.css"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { fetchAllChannels } from "../../../reducers/ChannelReducer"
 
 export const ServerShow = (props) => {
 
@@ -22,10 +24,21 @@ export const ServerShow = (props) => {
     const targetContext = props.channel? props.channel : null
 
     // debugger
-
+    const dispatch = useDispatch()
 
 
     let location = useParams();
+
+    let {channelId} = useParams()
+
+    useEffect(() => {
+
+        dispatch(fetchAllChannels())
+
+
+
+
+    },[dispatch, targetServer])
 
 
 
@@ -43,12 +56,17 @@ export const ServerShow = (props) => {
 
 
             <div className="ChatWrapper">
-                <section className="ChatterBox">
+                <section className="ChatterBox" style={{overflowY:"scroll", maxHeight:"92vh"}}>
                     chatting
 
-                    <MessageLog />
-
-                    <MessageForm />
+                { channelId? 
+                    <>
+                        <MessageLog />
+                        <MessageForm />
+                    </>
+                    :
+                    <></>
+                }
 
                 </section>
 

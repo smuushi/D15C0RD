@@ -14,6 +14,13 @@ class Channel < ApplicationRecord
     validates :name, :server_id, presence: true
 
     
+    has_many(
+        :messages,
+        class_name: :Message,
+        foreign_key: :context_id,
+        primary_key: :id,
+        dependent: :destroy
+    )
 
     belongs_to(
         :Server, 

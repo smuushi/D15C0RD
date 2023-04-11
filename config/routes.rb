@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     resources :channels, only: [:show, :index, :create, :destroy, :update]
     
     resources :server_subscriptions, only: [:create, :destroy]
+
+    resources :messages, only: [:destroy, :index, :update]
   end
+
+  post 'api/messages/:context_id', to: "api/messages#create"
 
   get 'api/generate_invite/server/:id', to: "api/servers#invite"
 

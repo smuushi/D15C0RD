@@ -47,6 +47,7 @@ export const ChannelsList = (props) => {
 
     }
 
+    
 
 
 
@@ -122,6 +123,8 @@ export const ChannelsList = (props) => {
                     }
                 </div>
             </div>
+
+
 
             {channelLiElements?.length !== 0 ? channelLiElements : ownerId === currentUserId ? <p> Try adding a channel with the plus icon!</p> : <p> You need to be the owner to add channels! </p>}
             

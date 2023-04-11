@@ -93,6 +93,13 @@ class User < ApplicationRecord
         source: :server
     )
 
+    has_many(
+        :server_messages,
+        class_name: :Message,
+        foreign_key: :author_id,
+        primary_key: :id,
+        dependent: :destroy
+    )       
     
 
 end

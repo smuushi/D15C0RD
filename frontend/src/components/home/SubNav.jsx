@@ -5,6 +5,9 @@ import { ServerSettingsModal } from "./servers/ServerSettingsModal"
 import { ChannelsList } from "./channels/ChannelsList"
 import { render } from "react-dom"
 import { LeaveServerModal } from "./servers/leave_server/LeaveServerModal"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { fetchAllChannels } from "../../reducers/ChannelReducer"
 
 
 export const SubNav = (props) => {
@@ -22,11 +25,24 @@ export const SubNav = (props) => {
 
     // console.log(renderTarget)
 
+
+
     const isOwner = ownerId === currentUserId? true : false
 
     console.log(whatWeAreRenderingThisFineEvening) // lmao
 
+
+
     const dispatch = useDispatch();
+
+    const {serverId} = useParams()
+
+    useEffect(() => {
+
+        dispatch(fetchAllChannels())
+
+    },[dispatch, serverId])
+
 
     const modalCloser = (e) => {
         // debugger

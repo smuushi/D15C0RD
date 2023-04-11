@@ -11,6 +11,7 @@ import { fetchAllUsers } from "../../reducers/UserReducer";
 import { fetchAllChannels } from "../../reducers/ChannelReducer";
 import { useNavigate } from "react-router-dom";
 import { csrfFetch } from "../../store_utils/csrf";
+import { fetchAllMessages } from "../../reducers/MessagesReducer";
 
 export const HomePage = (props) => {
 
@@ -105,10 +106,9 @@ export const HomePage = (props) => {
             }, 10)
         })
         
-        whatthe.then(() => {
+            whatthe.then(() => {
 
-            // debugger
-                // redirect()
+                return dispatch(fetchAllMessages())
                 
             }
         )})
@@ -119,7 +119,7 @@ export const HomePage = (props) => {
             // going to refactor to shoot a fetch for a specific server
             // and if 404, then redirect.. otherwise, proceed. 
         
-    },[isLoggedIn])
+    },[isLoggedIn, location])
 
     // const redirect = (currentServerId) => {
 

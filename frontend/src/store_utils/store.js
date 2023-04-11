@@ -21,12 +21,15 @@ import { ChannelReducer } from "../reducers/ChannelReducer";
 
 import { InviteReducer } from "../reducers/InviteReducer";
 
+import { MessageReducer } from "../reducers/MessagesReducer";
+
 
 const entitiesReducer = combineReducers({
     session: SessionReducer,
     servers: ServerReducer,
     users: UserReducer,
     channels: ChannelReducer,
+    messages: MessageReducer,
     invite: InviteReducer
 })
 
