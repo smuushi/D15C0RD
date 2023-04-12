@@ -37,11 +37,15 @@ class Api::MessagesController < ApplicationController
 
     def destroy
 
+
         @message = Message.find_by_id(params[:id])
-        @channel = Channel.includes(:messages).find_by_id(@message.context_id)
 
-        if @message.destroy
-
+        if current_user.id != @message.author_id 
+            render json: {error: "unauthorized"}, status: 401
+        
+        elsif @message.destroy
+            
+            @channel = Channel.includes(:messages).find_by_id(@message.context_id)
             ChannelChannel.broadcast_to(@channel, {message_list: @channel.messages.ids})
 
             render json: {message_list: @channel.messages.ids}
@@ -52,7 +56,23 @@ class Api::MessagesController < ApplicationController
 
     end
 
-    def updated_at
+    def update
+        @message = Message.includes(:channel).find_by_id(params[:id])
+
+
+
+        if @message.update(content: message_params[:content])
+
+            @channel = Channel.find_by_id(@message.context_id)
+
+            ChannelChannel.broadcast_to(@channel, {message_update: from_template("api/messages/message", message: @message)})
+
+            render partial: "api/messages/message", locals: {message: @message}, status: 200
+
+        else 
+            render json: @message.errors.full_messages, status: 409
+        end
+        
 
     end
 

@@ -14,7 +14,7 @@ class Server < ApplicationRecord
 
     after_save :create_owner_subscription
 
-    after_create :create_owner_subscription
+    # after_create :create_owner_subscription
     
 
     def create_owner_subscription
@@ -25,6 +25,9 @@ class Server < ApplicationRecord
             owner_subscription.save!
         end
 
+        if self.channels.length == 0
+            Channel.create(server_id: self.id, name: "general")
+        end
 
     end
 

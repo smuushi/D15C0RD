@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
@@ -6,6 +6,7 @@ import { fetchAllMessages, receiveMessageInfo } from "../../../reducers/Messages
 import consumer from "../../../consumer"
 import { destroyMessageAndUpdateChannelMessages, updateMessageList } from "../../../reducers/ChannelReducer"
 import "./messagelog.css"
+import { UpdateMessageModal } from "./messaging/UpdateMessageModal"
 
 
 export const MessageLog = () => {
@@ -19,13 +20,21 @@ export const MessageLog = () => {
     const allUsers = useSelector(state => state.entities.users)
     // debugger
 
+    const currentUserId = useSelector(state => state.entities.session.user.id)
+    console.log(currentUserId)
+
     const dispatch = useDispatch()
+
+    const [selectedMessageId, setSelectedMessageId] = useState(3)
+
+    console.log(selectedMessageId)
 
     const updateMessageLog = (broadcast) => {
 
+
+
         if(broadcast.message) {
 
-            
             let newMessageInfo = broadcast.message;
             // debugger
             newMessageInfo.picture = broadcast.picture;
@@ -34,18 +43,32 @@ export const MessageLog = () => {
             
         }
 
-        const newMessageIdsToRender = broadcast?.message_list;
-        const channelUpdate = ({
-            channelId: currentChannelId, 
-            messageList: newMessageIdsToRender
-        })
+        // debugger
+        if (broadcast.message_list) {
 
+            const newMessageIdsToRender = broadcast?.message_list;
+            const channelUpdate = ({
+                channelId: currentChannelId, 
+                messageList: newMessageIdsToRender
+            })
+            
+            
+            dispatch(updateMessageList(channelUpdate))
+            
+        }
 
-        dispatch(updateMessageList(channelUpdate))
+        if (broadcast.message_update) {
 
+            const messageInfo = broadcast?.message_update;
+
+            dispatch(receiveMessageInfo(messageInfo))
+        }
 
 
     }
+
+
+
 
 
     useEffect(() => {
@@ -97,6 +120,16 @@ export const MessageLog = () => {
 
     }
 
+    const selectionHandler = (e) => {
+        e.preventDefault()
+        
+        const messageIdToEdit = e.currentTarget.id;
+
+        // debugger
+
+        setSelectedMessageId(() => messageIdToEdit)
+
+    }
 
  
 
@@ -157,9 +190,6 @@ export const MessageLog = () => {
             
             let currentAuthor = allUsers[message?.authorId]
             
-            if (!currentAuthor){ 
-                currentAuthor = allUsers[message?.author_id]
-            } 
 
             const willRender = _shouldRenderAvatar()
 
@@ -173,12 +203,21 @@ export const MessageLog = () => {
 
                     <div className="messagecontents">
                         <p>{messageContent? messageContent : "_"}</p>
+                    <UpdateMessageModal setselectedmessage={setSelectedMessageId} selectedmessage={selectedMessageId} messageId={messageId} message={messageContent}/>
                         {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
                     </div>
-                    <span><button id={messageId} onClick={deleteHandler}>
-                        <i className="fa-solid fa-trash-can"></i>
-                        
+                    {currentUserId === message?.authorId ? 
+                    <>
+                        <span><button id={messageId} className="editmessagebutton" onClick={selectionHandler}>
+                            <i className="fa-solid fa-square-pen"></i>
                         </button></span>
+                        <span><button id={messageId} onClick={deleteHandler}>
+                            <i className="fa-solid fa-trash-can"></i>
+                            </button></span>
+                    </>
+                    :
+                    <></>
+                    }
 
                 </li>
             )
@@ -197,11 +236,22 @@ export const MessageLog = () => {
                         </header>
 
                         <p>{messageContent? messageContent : "_"}</p>
+                    <UpdateMessageModal setselectedmessage={setSelectedMessageId} selectedmessage={selectedMessageId} messageId={messageId} message={messageContent}/>
                         {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
                     </div>
+                    {currentUserId === message?.authorId ? 
+                    <>
+                    <span><button id={messageId} className="editmessagebutton" onClick={selectionHandler}>
+                        <i className="fa-solid fa-square-pen"></i>
+                            
+                        </button></span>
                     <span><button id={messageId} onClick={deleteHandler}>
                         <i className="fa-solid fa-trash-can"></i>
                         </button></span>
+                    </>
+                    :
+                    <></>
+                    }
                 </li>
             )
         

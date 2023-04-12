@@ -11,6 +11,36 @@ const RECEIVEMESSAGE = "messages/RECEIVEMESSAGE"
 
 //--- THUNKS ---//
 
+
+export const sendUpdateMessage = (updateRequest) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/messages/${updateRequest.messageId}`,{
+        method: "PATCH",
+        body: JSON.stringify({
+            message: {
+                content: updateRequest.newMessage
+            }
+        })
+    })
+
+    if (res.ok) {
+        let messageInfo = await res.json();
+
+        // debugger
+
+        dispatch(receiveMessageInfo(messageInfo))
+
+
+        return res
+    } else {
+        debugger
+        console.log("updating error did not go well...")
+    }
+
+
+
+}
+
 export const fetchAllMessages = () => async (dispatch) => {
 
 

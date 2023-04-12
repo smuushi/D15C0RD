@@ -19,7 +19,7 @@ export const destroyMessageAndUpdateChannelMessages = (deletionRequest) => async
 
     if (res.ok) {
         let data = await res.json();
-        debugger
+        // debugger
         dispatch(updateMessageList({channelId: deletionRequest.channelId, messageList: data.message_list}))
     }
 

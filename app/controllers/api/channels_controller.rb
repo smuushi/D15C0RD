@@ -3,6 +3,9 @@ class Api::ChannelsController < ApplicationController
 
   # GET /channels
   # GET /channels.json
+
+  before_action :require_logged_in, only: [:destroy]
+
   def index
     @channels = Channel.includes(:messages).all
   end
@@ -58,6 +61,9 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find_by_id(params[:id])
 
     @channel.destroy
+    @server = Server.find_by_id(@channel.server_id)
+    ServerChannel.broadcast_to(@server, {type: "destroyedchannel", server_channels: @server.channels.ids})
+
   end
 
   private

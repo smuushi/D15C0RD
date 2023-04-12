@@ -15,12 +15,37 @@
 }
 .ServerNavList {
     position: absolute;
-    width: 100vw;
     overflow-y: scroll;
     height: 100vh;
-    pointer-events: none;
     z-index: 0;
+    top:0px;
+    /* background-color: rgba(0, 255, 255, 0.386); */
+    width: auto;
+}
 
+.ServerNavList:hover {
+    width: 33vw;
+}
+
+.ServerNavList::-webkit-scrollbar {
+    display: none;
+}
+
+
+div#resizetrigger{
+    position: absolute;
+    top: 0px;
+    right: -15px;
+    width: 27px;
+    height: 100vh;
+    /* background-color: rgba(255, 0, 0, 0.523); */
+    z-index: 30;
+    
+}
+
+div#resizetrigger:hover + .ServerNavList:hover{
+    width: 100px;
+    /* background-color: rgba(156, 29, 29, 0.374); */
 }
 
 .ServerNavList .Home {
@@ -173,7 +198,8 @@
     white-space: nowrap;
     border-radius: 10px;
     transition-property: all;
-    transition-duration: 300ms;
+    transition-duration: 100ms;
+    transition-delay: 300ms;
     font-family: sans-serif;
     z-index: 100;
     font-size: 13px;

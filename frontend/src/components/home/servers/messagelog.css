@@ -5,9 +5,9 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(223, 226, 229);
     font-size: 17px;
-    margin-top: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    margin-top: 0px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     position:relative;
     
 }
@@ -25,6 +25,24 @@
     background-color: rgb(52, 53, 56);
 }
 
+.message button.editmessagebutton {
+    display: none;
+    position: absolute;
+    top: -15px;
+    right: 50px;
+    transition-property: all;
+    transition-duration: 150ms;
+    height: 30px;
+    width: 30px;
+    color:rgb(223, 226, 229);
+    background-color: rgb(52, 53, 56);
+}
+
+.message:hover button.editmessagebutton:hover {
+    color: rgb(140, 174, 254);
+}
+
+
 .message:hover button {
     display: initial;
     border: none;
@@ -32,9 +50,16 @@
 
 }
 
+.message:hover button.editmessagebutton {
+    display: initial;
+    border: none;
+    border-radius: 10px;
+}
+
 .message:hover button:hover {
 
     box-shadow: 0px 5px 10px rgba(10, 10, 10, 0.805);
+    color: rgb(238, 86, 86);
 
 }
 
@@ -60,7 +85,11 @@
 }
 
 .messagecontents {
+    
     margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .messagecontents p {
@@ -78,7 +107,7 @@
 }
 
 .message .emptyImageContainer {
-    width: 45px;
+    width: 50px;
     height: 10px;
 }
 
@@ -92,3 +121,66 @@
     background-color: rgba(17, 17, 25, 0.262);
 }
 
+.message .editingspan {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.editingspan button {
+    position: initial;
+    display: initial;
+    border: none;
+}
+
+.editingspan form {
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(54, 56, 60);
+    margin-bottom: 10px;
+    max-width: 400px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+.editingspan form input {
+    width: auto;
+    max-width: 500px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color:rgb(223, 226, 229);
+    background-color: rgb(79, 80, 84);
+}
+
+.editingspan form div.buttonscontainer {
+    display: flex;
+    justify-content: start;
+}
+
+.editingspan form div.buttonscontainer button:first-of-type{
+    background-color: rgba(165, 42, 42, 0);
+    width: 100px;
+    box-shadow: none;
+    color:green;
+    margin-right: 20px;
+}    
+
+.editingspan form div.buttonscontainer button:first-of-type:hover{
+    color: rgb(34, 165, 34)
+}
+
+.editingspan form div.buttonscontainer button{
+    background-color: rgba(165, 42, 42, 0);
+    width: 55px;
+    box-shadow: none;
+    color:rgb(220, 43, 43)
+}    
+
+.editingspan form div.buttonscontainer button:hover{
+    color: rgb(255, 109, 109);
+    box-shadow: none;
+
+}

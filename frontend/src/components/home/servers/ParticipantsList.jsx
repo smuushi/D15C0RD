@@ -38,16 +38,32 @@ export const ParticipantsList = (props) => {
 
         if (broadcast.type === "newchannel") {
 
-
+            
             dispatch(receiveChannel(broadcast.channel))
+            
+            const updatedChannelsArray = broadcast.server_channels;
 
-            const updatedChannelsArray = broadcast.server_channels
-
-            const serverId = broadcast.channel.server_id
+            const serverId = broadcast.channel.server_id;
 
             const channelUpdateObject = ({serverId: serverId, channels: updatedChannelsArray})
 
             dispatch(updateChannels(channelUpdateObject))
+        }
+
+        if (broadcast.type === "destroyedchannel") {
+
+            const updatedChannelsArray = broadcast.server_channels;
+
+            const serverId = targetServerId
+
+
+            const channelUpdateObject = ({serverId: serverId, channels: updatedChannelsArray})
+
+            // debugger
+
+            dispatch(updateChannels(channelUpdateObject))
+
+
         }
 
 
@@ -67,7 +83,7 @@ export const ParticipantsList = (props) => {
 
 
     useEffect(() => {
-        const setUpWebsocket = () => {
+        // const setUpWebsocket = () => {
 
             var webSocket = consumer.subscriptions.create({
                 channel: "ServerChannel", 
@@ -80,9 +96,13 @@ export const ParticipantsList = (props) => {
 
 
 
-        }
+        // }
 
-        setUpWebsocket();
+        // setUpWebsocket();
+
+
+        return () => webSocket?.unsubscribe();
+
     },[targetServerId, dispatch])
 
 

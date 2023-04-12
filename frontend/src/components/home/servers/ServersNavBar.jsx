@@ -7,11 +7,12 @@ import "./ServersNavBar.css"
 import { NewServerModal } from "./new_server/NewServerModal";
 import { resetModalAC } from "../../../reducers/ModalReducer";
 import { LeaveServerModal } from "./leave_server/LeaveServerModal";
+import { useState } from "react";
 
 export const ServersNavBar = (props) => {
 
     const selectedServer = useParams().serverId;
-    console.log(`selectedServer is ${selectedServer}`)
+    // console.log(`selectedServer is ${selectedServer}`)
 
     // console.log("rerendering serversnav")
 
@@ -26,6 +27,58 @@ export const ServersNavBar = (props) => {
     const dispatch = useDispatch();
 
     let serverIdsToRender = currentUser?.joinedServers;
+
+    const [mousePos, setMousePos] = useState(null);
+
+    const currentMousePos = mousePos
+
+    let ServerNavList = document.getElementById('ServerNavList')
+    // debugger
+
+    // console.log(mousePos)
+
+        // if (mousePos > 74) {
+        //     // console.log("mousePos state is greater than 74")
+        //     // debugger
+        //     if (ServerNavList?.attributes.style?.nodeValue !== "width: 75px;"){
+        //         ServerNavList?.setAttribute("style", "width: 75px;")
+        //     }
+        // } else {
+            
+        //     console.log("mousePos state is less than 74")
+
+        //     if (ServerNavList?.attributes.style?.nodeValue !== "width: 22vw;"){
+        //         ServerNavList?.setAttribute("style", "width: 32vw;")
+        //     }
+        // }
+
+    const updateMousePosition = (e) => {
+        // console.log(mousePos)
+        // debugger
+        if (currentMousePos === null) {
+            // debugger
+            setMousePos(e.clientX);
+            return
+        }   
+
+        // debugger
+
+        if ((mousePos?.x <= 75 && e.clientX > 75)) {
+            // debugger
+        }
+
+        
+    };
+
+    // useEffect(() => {
+
+    //     window.addEventListener('mousemove', updateMousePosition);
+    //     return () => {
+    //         window.removeEventListener('mousemove', updateMousePosition);
+    //     };
+
+
+    // },[])
 
     const closeModal = (e) => {
         // debugger
@@ -93,14 +146,14 @@ export const ServersNavBar = (props) => {
     // },[allServers])
 
     // debugger
-
-
-
+    
+    
+    
     return (
         <>
             <LeaveServerModal />
-
-            <ul className="ServerNavList" >
+            <div id="resizetrigger"></div>
+            <ul id="ServerNavList" className="ServerNavList" >
                 <li className="Home" key={JSON.stringify(Math.random())}>
                     <Link to={`/home`}>
                     {selectedServer === undefined? <div className="activeIndicator selected"></div> : <div className="activeIndicator notselected"></div>}

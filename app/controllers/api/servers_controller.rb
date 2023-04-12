@@ -27,7 +27,6 @@ class Api::ServersController < ApplicationController
     if @server.save
       # owner_subscription = ServerSubscription.new(server_id: @server.id, subscriber_id: server_params[:owner_id])
       # tried to move this to the model for after validation..
-      
       render :show, status: 200
     else
       render json: {error: @server.errors.full_messages}, status: :unprocessable_entity

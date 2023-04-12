@@ -21,8 +21,13 @@ export const MessageForm = (props) => {
     const contextId = useParams().channelId
 
     useEffect(() => {
+        return setPicture(null)
+    }, [contextId])
+
+    useEffect(() => {
         return () => setPicturePreview(null)
     },[contextId])
+
 
     const fileHandler = (e) => {
         e.preventDefault();
