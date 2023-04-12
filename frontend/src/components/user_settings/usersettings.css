@@ -50,7 +50,7 @@
 }
 
 .SettingsList {
-    max-width: 120px;
+    width: auto;
     /* border: solid green 1px; */
 }
 
@@ -73,7 +73,8 @@
     /* max-width: 80px; */
     display: flex;
     justify-content: space-between;
-    width: 110px;
+
+    width: auto;
 }
 
 .UserSettingsSubNav li:hover {
@@ -106,3 +107,4 @@
 #logouticon {
     margin-right: auto;
 }
+

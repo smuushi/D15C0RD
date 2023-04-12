@@ -4,6 +4,7 @@ import { resetModalAC } from "../../reducers/ModalReducer"
 import { sessionLogout } from "../../reducers/SessionReducer"
 import { useState } from "react"
 import "./usersettings.css"
+import { SettingsShow } from "./SettingsShow"
 
 export const UserSettingsModal = (props) => {
     const modalId = "UserSettings"
@@ -11,6 +12,8 @@ export const UserSettingsModal = (props) => {
     const isActive = !!(modalId === useSelector(state => state.activeModal))
 
     const [selectedSetting, setSelectedSetting] = useState("MyAccount")
+
+    const [selection, setSelection] = useState(null)
 
     const dispatch = useDispatch()
 
@@ -30,6 +33,15 @@ export const UserSettingsModal = (props) => {
         dispatch(resetModalAC())
     }
 
+    const selectionHandler = (e) => {
+        e.preventDefault();
+
+        let sel = e.currentTarget.id;
+
+        setSelectedSetting(() => sel)
+
+    }
+
     if (isActive) {
         return(
             <div className="UserModalWrapper" >
@@ -39,6 +51,14 @@ export const UserSettingsModal = (props) => {
                 <div className="UserSettingsSubNav">
                     <h3>USER SETTINGS</h3>
                     <ul className="SettingsList">
+                        <li className="selected" id="MyAccount" onClick={selectionHandler}>
+                            <div className="logg">
+                                <div>
+                                    Account Settings
+                                </div>
+                            </div>
+                        
+                        </li>
                         <li className="notSelected" onClick={logOutHandler}>
                             <div className="logg">
                                 <div>
@@ -55,7 +75,8 @@ export const UserSettingsModal = (props) => {
                 </div>
 
                 <div className="SettingsShowSection">
-                    SOME RANDOM SHOWPAGE FOR A SETTINGS GOES HERE!
+
+                    <SettingsShow selection={selectedSetting} />
                 </div>
 
                 <button onClick={resetModal} > ESC </button>

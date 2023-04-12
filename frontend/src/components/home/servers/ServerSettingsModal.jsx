@@ -19,7 +19,7 @@ export const ServerSettingsModal = (props) => {
 
     const isActive = !!(modalId === useSelector(state => state.activeModal))
 
-    const [selection, setSelection] = useState("");
+    const [selection, setSelection] = useState("ServerOverview");
 
     const [deleting, setDeleting] = useState(false);
 
