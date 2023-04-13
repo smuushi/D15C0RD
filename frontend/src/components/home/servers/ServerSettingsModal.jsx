@@ -19,7 +19,7 @@ export const ServerSettingsModal = (props) => {
 
     const isActive = !!(modalId === useSelector(state => state.activeModal))
 
-    const [selection, setSelection] = useState("ServerOverview");
+    const [selection, setSelection] = useState(currentUser?.id === currentServer?.ownerId ? "ServerOverview" : "");
 
     const [deleting, setDeleting] = useState(false);
 
@@ -38,6 +38,11 @@ export const ServerSettingsModal = (props) => {
         e.currentTarget.classList.remove("notSelected")
 
     }
+
+    useEffect(() => {
+
+        setSelection(() => (currentUser?.id === currentServer?.ownerId ? "ServerOverview" : ""))
+    },[isActive])
 
 
     const resetModal = (e) => {
@@ -113,7 +118,9 @@ export const ServerSettingsModal = (props) => {
 
                 </div>
 
-                <button onClick={resetModal} > ESC </button>
+                <button id="escaper" className="escaper" onClick={resetModal} > 
+                <i className="fa-regular fa-circle-xmark"></i>
+                </button>
 
                         <DeletionModal setDeleting={setDeleting} isDeleting={deleting} currentServer={currentServer} />
             </div>

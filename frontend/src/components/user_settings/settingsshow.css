@@ -1,0 +1,110 @@
+.UserSettingsShowDiv {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    width: auto;
+}
+
+.SettingHeader h3#headd {
+    margin-left: 0px;
+    color: rgb(189, 189, 189);
+
+}
+
+.accountcontent header {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+    align-items: start;
+    width: 250px;
+
+}
+
+.accountcontent header h3{
+    margin-bottom: 12px;
+}
+
+.accountcontent .texter{
+    margin-top: 10px;
+}
+
+.accountcontent .inputter {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.UserSettingsShowDiv div header h3{
+    margin-left: 0px;
+    color:rgb(189, 189, 189)
+}
+
+.accountcontent {
+    display: flex;
+    align-items: start;
+    width: auto;  
+    color: rgb(189, 189, 189); 
+}
+
+
+#formerrr {
+    width: 100%;
+}
+
+#formerrr .namer {
+    width: 250px;
+    padding-left: 0px;
+
+}
+
+#formerrr .abouter {
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.abouter label {
+    margin-bottom: 10px;
+}
+
+.abouter input {
+    background-color: #232323;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 10px;
+    color: rgb(189, 189, 189);
+    white-space: initial;
+
+}
+
+button#submitterrr {
+    position: initial;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-left: 0px;
+    background-color: rgb(109, 82, 245);
+    color: rgb(235, 235, 235);
+    transition-property: all;
+    transition-duration: 200ms;
+}
+
+button#submitterrr:hover {
+    background-color: rgb(82, 61, 187);
+
+}
+
+button#escaper.escaper {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: rgb(189, 189, 189);
+}
+
+button#escaper.escaper:hover {
+    color: rgb(255, 255, 255);
+}

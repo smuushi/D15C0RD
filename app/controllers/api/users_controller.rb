@@ -69,12 +69,12 @@ class Api::UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 
-    @user.find_by()
+    @user = User.includes(:servers, :joined_servers).find_by_id(params[:id])
 
     if @user.update(user_params)
-      render :show, status: :ok, location: @user
+      render :show, status: :ok
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -92,7 +92,7 @@ class Api::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :username, :tag, :password)
+      params.require(:user).permit(:email, :avatar, :about, :username, :tag, :password)
     end
 
     def tag_creator 

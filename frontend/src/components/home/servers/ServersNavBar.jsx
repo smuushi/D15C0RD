@@ -159,11 +159,12 @@ export const ServersNavBar = (props) => {
                     {selectedServer === undefined? <div className="activeIndicator selected"></div> : <div className="activeIndicator notselected"></div>}
                     {selectedServer === undefined? 
                         <div className="active logoblock">
-                            SOME LOGO
+                            <img style={{maxWidth:"80px", maxHeight: "80px"}} src="/assets/misc/animecord.png"/>
                         </div> 
                         : 
                         <div className="inactive logoblock">
-                            SOME LOGO
+                            <img style={{maxWidth:"80px", maxHeight: "80px"}} src="/assets/misc/animecord.png"/>
+
                         </div> 
                     }
                         </Link>

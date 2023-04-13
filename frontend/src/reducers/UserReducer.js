@@ -27,6 +27,56 @@ export const fetchAllUsers = () => async (dispatch) => {
 
 }
 
+export const sendOutUserUpdate = (userUpdateObject) => async (dispatch) => {
+
+    if (userUpdateObject.avatar) {
+
+        debugger
+
+        let formVersionOfUpdateData = new FormData() 
+        
+        formVersionOfUpdateData.append('user[username]', userUpdateObject.username)
+        formVersionOfUpdateData.append('user[about]', userUpdateObject.about)
+        formVersionOfUpdateData.append('user[avatar]', userUpdateObject.avatar)
+
+        const res = await csrfFetch(`/api/users/${userUpdateObject.id}`,{
+            method: 'PATCH',
+            body: formVersionOfUpdateData 
+        })
+
+        if (res.ok) {
+            const data = await res.json();
+
+            dispatch(receiveUser(data))
+
+
+        }
+        
+    } else {
+
+        let formVersionOfUpdateData = new FormData() 
+        
+        formVersionOfUpdateData.append('user[username]', userUpdateObject.username)
+        formVersionOfUpdateData.append('user[about]', userUpdateObject.about)
+
+
+        const res = await csrfFetch(`/api/users/${userUpdateObject.id}`,{
+            method: 'PATCH',
+            body: formVersionOfUpdateData 
+        })
+
+        if (res.ok) {
+            const data = await res.json();
+
+            dispatch(receiveUser(data))
+
+        }
+
+
+    }
+}
+
+
 
 //---AC---//
 

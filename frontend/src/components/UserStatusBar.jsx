@@ -21,9 +21,17 @@ export const UserStatusBar = (props) => {
 
     }
 
+    const openUserShow = (e) => {
+        e.preventDefault();
+
+        
+
+        dispatch(activateModalAC(currentUserId))
+    }
+
     return(
         <div className="UserStatusBar" >
-            <div className="UserInfo" onClick={() => {console.log("i'll open the userinfo modal with this click lmaooo")}}>
+            <div className="UserInfo" onClick={openUserShow}>
                 <div className="UserImage" >
                     <img src={currentUser?.avatar? currentUser?.avatar : "/assets/avatars/DefaultAvatar.png"} />
                 </div>

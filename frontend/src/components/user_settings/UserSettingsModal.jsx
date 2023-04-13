@@ -79,7 +79,9 @@ export const UserSettingsModal = (props) => {
                     <SettingsShow selection={selectedSetting} />
                 </div>
 
-                <button onClick={resetModal} > ESC </button>
+                <button id="escaper" className="escaper" onClick={resetModal} > 
+                <i className="fa-regular fa-circle-xmark"></i>
+                </button>
 
             </div>
         )

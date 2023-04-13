@@ -63,7 +63,6 @@ export const ChannelSettingsModal = (props) => {
         return(
             <div className="ServerSettingsModalWrapper" >
 
-                {/* SERVER SETTINGS MODAL HERE HAHAH */}
 
                 <div className="ServerSettingsSubNav">
                     <h3>#{currentChannel?.name} -- TEXT CHANNEL</h3>
@@ -105,7 +104,9 @@ export const ChannelSettingsModal = (props) => {
 
                 </div>
 
-                <button onClick={resetModal} > ESC </button>
+                <button id="escaper" className="escaper" onClick={resetModal} > 
+                <i className="fa-regular fa-circle-xmark"></i> 
+                </button>
 
                     <DeletionModal currentChannelId={currentChannelId} setDeleting={setDeleting} isDeleting={deleting} currentServer={currentServer} />
             </div>

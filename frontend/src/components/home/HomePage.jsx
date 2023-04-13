@@ -12,6 +12,7 @@ import { fetchAllChannels } from "../../reducers/ChannelReducer";
 import { useNavigate } from "react-router-dom";
 import { csrfFetch } from "../../store_utils/csrf";
 import { fetchAllMessages } from "../../reducers/MessagesReducer";
+import { UserShowModal } from "../user_settings/UserShowModal";
 
 export const HomePage = (props) => {
 
@@ -139,7 +140,7 @@ export const HomePage = (props) => {
 
     return (
         <>
-        
+
             <div className="ServersNav">
 
 

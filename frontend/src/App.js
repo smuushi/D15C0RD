@@ -11,6 +11,7 @@ import { HomePage } from "./components/home/HomePage";
 import { useDispatch } from "react-redux";
 import { resetModalAC } from "./reducers/ModalReducer";
 import { RegistrationAIO } from "./components/registration/RegistrationAIO";
+import { UserShowModal } from "./components/user_settings/UserShowModal";
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
           <Route path="/register/:slug" element={ !isLoggedIn? <RegistrationAIO /> : <Navigate to="/home" /> } />
 
       </Routes>
+
 
       {/* {isLoggedIn ? <UserSettingsModal /> : <></> } */}
 

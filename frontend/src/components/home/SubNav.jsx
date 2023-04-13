@@ -8,6 +8,7 @@ import { LeaveServerModal } from "./servers/leave_server/LeaveServerModal"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { fetchAllChannels } from "../../reducers/ChannelReducer"
+import { UserShowModal } from "../user_settings/UserShowModal"
 
 
 export const SubNav = (props) => {
@@ -63,6 +64,7 @@ export const SubNav = (props) => {
 
         
             <nav className="subNav">
+                  <UserShowModal/> 
                 <header id="serverHeader" onClick={openModal}>
                     <h5>
                         {renderTarget?.name}
@@ -91,6 +93,7 @@ export const SubNav = (props) => {
     } else { // the subnav will show convos or server stuff... so atm, it's just else, but maybe i can put a specific key later. 
         return (
             <nav>
+                  <UserShowModal/> 
                 <header id="serverHeader" onClick={openModal}>
                     <h5>
 

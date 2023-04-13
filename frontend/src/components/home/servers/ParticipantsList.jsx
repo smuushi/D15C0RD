@@ -8,6 +8,7 @@ import { useEffect } from "react"
 
 import { addSubscribers, updateChannels } from "../../../reducers/ServerReducer"
 import { receiveChannel } from "../../../reducers/ChannelReducer"
+import { activateModalAC } from "../../../reducers/ModalReducer"
 
 export const ParticipantsList = (props) => {
 
@@ -26,6 +27,7 @@ export const ParticipantsList = (props) => {
     const subscribersIdArray = targetServer?.subscribers
 
     const dispatch = useDispatch();
+
 
     const updateServerSubscribers = (broadcast) => {
 
@@ -69,6 +71,13 @@ export const ParticipantsList = (props) => {
 
     }
 
+
+    const userShowOpener = (e) => {
+        // debugger
+        e.preventDefault();
+        let showingUserId = parseInt(e.currentTarget.id)
+        dispatch(activateModalAC(showingUserId))
+    }
 
 
 
@@ -122,7 +131,7 @@ export const ParticipantsList = (props) => {
 
             // debugger
             participantsLiElements.unshift(
-                <li className="UserLi">
+                <li id={userId} onClick={userShowOpener} className="UserLi">
 
                     <div className="UserImageContainer">
                         {allUsers[userId]?.avatar ? 
@@ -141,7 +150,7 @@ export const ParticipantsList = (props) => {
             )
         } else {
             participantsLiElements.push(
-                <li className="UserLi">
+                <li id={userId} onClick={userShowOpener} className="UserLi">
 
                     <div className="UserImageContainer">
                         {allUsers[userId]?.avatar ? 

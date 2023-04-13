@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
-
+import { sendOutUserUpdate } from "../../reducers/UserReducer"
+import "./settingsshow.css"
 
 export const SettingsShow = (props) => {
 
@@ -14,12 +15,15 @@ export const SettingsShow = (props) => {
 
     const [username, setUsername] = useState(currentUser?.username)
 
-    const [avatar, setAvatar] = useState(null)
+    const [avatar, setAvatar] = useState()
 
     const [avatarUrl, setAvatarUrl] = useState()
 
-    const [about, setAbout] = useState(currentUser?.about)
+    const [about, setAbout] = useState(currentUser?.about ? currentUser?.about : "")
 
+    const dispatch = useDispatch();
+
+    console.log(about)
 
     const isActive = (props.selection === showId)
 
@@ -28,13 +32,14 @@ export const SettingsShow = (props) => {
     if (avatarUrl) preview = <img src={avatarUrl}/>
 
 
+
     const fileHandler = (e) => {
         e.preventDefault();
 
         const iconFile = e.currentTarget.files[0]
         // copypasted from serveroverview..
         // that's why it says icon.. 
-        setAvatar(iconFile)
+        setAvatar(() => iconFile)
 
         if (iconFile) {
             const fileReader = new FileReader();
@@ -49,36 +54,76 @@ export const SettingsShow = (props) => {
 
     const changeHandler = (e) => {
         e.preventDefault();
+
+        let update = e.currentTarget.value
+        
+        switch( e.currentTarget.id ) {
+            case "username":
+            setUsername(() => update)
+            break;
+
+            case "aboutme":
+            setAbout(() => update)
+            break;
+
+        }
+
+    }
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const userUpdateInfoObject = ({
+            id: currentUserId, 
+            avatar: avatar, 
+            username: username, 
+            about: about
+        }) 
+
+
+        dispatch(sendOutUserUpdate(userUpdateInfoObject)).then(() => {
+            setTimeout(() => {
+                setUsername(() => "updated!")
+                setAbout(() => "updated!")
+                setTimeout(() => {
+                    setUsername(() => "")
+                    setAbout(() => "")
+                }, 2000)
+            })
+            }, 1000).then(() => {
+        })
+
+        setUsername(() => "updating..")
+        setAbout(() => "updatting in progres...")
+
     }
 
     if (isActive) {
         return (
-            <div className="ShowDiv">
-                <header>
-                    <h3>My Account</h3>
+            <div className="ShowDiv UserSettingsShowDiv">
+                <header className="SettingHeader">
+                    <h3 id="headd">My Account</h3>
                 </header>
 
-                <div>
+                <div className="accountcontent">
                     <header>
                         <h3>
-                            Username: {currentUser?.username}
+                            {currentUser?.username}
                         </h3>
-                    </header>
-                    <form>
                         <div className="previewer">
                             {preview}
+                            <div className="texter">
+                                Set your own Avatar!
+                            </div>
+                            <div className="inputter">
+                                <input type="file" onChange={fileHandler} />
+                            </div>
                         </div>
-
+                    </header>
+                    <form id="formerrr" onSubmit={submitHandler}>
 
                         <section>
-
-                        <div className="texter">
-                            Set your own Avatar!
-                        </div>
-
-                        <div className="inputter">
-                            <input type="file" onChange={fileHandler} />
-                        </div>
+                            <h3>Edit Info</h3>
 
                         </section>
 
@@ -92,7 +137,7 @@ export const SettingsShow = (props) => {
                             <input id="aboutme" type="text" value={about} onChange={changeHandler}/>
                         </div>
 
-                        <button id="submitter" type="submit">
+                        <button id="submitterrr" type="submit">
                             Save Changes
                         </button>
 
