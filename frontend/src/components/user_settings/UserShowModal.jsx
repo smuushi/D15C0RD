@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { activateModalAC, resetModalAC } from "../../reducers/ModalReducer"
+import "./usershowmodal.css"
 
 export const UserShowModal = (props) => {
 
@@ -43,20 +44,24 @@ export const UserShowModal = (props) => {
                 height:"100vh",
                 zIndex:"11"}}
                 onClick={closeModals}>
-                    <div className="newchannelmodalwrapper">
+                    <div id="usershowmodalwrapper" className="newchannelmodalwrapper">
         
 
-                        <header className="HeaderImage">
-                            {showingUser?.avatar ? <img src={showingUser?.avatar} style={{maxWidth: "100px"}}/> : <img src="/assets/avatars/DefaultAvatar.png" />}\
+                        <header id="usershowheader" className="HeaderImage">
+                        <div id="paddington">
+                            {showingUser?.avatar ? <img src={showingUser?.avatar}/> : <img src="/assets/avatars/DefaultAvatar.png" />}
+                            </div>
 
                             {currentId === currentUserId ? 
-                                <button onClick={openUserSettingsModal}>edit profile</button>
+                                <button onClick={openUserSettingsModal}>edit <i className="fa-solid fa-pen-to-square"></i></button>
                                 :
                                 <></>
                             }
                         </header>
 
                         <section className="UserInfoSection">
+                            <div id="buffery">
+
                             <header>
                                 <div className="Username">
                                     {showingUser?.username}
@@ -66,9 +71,13 @@ export const UserShowModal = (props) => {
                                 </div>
                             </header>
                             
-                            <h5>About</h5>
+                            <div id="papayainfo">
+                            <h4>User Info</h4>
+                            <h5>About Me</h5>
                             <p>{showingUser?.about ? showingUser?.about : "I am sure they are a very very nice person!"}</p>
+                            </div>
 
+                            </div>
 
                         </section>
 

@@ -22,17 +22,17 @@ ActiveRecord::Base.transaction do
     ServerSubscription.destroy_all
     ApplicationRecord.connection.reset_pk_sequence!(:server_subscriptions)
 
-    User.create(username:"DemoUser", email:"demo@demo.io", password:"password", tag:"0900")
-    User.create(username:"PapayaDemo", email:"papaya@paired.com", password:"testing", tag: "0780")
-    User.create(username:"GarySeed", email:"gary@paired.com", password:"testing", tag: "1800")
-    User.create(username:"YingSeed", email:"ying@paired.com", password:"testing", tag:"2468")
-    User.create(username:"SamSeed", email:"sam@paired.com", password:"testing", tag: "9595")
-    User.create(username:"MilnerSeed", email:"milner@paired.com", password:"testing", tag: "1234")
-    User.create(username:"TimSeed", email:"tim@paired.com", password:"testing", tag: "0019")
-    User.create(username:"KaiterSeed", email:"kaiter@paired.com", password:"testing", tag: "8903")
-    User.create(username:"SaraSeed", email:"sara@paired.com", password:"testing", tag: "1090")
-    User.create(username:"ShanSeed", email:"shan@paired.com", password:"testing", tag: "1090")
-
+    User.create(username:"DemoUser", email:"demo@demo.io", password:"password", about:"this is the demo user!", tag:"0900")
+    User.create(username:"Papaya", email:"papaya@paired.com", password:"testing", tag: "0780")
+    User.create(username:"GarySeed", email:"gary@paired.com", password:"testing", about:"nice guy here!" ,tag: "1800")
+    User.create(username:"YingSeed", email:"ying@paired.com", password:"testing", about:"Developer of Sbotify" ,  tag:"2468")
+    User.create(username:"SamSeed", email:"sam@paired.com", password:"testing", about:"Developer of Moodify" tag: "9595")
+    User.create(username:"MilnerSeed", email:"milner@paired.com", password:"testing", about: "Developer of best Barnes and Nobles clone!",tag: "1234")
+    User.create(username:"TimSeed", email:"tim@paired.com", password:"testing", about:"pro gamer and developer of staream!" ,tag: "0019")
+    User.create(username:"KaiterSeed", email:"kaiter@paired.com", password:"testing", about:"developer of spacebook! waifuhunter49", tag: "8903")
+    User.create(username:"SaraSeed", email:"sara@paired.com", password:"testing", about:"zelp developer! nakama" ,tag: "1090")
+    User.create(username:"ShanSeed", email:"shan@paired.com", password:"testing", about:"career caresser" ,tag: "1090")
+    User.create(username:"Michael Shih", email: "michael@paired.com", password:"testing", about:"Thanks for visiting my discord clone! Here are the links to my github and linkedin!", tag:"9876")
     
 end
 
@@ -44,17 +44,17 @@ ActiveRecord::Base.transaction do
 
     # User.create(username:"DemoUser", email:"demo@demo.io", password:"password", tag:"0900")
     # User.create(username:"testing", email:"papaya@paired.com", password:"testing", tag: "1090")
-    Server.create(name:"Fruit Room1", owner_id: 1)
+    Server.create(name:"Demo Room 1", owner_id: 1)
 
 
-    Server.create(name:"Fruit Room2", owner_id: 1)
+    Server.create(name:"Demo Room 2", owner_id: 1)
 
 
-    Server.create(name:"GumboRoom", owner_id: 1)
+    Server.create(name:"Michael was here", owner_id: 1)
 
 
 
-    Server.create(name:"Meat Room", owner_id: 2)
+    Server.create(name:"Fruit", owner_id: 2)
 
 
     Server.create(name:"Vegatables", owner_id: 2)
@@ -84,12 +84,12 @@ ActiveRecord::Base.transaction do
 
     # User.create(username:"DemoUser", email:"demo@demo.io", password:"password", tag:"0900")
     # User.create(username:"testing", email:"papaya@paired.com", password:"testing", tag: "1090")
-    Channel.create(name:"FR1_channel1", server_id: 1)
-    Channel.create(name:"FR1_channel2", server_id: 1, description: "talk about the second channel here!")
+    Channel.create(name:"Demo_channel1", server_id: 1)
+    Channel.create(name:"Demo_channel2", server_id: 1, description: "talk about the second channel here!")
     Channel.create(name:"Welcome to my clone!", server_id: 1, description: "i wonder if this description is noticeable..")
 
-    Channel.create(name:"there are no channels in FR2??", server_id: 3, description: "talk about a lazy seed here lmaoo")
-    Channel.create(name:"I hope this works ok..", server_id: 3)
+    Channel.create(name:"there are no channels in Demo Room 2?", server_id: 3, description: "talk about a lazy seed here lmaoo")
+    Channel.create(name:"I hope this works ok...", server_id: 3)
 
     Channel.create(name:"it is", server_id: 7)
     Channel.create(name:"always", server_id: 7)
@@ -122,17 +122,14 @@ ActiveRecord::Base.transaction do
     
     ServerSubscription.create(subscriber_id: 4, server_id: 8)
 
-
-
-
-
-
-
-
-
-
+    ServerSubscription.create(subscriber_id: 11, server_id: 1)
+    ServerSubscription.create(subscriber_id: 11, server_id: 1)
+    ServerSubscription.create(subscriber_id: 11, server_id: 1)
+    
 
 end
+
+
 
 
 

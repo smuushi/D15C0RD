@@ -1,0 +1,129 @@
+.newchannelmodalwrapper#usershowmodalwrapper {
+    min-width: 500px;
+    height: 340px;
+
+    background-color: rgb(159, 215, 235);
+}
+
+
+.newchannelmodalwrapper header#usershowheader {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    position: relative;
+    top: 45px;
+    left: 40px;
+}
+
+.UserInfoSection {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#paddington {
+    width: 135px;
+    height: 135px;
+    position: relative;
+    background-color: rgb(75, 75, 84);
+    left: -10px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+
+}
+
+.newchannelmodalwrapper header img {
+
+    width: 120px;
+    height: 120px;
+    margin-top: 0px;
+    border-radius: 100px;
+
+
+}
+.newchannelmodalwrapper header button {
+    position: absolute;
+    margin-left: 360px;
+    margin-top: 105px;
+    border-radius: 5px;
+    border: solid 1px rgb(105, 105, 105);
+    padding: 3px;
+    transition-property: all;
+    transition-duration: 300ms;
+
+
+}
+.newchannelmodalwrapper header button:hover {
+    background-color: rgb(226, 195, 255);
+}
+
+
+.newchannelmodalwrapper#usershowmodalwrapper section{
+    background-color: rgb(75, 75, 84);
+    width: 100%;
+    padding-top: 70px;
+}
+
+.newchannelmodalwrapper#usershowmodalwrapper section header{
+    display: flex;
+
+
+}
+
+#buffery {
+    margin: 10px;
+    /* background-color: rgb(75, 75, 84); */
+    background-color: rgb(54, 54, 59);
+    padding: 10px;
+    border-radius: 10px;;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#buffery header {
+    font-weight:600;
+    font-size: 28px;
+    
+}
+
+#buffery header div.Tag {
+
+    font-size: 20px;
+    font-weight: 600;
+    color:rgb(186, 192, 196)
+
+}
+
+#buffery header div.Username {
+    color: rgb(255, 255, 255);
+
+}
+
+#papayainfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#papayainfo h4 {
+    display: initial;
+    position: initial;
+
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    color: rgb(233, 235, 255);
+}
+
+#papayainfo h5 {
+    display: initial;
+    position: initial;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+#papayainfo p {
+    color: rgb(175, 186, 186);
+    margin-bottom: 30px;
+}
