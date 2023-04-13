@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
+require "open_uri"
 
 ActiveRecord::Base.transaction do 
 
@@ -35,6 +35,16 @@ ActiveRecord::Base.transaction do
     User.create(username:"Michael Shih", email: "michael@paired.com", password:"testing", about:"Thanks for visiting my discord clone! Here are the links to my github and linkedin!", tag:"9876")
     
 end
+
+User.all.each_with_index do |user, idx|
+
+    user.avatar.attach(
+        io: ###file object here,
+        filename: ###some file here... .
+    )
+
+end
+
 
 
 ActiveRecord::Base.transaction do 

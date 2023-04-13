@@ -13,7 +13,7 @@ import { fetchAllChannels } from "../../../reducers/ChannelReducer"
 export const ServerShow = (props) => {
 
 
-    console.log(props)
+    // console.log(props)
 
 
     const targetServer = props.server
@@ -27,7 +27,7 @@ export const ServerShow = (props) => {
     const dispatch = useDispatch()
 
 
-    let location = useParams();
+
 
     let {channelId} = useParams()
 
@@ -41,13 +41,6 @@ export const ServerShow = (props) => {
     },[dispatch, targetServer])
 
 
-
-    // if (location.serverId && !actualServerObject) {
-    //     debugger
-    //     setTimeout(() => {
-    //         return <Navigate to="/home" />
-    //     },200)
-    // }
 
     return (
         

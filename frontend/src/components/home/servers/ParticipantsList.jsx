@@ -131,7 +131,7 @@ export const ParticipantsList = (props) => {
 
             // debugger
             participantsLiElements.unshift(
-                <li id={userId} onClick={userShowOpener} className="UserLi">
+                <li key={userId} id={userId} onClick={userShowOpener} className="UserLi">
 
                     <div className="UserImageContainer">
                         {allUsers[userId]?.avatar ? 
@@ -143,14 +143,14 @@ export const ParticipantsList = (props) => {
                     
                     <div className="UserName">
                         {`${allUsers[userId]?.username} `} 
-                        <i class="fa-solid fa-crown"></i>
+                        <i className="fa-solid fa-crown"></i>
                     </div>
                     
                 </li>
             )
         } else {
             participantsLiElements.push(
-                <li id={userId} onClick={userShowOpener} className="UserLi">
+                <li key={userId} id={userId} onClick={userShowOpener} className="UserLi">
 
                     <div className="UserImageContainer">
                         {allUsers[userId]?.avatar ? 
@@ -181,8 +181,8 @@ export const ParticipantsList = (props) => {
 
 
         <ul id="memberslistings">
-            <header>
-                <h5>Members - {participantsLiElements?.length}</h5>
+            <header key={"papayamaya"}>
+                <h5 key={"counter"}>Members - {participantsLiElements?.length}</h5>
             </header>
             {participantsLiElements}
 

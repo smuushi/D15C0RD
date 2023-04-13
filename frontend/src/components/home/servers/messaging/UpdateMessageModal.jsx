@@ -10,8 +10,8 @@ export const UpdateMessageModal = (props) => {
 
     // debugger
 
-    console.log(messageId)
-    console.log(selectedMessageId)
+    // console.log(messageId)
+    // console.log(selectedMessageId)
 
     const setSelectedMessageId = props.setselectedmessage // this is a setter function
 

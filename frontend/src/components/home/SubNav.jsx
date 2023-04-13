@@ -30,7 +30,7 @@ export const SubNav = (props) => {
 
     const isOwner = ownerId === currentUserId? true : false
 
-    console.log(whatWeAreRenderingThisFineEvening) // lmao
+    // console.log(whatWeAreRenderingThisFineEvening) // lmao
 
 
 

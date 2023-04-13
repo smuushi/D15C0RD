@@ -57,7 +57,7 @@ export const ChannelsList = (props) => {
             return 
         }    
         return(
-            <li id={channelId == parchannelId ? "selectedchannel" : ""}>
+            <li key={JSON.stringify(allChannels[channelId])} id={channelId == parchannelId ? "selectedchannel" : ""}>
                 
                 <Link to={`/home/server/${serverId}/channel/${channelId}`} >
                     <div id="uiop">
@@ -100,7 +100,7 @@ export const ChannelsList = (props) => {
 
     return (
         <ul className="textchannels">
-            <ChannelSettingsModal currentServerId={serverId}/>
+            <ChannelSettingsModal key={currentUserId*32} currentServerId={serverId}/>
             <div className="ChannelHeader">
                 <div className="headerheader">
 

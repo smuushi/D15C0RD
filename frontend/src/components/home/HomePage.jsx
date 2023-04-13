@@ -23,7 +23,7 @@ export const HomePage = (props) => {
 
     const location = useParams()
     var currentServer = useSelector(state => state.entities.servers[location.serverId]? state.entities.servers[location.serverId] : "wer")
-    console.log(location)
+
 
     
 
@@ -88,7 +88,7 @@ export const HomePage = (props) => {
             })
         }
 
-        console.log("papayaing")
+        // console.log("papayaing")
         dispatch(fetchAllServers()).then(() => {
 
             return dispatch(fetchAllUsers())
@@ -103,7 +103,7 @@ export const HomePage = (props) => {
             
         let whatthe = new Promise((resolve) => {
             setTimeout(() => {
-                resolve(console.log("trying to wait for everything to load.."))
+                resolve()
             }, 10)
         })
         

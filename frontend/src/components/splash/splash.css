@@ -268,3 +268,28 @@ li#linker a {
     max-width: 350px;
     margin-left: 10px;
 }
+
+
+#importantlinks {
+    display: flex;
+    align-items: center;
+}
+
+#importantlinks li#linker {
+    margin:0px;
+    padding: 0px;
+    width: auto;
+    margin-top: 12px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+#importantlinks li#linker a {
+    margin: 0px;
+    padding: 0px;
+    width: 30px;
+    cursor: pointer;
+}

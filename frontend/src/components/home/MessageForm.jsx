@@ -10,11 +10,11 @@ export const MessageForm = (props) => {
 
     const { channelId } = props
 
-    const [message, setMessage] = useState();
+    const [message, setMessage] = useState("");
 
-    const [picture, setPicture] = useState();
+    const [picture, setPicture] = useState("");
 
-    const [picturePreview, setPicturePreview] = useState(null)
+    const [picturePreview, setPicturePreview] = useState("")
 
     const dispatch = useDispatch();
 
@@ -99,7 +99,7 @@ export const MessageForm = (props) => {
                         <i className="fa-solid fa-circle-plus"></i>
                     </label>
     
-                <input id="picture" type="file" style={{display: "none"}} onChange={fileHandler} />
+                <input id="picture" type="file" style={{display: "none"}}/>
                 
                 <span> Select a channel to start chatting!</span>
     
@@ -128,7 +128,7 @@ export const MessageForm = (props) => {
                     <i className="fa-solid fa-circle-plus"></i>
                 </label>
 
-            <input id="picture" type="file" style={{display: "none"}} onChange={fileHandler} />
+            <input id="picture"  type="file" style={{display: "none"}} onChange={fileHandler} />
             
             <input type="text" placeholder="Message" value={message} onChange={changeHandler}/>
 
