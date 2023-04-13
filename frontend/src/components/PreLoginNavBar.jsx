@@ -9,10 +9,10 @@ export const PreLoginNavBar = () => {
 
     return(
         <nav className="splash" > 
-            <div>some nav here~</div>
+
             
 
-            <li><Link to="/" >D15C0RD</Link></li>
+            <li id="linker"><Link to="/" ><img id="photopotato" src="/assets/misc/animecord.png" alt="" /> D15C0RD</Link></li>
             <li className="LL">{!!session? <Link to="/home" className="LL">Open Discord</Link> : <Link to="/login" className="LL">Login</Link>}</li>
 
             

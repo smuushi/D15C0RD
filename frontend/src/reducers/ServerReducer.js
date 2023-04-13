@@ -67,12 +67,9 @@ export const joinServer = (request) => async (dispatch) => {
 
     if (res.ok) {
         let data = await res.json();
-        // debugger
 
         dispatch(receiveServer(data))
         dispatch(addNewServerToJoinedServers({subscriberId: request.subscriberId, serverId: data.id}))
-        // debugger
-        // debugger
         return data
         
     } else {

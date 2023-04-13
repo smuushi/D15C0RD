@@ -35,3 +35,8 @@
 .UserImageContainer .Username {
     margin-top: 10px;
 }
+
+ul#memberslistings {
+    overflow-y: scroll;
+    padding-bottom: 30px;
+}

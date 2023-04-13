@@ -25,8 +25,8 @@ ActiveRecord::Base.transaction do
     User.create(username:"DemoUser", email:"demo@demo.io", password:"password", about:"this is the demo user!", tag:"0900")
     User.create(username:"Papaya", email:"papaya@paired.com", password:"testing", tag: "0780")
     User.create(username:"GarySeed", email:"gary@paired.com", password:"testing", about:"nice guy here!" ,tag: "1800")
-    User.create(username:"YingSeed", email:"ying@paired.com", password:"testing", about:"Developer of Sbotify" ,  tag:"2468")
-    User.create(username:"SamSeed", email:"sam@paired.com", password:"testing", about:"Developer of Moodify" tag: "9595")
+    User.create(username:"KellySeed", email:"kelly@paired.com", password:"testing", about:"Developer of Sbotify" ,  tag:"2468")
+    User.create(username:"SamSeed", email:"sam@paired.com", password:"testing", about:"Developer of Moodify", tag: "9595")
     User.create(username:"MilnerSeed", email:"milner@paired.com", password:"testing", about: "Developer of best Barnes and Nobles clone!",tag: "1234")
     User.create(username:"TimSeed", email:"tim@paired.com", password:"testing", about:"pro gamer and developer of staream!" ,tag: "0019")
     User.create(username:"KaiterSeed", email:"kaiter@paired.com", password:"testing", about:"developer of spacebook! waifuhunter49", tag: "8903")
@@ -123,8 +123,16 @@ ActiveRecord::Base.transaction do
     ServerSubscription.create(subscriber_id: 4, server_id: 8)
 
     ServerSubscription.create(subscriber_id: 11, server_id: 1)
-    ServerSubscription.create(subscriber_id: 11, server_id: 1)
-    ServerSubscription.create(subscriber_id: 11, server_id: 1)
+    ServerSubscription.create(subscriber_id: 2, server_id: 1)
+    ServerSubscription.create(subscriber_id: 3, server_id: 1)
+    ServerSubscription.create(subscriber_id: 4, server_id: 1)
+    ServerSubscription.create(subscriber_id: 5, server_id: 1)
+    ServerSubscription.create(subscriber_id: 6, server_id: 1)
+    ServerSubscription.create(subscriber_id: 7, server_id: 1)
+    ServerSubscription.create(subscriber_id: 8, server_id: 1)
+    ServerSubscription.create(subscriber_id: 9, server_id: 1)
+    ServerSubscription.create(subscriber_id: 10, server_id: 1)
+
     
 
 end
