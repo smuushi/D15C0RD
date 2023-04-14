@@ -23,7 +23,7 @@ module D15C0RD
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.railties_order = [:all, :main_app]
+
 
 
 
@@ -50,5 +50,6 @@ module D15C0RD
           secure: Rails.env.production?
       end
     end
+    config.railties_order = [:all, :main_app]
   end
 end
