@@ -18,10 +18,9 @@ export async function csrfFetch(url, options = {}) {
   
     // call fetch with the url and the updated options hash
 
-        const res = await fetch(url, options).catch(async ()=> {
+        const res = await fetch(url, options).catch(async (res) => {
             let errors = await res.json() 
             console.log(errors)
-
         })
 
 
