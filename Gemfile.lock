@@ -70,7 +70,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     aws-eventstream (1.2.0)
-    aws-partitions (1.742.0)
+    aws-partitions (1.747.0)
     aws-sdk-core (3.171.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
@@ -110,7 +110,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
-    loofah (2.19.1)
+    loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.8.1)
@@ -132,10 +132,8 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
-    nio4r (2.5.8)
-    nokogiri (1.14.2-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.14.2-x86_64-linux)
+    nio4r (2.5.9)
+    nokogiri (1.14.3-arm64-darwin)
       racc (~> 1.4)
     pg (1.4.6)
     pry (0.14.2)
@@ -178,6 +176,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.1)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -189,7 +188,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
-  x86_64-linux
 
 DEPENDENCIES
   annotate
@@ -205,6 +203,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
+  redis (~> 4.0)
   tzinfo-data
 
 RUBY VERSION

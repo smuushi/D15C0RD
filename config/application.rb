@@ -25,6 +25,8 @@ module D15C0RD
 
     config.railties_order = [:all, :main_app]
 
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
