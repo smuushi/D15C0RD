@@ -42,7 +42,7 @@ end
     users[3].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/kellyseed.png"), filename: "kellyseed.png")
     users[4].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/samseed.png"), filename: "samseed.png")
     users[5].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/milnerseed.png"), filename: "milnerseed.png")
-    users[6].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/timseed.png", filename: "timseed.png"))
+    users[6].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/timseed.png"), filename: "timseed.png")
     users[7].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/kaiterseed.png"), filename: "kaiterseed.png")
     users[8].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/saraseed.png"), filename: "saraseed.png")
     users[9].avatar.attach(io: URI.open("https://d15c0rd-seeds.s3.amazonaws.com/shanseed.png"), filename: "shanseed.png")
