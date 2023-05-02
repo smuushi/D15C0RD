@@ -139,6 +139,7 @@ export const MessageLog = () => {
 
         const message = allMessages[messageId];
         const date2 = new Date(message?.createdAt)
+        // debugger
 
         const messageContent = allMessages[messageId]?.content;
 
@@ -171,7 +172,7 @@ export const MessageLog = () => {
                     return null
                 }
 
-                let month = dateObject.getMonth()
+                let month = dateObject.getMonth() + 1
                 let day = dateObject.getDate()
                 let year = dateObject.getFullYear()
 
