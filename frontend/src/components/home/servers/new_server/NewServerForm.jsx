@@ -62,10 +62,10 @@ export const NewServerForm = (props) => {
 
         if (name) {
 
-            console.log("submission attempt")
-            console.log("submission attempt")
-            console.log("submission attempt")
-            console.log("submission attempt")
+            // console.log("submission attempt")
+            // console.log("submission attempt")
+            // console.log("submission attempt")
+            // console.log("submission attempt")
 
 
 
@@ -82,7 +82,7 @@ export const NewServerForm = (props) => {
                     navigate(`/home/server/${res.id}`)
                 })
             } else {
-                console.log('there was no name?....')
+                // console.log('there was no name?....')
             }
 
 

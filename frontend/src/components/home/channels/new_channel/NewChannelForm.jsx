@@ -30,7 +30,7 @@ export const NewChannelForm = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        console.log(serverId)
+        // console.log(serverId)
 
         const newChannelInfo = {
             serverId: serverId, 

@@ -108,9 +108,9 @@ export const RegistrationAIO = (props) => {
     // let [prevModal, setPrevModal] = useRef();
 
     const closeModal = (e) => {
-        console.log(modalState)
+        // console.log(modalState)
         setTypeStatus(() => false)
-        // console.log(typeStatus)
+        // // console.log(typeStatus)
         // debugger
         if (e.target.id === modalState){
             return
@@ -166,10 +166,10 @@ export const RegistrationAIO = (props) => {
 
     useEffect(()=>{
 
-        // console.log(isValidDate())
+        // // console.log(isValidDate())
         // setYear("889")
         // if (!isValidDate()) {
-            console.log(isValidDate())
+            // console.log(isValidDate())
         // }
         return () => {
             dispatch(resetModalAC())
@@ -179,7 +179,7 @@ export const RegistrationAIO = (props) => {
 
     // debugger
 
-    // console.log(help)
+    // // console.log(help)
     return (
         <>
             <div className="RegistrationModule" >

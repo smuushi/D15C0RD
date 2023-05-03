@@ -23,7 +23,7 @@ export const SettingsShow = (props) => {
 
     const dispatch = useDispatch();
 
-    console.log(about)
+    // console.log(about)
 
     const isActive = (props.selection === showId)
 
@@ -86,8 +86,8 @@ export const SettingsShow = (props) => {
                 setUsername(() => "updated!")
                 setAbout(() => "updated!")
                 setTimeout(() => {
-                    setUsername(() => "")
-                    setAbout(() => "")
+                    setUsername(() => userUpdateInfoObject.username)
+                    setAbout(() => userUpdateInfoObject.about)
                 }, 2000)
             })
             }, 1000).then(() => {

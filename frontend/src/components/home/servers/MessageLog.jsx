@@ -21,13 +21,13 @@ export const MessageLog = () => {
     // debugger
 
     const currentUserId = useSelector(state => state.entities.session.user.id)
-    // console.log(currentUserId)
+    // // console.log(currentUserId)
 
     const dispatch = useDispatch()
 
     const [selectedMessageId, setSelectedMessageId] = useState(3)
 
-    // console.log(selectedMessageId)
+    // // console.log(selectedMessageId)
 
     const updateMessageLog = (broadcast) => {
 

@@ -41,11 +41,11 @@ export const leaveServer = (request) => async (dispatch) => {
 
 
     } else {
-        console.log("DELETION FAILED HARD BRO")
-        console.log("DELETION FAILED HARD BRO")
-        console.log("DELETION FAILED HARD BRO")
-        console.log("DELETION FAILED HARD BRO")
-        console.log("DELETION FAILED HARD BRO")
+        // console.log("DELETION FAILED HARD BRO")
+        // console.log("DELETION FAILED HARD BRO")
+        // console.log("DELETION FAILED HARD BRO")
+        // console.log("DELETION FAILED HARD BRO")
+        // console.log("DELETION FAILED HARD BRO")
 
     }
 
@@ -76,7 +76,7 @@ export const joinServer = (request) => async (dispatch) => {
 
         let errorArray = await res.json();
         // debugger
-        console.log("failed to join server")
+        // console.log("failed to join server")
         dispatch(receiveError(errorArray))
 
         throw new Error
@@ -133,7 +133,7 @@ export const updateServer = (serverInfo) => async (dispatch) => {
             return res;
         } else {
 
-            console.log('THE UPDATE DIED SOMEHOW...')
+            // console.log('THE UPDATE DIED SOMEHOW...')
 
         }
 
@@ -190,7 +190,7 @@ export const createServer = (serverInfo) => async (dispatch) => {
             return serverInfo
         } else {
 
-            console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
+            // console.log('RES WAS NOT OK WHILE GETTING DATA BACK FROM TRYING TO CREATE SERVER...')
         }
     } else if (serverInfo.icon) {
         const formData = new FormData();
@@ -234,7 +234,7 @@ export const fetchAllServers = () => async (dispatch) => {
 
         dispatch(receiveAllServers(data));
     } else {
-        console.log("SO BAD... from trying to get all servers. ")
+        // console.log("SO BAD... from trying to get all servers. ")
     }
     return res;
 }

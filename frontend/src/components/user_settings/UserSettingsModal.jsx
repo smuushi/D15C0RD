@@ -21,7 +21,7 @@ export const UserSettingsModal = (props) => {
 
         // debugger
 
-        console.log("trying to logout")
+        // console.log("trying to logout")
         dispatch(sessionLogout())
         dispatch(resetModalAC())
 
@@ -29,7 +29,7 @@ export const UserSettingsModal = (props) => {
 
     const resetModal = (e) => {
 
-        console.log("trying to close settings modal..")
+        // console.log("trying to close settings modal..")
         dispatch(resetModalAC())
     }
 

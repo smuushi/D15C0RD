@@ -96,7 +96,7 @@ export const ChannelsList = (props) => {
         )
         
     })
-    // console.log(channelLiElements)
+    // // console.log(channelLiElements)
 
     return (
         <ul className="textchannels">

@@ -69,7 +69,7 @@ export const OverviewSettingShow = (props) => {
             })
             setNamee(() => "updating!! please wait!!")
         } else {
-            console.log('there was no name???')
+            // console.log('there was no name???')
         }
 
     }

@@ -53,7 +53,7 @@ export const ChannelOverviewSettingShow = (props) => {
                 dispatch(resetModalAC())
             })
         } else {
-            console.log('there was no name???')
+            // console.log('there was no name???')
         }
 
     }

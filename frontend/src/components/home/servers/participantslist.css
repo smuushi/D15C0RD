@@ -39,4 +39,10 @@
 ul#memberslistings {
     overflow-y: scroll;
     padding-bottom: 30px;
+
 }
+
+ul#memberslistings::-webkit-scrollbar {
+    display: none;
+}
+  

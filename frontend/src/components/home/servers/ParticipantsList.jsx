@@ -12,9 +12,9 @@ import { activateModalAC } from "../../../reducers/ModalReducer"
 
 export const ParticipantsList = (props) => {
 
-    // console.log(consumer
+    // // console.log(consumer
 
-    // console.log(props)
+    // // console.log(props)
 
     const targetServerId = props.server
 
@@ -172,8 +172,8 @@ export const ParticipantsList = (props) => {
     })
     
 
-    // console.log(targetServer)
-    // console.log(owner)
+    // // console.log(targetServer)
+    // // console.log(owner)
 
     
 

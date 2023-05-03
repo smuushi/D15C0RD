@@ -27,7 +27,7 @@ export const ServerSettingsModal = (props) => {
 
     const selectionHandler = async (e) => {
         e.preventDefault();
-        console.log(selection)
+        // console.log(selection)
         // debugger
         let theSelection = e.currentTarget.id;
         // e.currentTarget.
@@ -46,7 +46,7 @@ export const ServerSettingsModal = (props) => {
 
 
     const resetModal = (e) => {
-        console.log("trying to close settings modal..")
+        // console.log("trying to close settings modal..")
         setSelection(null)
         dispatch(resetModalAC())
         setDeleting(false)

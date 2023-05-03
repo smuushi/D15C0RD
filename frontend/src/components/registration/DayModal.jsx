@@ -8,7 +8,7 @@ export const DayModal = (props) => {
     const isActive = !!(modalId === useSelector(state => state.activeModal))
 
     const typeStatus = props.typer;
-    // console.log(typeStatus)
+    // // console.log(typeStatus)
 
     const [day, setDay] = props.states;
     // debugger

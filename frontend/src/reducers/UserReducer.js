@@ -20,7 +20,7 @@ export const fetchAllUsers = () => async (dispatch) => {
 
         dispatch(receiveAllTheUsers(data))
     } else {
-        console.log("HAVING ISSUES WHILE GETTING ALL THE USERS FAM")
+        // console.log("HAVING ISSUES WHILE GETTING ALL THE USERS FAM")
     }
 
     return res

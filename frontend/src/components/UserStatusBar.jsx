@@ -15,7 +15,7 @@ export const UserStatusBar = (props) => {
     const modalOpen = (e) => {
 
         const modalId = e.currentTarget.id
-        // console.log(modalId)
+        // // console.log(modalId)
         // debugger
         dispatch(activateModalAC(modalId))
 

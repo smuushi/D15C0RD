@@ -25,7 +25,7 @@ const initializeApp = () => {
   
   let currentUserAction = updateSessionStorageInSessionReducerActionCreator()
 
-  // console.log(currentUserAction) 
+  // // console.log(currentUserAction) 
   // lmaooo 
 
   const store = configureStore({entities: currentUserAction});

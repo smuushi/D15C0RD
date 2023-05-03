@@ -11,7 +11,7 @@ export const InviteForm = (props) => {
     const currentServer = useSelector(state => state.entities.servers[currentServerId])
 
     const inviteCode = useSelector(state => state.entities.invite)
-    console.log(inviteCode)
+    // console.log(inviteCode)
     const dispatch = useDispatch();
 
     const [copying, setCopying] = useState(false)

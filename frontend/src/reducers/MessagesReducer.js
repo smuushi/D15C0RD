@@ -34,7 +34,7 @@ export const sendUpdateMessage = (updateRequest) => async (dispatch) => {
         return res
     } else {
         debugger
-        console.log("updating error did not go well...")
+        // console.log("updating error did not go well...")
     }
 
 

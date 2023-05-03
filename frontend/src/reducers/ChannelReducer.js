@@ -75,11 +75,11 @@ export const createNewChannel = (newChannelInfo) => async (dispatch) => {
         let channelInfo = await res.json();
         
         dispatch(receiveChannel(channelInfo))
-        dispatch(addChannel({id: channelInfo.id, serverId: channelInfo.serverId}))
+        // dispatch(addChannel({id: channelInfo.id, serverId: channelInfo.serverId}))
 
         return [res, channelInfo.id]
     } else {
-        console.log('THERE WAS AN ERROR CREATING THE NEW CHANNEL...')
+        // console.log('THERE WAS AN ERROR CREATING THE NEW CHANNEL...')
     }
 
 

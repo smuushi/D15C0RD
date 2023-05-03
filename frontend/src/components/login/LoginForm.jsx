@@ -58,7 +58,7 @@ export const LoginForm = (props) => {
 
     const demologin = (e) => {
         e.preventDefault();
-        console.log("logging in with demo")
+        // console.log("logging in with demo")
 
         const userInfo = {
             email: "demo@demo.io", 

@@ -51,13 +51,13 @@ export const sessionLogout = () => async (dispatch) => {
 
     if (res.ok) {
         let data = await res.json();
-        console.log(data)
+        // console.log(data)
         sessionStorage.setItem("currentUser", null)
         dispatch(removeSessionAC());
     } else {
         let data = await res.json();
         sessionStorage.setItem("currentUser", null)
-        console.log(data)
+        // console.log(data)
     }
 
 }
@@ -72,9 +72,9 @@ export const sessionLogin = (userLogin) => async (dispatch) => {
 
     if (res.ok) {
 
-        console.log(res);
+        // console.log(res);
         let sessionData = await res.json();
-        console.log(sessionData)
+        // console.log(sessionData)
         // debugger
         dispatch(receiveSessionAC(sessionData))
         sessionStorage.setItem("currentUser", JSON.stringify(sessionData))

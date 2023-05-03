@@ -12,9 +12,9 @@ import { useState } from "react";
 export const ServersNavBar = (props) => {
 
     const selectedServer = useParams().serverId;
-    // console.log(`selectedServer is ${selectedServer}`)
+    // // console.log(`selectedServer is ${selectedServer}`)
 
-    // console.log("rerendering serversnav")
+    // // console.log("rerendering serversnav")
 
     const allServers = useSelector(state => state.entities.servers);
 
@@ -35,17 +35,17 @@ export const ServersNavBar = (props) => {
     let ServerNavList = document.getElementById('ServerNavList')
     // debugger
 
-    // console.log(mousePos)
+    // // console.log(mousePos)
 
         // if (mousePos > 74) {
-        //     // console.log("mousePos state is greater than 74")
+        //     // // console.log("mousePos state is greater than 74")
         //     // debugger
         //     if (ServerNavList?.attributes.style?.nodeValue !== "width: 75px;"){
         //         ServerNavList?.setAttribute("style", "width: 75px;")
         //     }
         // } else {
             
-        //     console.log("mousePos state is less than 74")
+        //     // console.log("mousePos state is less than 74")
 
         //     if (ServerNavList?.attributes.style?.nodeValue !== "width: 22vw;"){
         //         ServerNavList?.setAttribute("style", "width: 32vw;")
@@ -53,7 +53,7 @@ export const ServersNavBar = (props) => {
         // }
 
     const updateMousePosition = (e) => {
-        // console.log(mousePos)
+        // // console.log(mousePos)
         // debugger
         if (currentMousePos === null) {
             // debugger
@@ -90,15 +90,15 @@ export const ServersNavBar = (props) => {
             setTimeout(() => {dispatch(resetModalAC())},20)
 
         } else {
-            console.log("closeModal was ran, but target wasn't the backdrop")
+            // console.log("closeModal was ran, but target wasn't the backdrop")
         }
     }
 
     const activateModal = (e) => {
         // debugger
         e.preventDefault();
-        console.log('activationnnn')
-        console.log(newServerButton)
+        // console.log('activationnnn')
+        // console.log(newServerButton)
         newServerButton?.classList.remove('inactive')
         newServerButton?.classList.add('active')
 

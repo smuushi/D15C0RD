@@ -4,7 +4,7 @@ export const Creation = (props) => {
     const {setCreation} = props;
 
     const {setNewsub} = props;
-    // console.log(setCreation)
+    // // console.log(setCreation)
 
     const clickHandler = (e) => {
         setCreation(() => "sometruthyvalfornow...")

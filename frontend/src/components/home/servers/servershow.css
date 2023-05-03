@@ -1,4 +1,11 @@
+div.ChatLog::-webkit-scrollbar {
+    display: none;
+}
 
+ol.ChatLog::-webkit-scrollbar {
+    display: none;
+}
+  
 
 .ShowWrapper {
     width: 100%;
@@ -68,6 +75,11 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.ChatterBox::-webkit-scrollbar {
+    display: none;
+}
+  
 
 .ChatForm {
     position: sticky;

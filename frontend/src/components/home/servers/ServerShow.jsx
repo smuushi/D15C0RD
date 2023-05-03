@@ -13,7 +13,7 @@ import { fetchAllChannels } from "../../../reducers/ChannelReducer"
 export const ServerShow = (props) => {
 
 
-    // console.log(props)
+    // // console.log(props)
 
 
     const targetServer = props.server

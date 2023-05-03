@@ -25,8 +25,12 @@ export const InviteSettingShow = (props) => {
 
     useEffect(() => {
 
+        if (!currentServer){
+            return
+        }
+
         const fetchInvites = async () => {
-            const res = await csrfFetch(`/api/get_invites/server/${currentServer.id}`)
+            const res = await csrfFetch(`/api/get_invites/server/${currentServer?.id}`)
 
             if (res.ok) {
                 let data = await res.json();

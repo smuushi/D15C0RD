@@ -88,7 +88,7 @@ export const HomePage = (props) => {
             })
         }
 
-        // console.log("papayaing")
+        // // console.log("papayaing")
         dispatch(fetchAllServers()).then(() => {
 
             return dispatch(fetchAllUsers())

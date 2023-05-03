@@ -20,7 +20,7 @@ export async function csrfFetch(url, options = {}) {
 
         const res = await fetch(url, options).catch(async (res) => {
             let errors = await res.json() 
-            console.log(errors)
+            // console.log(errors)
         })
 
 
@@ -41,17 +41,17 @@ export function storeCSRFToken(response) {
     const csrfToken = response.headers.get("X-CSRF-Token");
 
     // debugger
-    console.log(csrfToken)
+    // console.log(csrfToken)
     if (csrfToken) {
         // setTimeout(() => {
-        //     console.log('attempting to set item')
+        //     // console.log('attempting to set item')
 
 
         
         sessionStorage.setItem('X-CSRF-Token', csrfToken)
 
         // while (!sessionStorage.getItem('X-CSRF-Token')){
-        //     console.log("help")
+        //     // console.log("help")
         //     sessionStorage.setItem('X-CSRF-Token', csrfToken)
         // }
         // }, 2000);
@@ -67,12 +67,12 @@ const storeSessionStorageUser = async (res) => {
         let data = await res.json()
         sessionStorage.setItem('currentUser', JSON.stringify(data))
     }
-        console.log("set sessionStorage.. not the store.")
+        // console.log("set sessionStorage.. not the store.")
 }
 
 export async function restoreSessionStorage() {
     const response = await csrfFetch("/api/session");
-    // console.log(response)
+    // // console.log(response)
     // debugger
 
     storeCSRFToken(response);

@@ -45,7 +45,7 @@ export const DeletionModal = (props) => {
                 setDeleting(false)
 
                 dispatch(resetModalAC());
-                console.log("deleting channelll.. dispatches already sent.");
+                // console.log("deleting channelll.. dispatches already sent.");
                 navigate(`/home/server/${currentChannelServerId}`)
             })
             return
@@ -54,7 +54,7 @@ export const DeletionModal = (props) => {
 
         e.preventDefault();
         if (confirmation !== currentServer.name) {
-            console.log("not matching...")
+            // console.log("not matching...")
             return
             
         }

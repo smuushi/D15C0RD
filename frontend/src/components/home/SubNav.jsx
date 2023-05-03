@@ -24,13 +24,13 @@ export const SubNav = (props) => {
 
     const currentUserId = useSelector(state => state.entities.session.user.id)
 
-    // console.log(renderTarget)
+    // // console.log(renderTarget)
 
 
 
     const isOwner = ownerId === currentUserId? true : false
 
-    // console.log(whatWeAreRenderingThisFineEvening) // lmao
+    // // console.log(whatWeAreRenderingThisFineEvening) // lmao
 
 
 

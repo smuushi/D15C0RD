@@ -20,7 +20,7 @@ export const fetchNewInvite = (serverId) => async (dispatch) => {
         dispatch(receiveInviteCodeAC(codeString))
     } else {
 
-        console.log("the server didnt work properly...")
+        // console.log("the server didnt work properly...")
 
         dispatch(receiveInviteCodeAC("AHH THE SERVER DIED.. SORRY.. pls try again.."))
     }

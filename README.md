@@ -116,7 +116,7 @@ See the code below for creating a new server_subscription for a requesting joini
 
             let errorArray = await res.json();
 
-            console.log("failed to join server");
+            // console.log("failed to join server");
             dispatch(receiveError(errorArray));
 
             throw new Error;
