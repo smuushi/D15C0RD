@@ -49,9 +49,6 @@ end
     users[10].avatar.attach(io: URI.open("https://cdn.discordapp.com/attachments/1068364632269525106/1096275984271024128/IMG_5280.jpg"), filename: "michaelseed")
 
 
-
-
-
 ActiveRecord::Base.transaction do 
 
     Server.destroy_all
@@ -133,8 +130,6 @@ ActiveRecord::Base.transaction do
     ServerSubscription.create(subscriber_id: 8, server_id: 1)
     ServerSubscription.create(subscriber_id: 9, server_id: 1)
     ServerSubscription.create(subscriber_id: 10, server_id: 1)
-
-    
 
 end
 

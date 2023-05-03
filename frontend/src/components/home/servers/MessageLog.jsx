@@ -203,7 +203,7 @@ export const MessageLog = () => {
                     </div>
 
                     <div className="messagecontents">
-                        <p>{messageContent? messageContent : "_"}</p>
+                        <p>{messageContent? messageContent : ""}</p>
                     <UpdateMessageModal setselectedmessage={setSelectedMessageId} selectedmessage={selectedMessageId} messageId={messageId} message={messageContent}/>
                         {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
                     </div>
@@ -236,7 +236,7 @@ export const MessageLog = () => {
                             <span>{date}</span>
                         </header>
 
-                        <p>{messageContent? messageContent : "_"}</p>
+                        <p>{messageContent? messageContent : ""}</p>
                     <UpdateMessageModal setselectedmessage={setSelectedMessageId} selectedmessage={selectedMessageId} messageId={messageId} message={messageContent}/>
                         {message?.picture? <img style={{maxWidth: "400px", maxHeight: "400px"}} src={message?.picture}/> : <></> }
                     </div>
