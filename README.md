@@ -1,6 +1,6 @@
 # D15C0RD README
 
-[Live Link](d15c0rd.onrender.com)
+[Live Link](https://d15c0rd.onrender.com)
 
 ### About
 
